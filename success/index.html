@@ -1,29 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Booking Confirmed — FightBase</title>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { background: #09090D; color: #fff; font-family: -apple-system, BlinkMacSystemFont, sans-serif; min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 24px; }
-    .container { max-width: 480px; width: 100%; text-align: center; }
-    .icon { width: 72px; height: 72px; border-radius: 50%; background: rgba(255,0,0,0.12); border: 1.5px solid rgba(255,0,0,0.3); margin: 0 auto 24px; display: flex; align-items: center; justify-content: center; font-size: 32px; }
-    .logo { font-family: Arial Black, sans-serif; font-size: 18px; font-weight: 900; color: #FF0000; letter-spacing: 0.08em; margin-bottom: 40px; display: block; }
-    h1 { font-size: 28px; font-weight: 300; margin-bottom: 12px; letter-spacing: -0.5px; }
-    p { color: rgba(255,255,255,0.55); font-size: 15px; line-height: 1.6; margin-bottom: 32px; }
-    .btn { display: inline-block; background: #FF0000; color: #fff; padding: 14px 36px; border-radius: 50px; text-decoration: none; font-size: 15px; font-weight: 500; }
-    .footer { margin-top: 48px; color: rgba(255,255,255,0.2); font-size: 11px; }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Payment Successful — FightBase</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;600&display=swap');
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: #09090D; color: #fff; font-family: 'DM Sans', sans-serif; min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 24px; }
+  .bg-glow { position: fixed; top: -200px; left: 50%; transform: translateX(-50%); width: 600px; height: 600px; background: radial-gradient(circle, rgba(255,0,0,0.15) 0%, transparent 70%); pointer-events: none; }
+  .card { position: relative; max-width: 480px; width: 100%; text-align: center; animation: fadeUp 0.6s ease both; }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+  .logo { margin-bottom: 40px; } .logo img { height: 40px; width: auto; }
+  .icon-wrap { width: 80px; height: 80px; background: rgba(255,0,0,0.1); border: 1px solid rgba(255,0,0,0.3); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 32px; animation: pulse 2s ease infinite; }
+  @keyframes pulse { 0%,100%{box-shadow:0 0 0 0 rgba(255,0,0,0.3)} 50%{box-shadow:0 0 0 12px rgba(255,0,0,0)} }
+  .checkmark { width: 36px; height: 36px; stroke: #FF0000; stroke-width: 3; fill: none; stroke-dasharray: 60; stroke-dashoffset: 60; animation: draw 0.6s ease 0.3s forwards; }
+  @keyframes draw { to { stroke-dashoffset: 0; } }
+  h1 { font-family: 'Bebas Neue', sans-serif; font-size: 48px; letter-spacing: 0.05em; line-height: 1; margin-bottom: 16px; }
+  p { font-size: 16px; color: rgba(255,255,255,0.6); line-height: 1.6; margin-bottom: 40px; }
+  .divider { width: 40px; height: 2px; background: #FF0000; margin: 0 auto 40px; }
+  .info-box { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 20px 24px; margin-bottom: 32px; text-align: left; }
+  .info-row { display: flex; justify-content: space-between; align-items: center; padding: 8px 0; font-size: 14px; }
+  .info-row:not(:last-child) { border-bottom: 1px solid rgba(255,255,255,0.06); }
+  .info-label { color: rgba(255,255,255,0.4); } .info-value { color: #fff; font-weight: 500; }
+  .btn { display: inline-block; background: #FF0000; color: #fff; font-family: 'DM Sans', sans-serif; font-size: 15px; font-weight: 600; padding: 14px 32px; border-radius: 8px; text-decoration: none; }
+  .footer { margin-top: 32px; font-size: 13px; color: rgba(255,255,255,0.25); }
+</style>
 </head>
 <body>
-  <div class="container">
-    <span class="logo">FIGHTBASE</span>
-    <div class="icon">✓</div>
-    <h1>Booking Confirmed</h1>
-    <p>Your payment was successful. Return to the FightBase app to view your booking details.</p>
-    <a href="thefightbase://" class="btn">Open FightBase App</a>
-    <p class="footer">Your Base. Your Fight. — fightbaseapp.com</p>
+<div class="bg-glow"></div>
+<div class="card">
+  <div class="logo"><img src="/logo.png" alt="FightBase"></div>
+  <div class="icon-wrap"><svg class="checkmark" viewBox="0 0 24 24"><polyline points="4 12 9 17 20 6"/></svg></div>
+  <h1>You're In</h1>
+  <div class="divider"></div>
+  <p>Your registration is confirmed. Check your email for booking details and next steps from the organiser.</p>
+  <div class="info-box">
+    <div class="info-row"><span class="info-label">Status</span><span class="info-value" style="color:#22c55e">Confirmed</span></div>
+    <div class="info-row"><span class="info-label">Payment</span><span class="info-value">Received</span></div>
+    <div class="info-row"><span class="info-label">Confirmation</span><span class="info-value">Sent to your email</span></div>
   </div>
+  <a href="https://www.fightbaseapp.com" class="btn">Back to FightBase</a>
+  <p class="footer">Questions? Contact support@fightbaseapp.com</p>
+</div>
 </body>
 </html>

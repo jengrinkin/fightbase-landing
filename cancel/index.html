@@ -1,29 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Payment Cancelled — FightBase</title>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { background: #09090D; color: #fff; font-family: -apple-system, BlinkMacSystemFont, sans-serif; min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 24px; }
-    .container { max-width: 480px; width: 100%; text-align: center; }
-    .icon { width: 72px; height: 72px; border-radius: 50%; background: rgba(255,255,255,0.05); border: 1.5px solid rgba(255,255,255,0.1); margin: 0 auto 24px; display: flex; align-items: center; justify-content: center; font-size: 32px; }
-    .logo { font-family: Arial Black, sans-serif; font-size: 18px; font-weight: 900; color: #FF0000; letter-spacing: 0.08em; margin-bottom: 40px; display: block; }
-    h1 { font-size: 28px; font-weight: 300; margin-bottom: 12px; letter-spacing: -0.5px; }
-    p { color: rgba(255,255,255,0.55); font-size: 15px; line-height: 1.6; margin-bottom: 32px; }
-    .btn { display: inline-block; background: #FF0000; color: #fff; padding: 14px 36px; border-radius: 50px; text-decoration: none; font-size: 15px; font-weight: 500; }
-    .footer { margin-top: 48px; color: rgba(255,255,255,0.2); font-size: 11px; }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Payment Cancelled — FightBase</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;600&display=swap');
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: #09090D; color: #fff; font-family: 'DM Sans', sans-serif; min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 24px; }
+  .bg-glow { position: fixed; top: -200px; left: 50%; transform: translateX(-50%); width: 600px; height: 600px; background: radial-gradient(circle, rgba(215,119,6,0.1) 0%, transparent 70%); pointer-events: none; }
+  .card { position: relative; max-width: 480px; width: 100%; text-align: center; animation: fadeUp 0.6s ease both; }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+  .logo { margin-bottom: 40px; } .logo img { height: 40px; width: auto; }
+  .icon-wrap { width: 80px; height: 80px; background: rgba(215,119,6,0.1); border: 1px solid rgba(215,119,6,0.3); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 32px; }
+  .x-icon { width: 32px; height: 32px; stroke: #D97706; stroke-width: 2.5; fill: none; stroke-dasharray: 50; stroke-dashoffset: 50; animation: draw 0.5s ease 0.3s forwards; }
+  @keyframes draw { to { stroke-dashoffset: 0; } }
+  h1 { font-family: 'Bebas Neue', sans-serif; font-size: 48px; letter-spacing: 0.05em; line-height: 1; margin-bottom: 16px; }
+  p { font-size: 16px; color: rgba(255,255,255,0.6); line-height: 1.6; margin-bottom: 40px; }
+  .divider { width: 40px; height: 2px; background: #D97706; margin: 0 auto 40px; }
+  .info-box { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 20px 24px; margin-bottom: 32px; font-size: 14px; color: rgba(255,255,255,0.5); line-height: 1.7; }
+  .buttons { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+  .btn { display: inline-block; font-family: 'DM Sans', sans-serif; font-size: 15px; font-weight: 600; padding: 14px 28px; border-radius: 8px; text-decoration: none; }
+  .btn-primary { background: #FF0000; color: #fff; }
+  .btn-secondary { background: rgba(255,255,255,0.06); color: #fff; border: 1px solid rgba(255,255,255,0.12); }
+  .footer { margin-top: 32px; font-size: 13px; color: rgba(255,255,255,0.25); }
+</style>
 </head>
 <body>
-  <div class="container">
-    <span class="logo">FIGHTBASE</span>
-    <div class="icon">✕</div>
-    <h1>Payment Cancelled</h1>
-    <p>No charge was made. Return to the app to try again or choose a different camp.</p>
-    <a href="thefightbase://" class="btn">Open FightBase App</a>
-    <p class="footer">Your Base. Your Fight. — fightbaseapp.com</p>
+<div class="bg-glow"></div>
+<div class="card">
+  <div class="logo"><img src="/logo.png" alt="FightBase"></div>
+  <div class="icon-wrap"><svg class="x-icon" viewBox="0 0 24 24"><line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/></svg></div>
+  <h1>Payment Cancelled</h1>
+  <div class="divider"></div>
+  <p>No charge was made. Your spot is still available — head back to complete your registration whenever you're ready.</p>
+  <div class="info-box">No payment was processed and your card has not been charged. The camp slot has not been reserved yet.</div>
+  <div class="buttons">
+    <a href="https://www.fightbaseapp.com" class="btn btn-primary">Try Again</a>
+    <a href="https://www.fightbaseapp.com" class="btn btn-secondary">Back to FightBase</a>
   </div>
+  <p class="footer">Need help? Contact support@fightbaseapp.com</p>
+</div>
 </body>
 </html>
