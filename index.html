@@ -150,6 +150,9 @@
 
     .hero-ctas { display: flex; gap: 16px; flex-wrap: wrap; }
 
+    .hero-cta-stack { display: flex; flex-direction: column; gap: 16px; align-items: flex-start; }
+    .hero-cta-row { display: flex; gap: 16px; flex-wrap: wrap; }
+
     .btn-primary {
       display: inline-block;
       padding: 15px 32px;
@@ -464,6 +467,7 @@
       .hero-headline { white-space: normal; font-size: 36px; }
       .hero-sub { max-width: 100%; }
       .hero-ctas { justify-content: center; }
+      .hero-cta-stack { align-items: center; }
       .hero-right { order: 2; }
       .hero-left { order: 1; }
       .problem-two-col { grid-template-columns: 1fr; gap: 32px; }
@@ -499,6 +503,7 @@
       .nav-cta { display: none !important; }
       .burger { display: flex !important; }
       #nav-cta-mobile { display: none !important; }
+      .hero-cta-row { flex-direction: column; align-items: center; }
       .hero-grid {
         grid-template-columns: 1fr !important;
         gap: 40px !important;
@@ -571,9 +576,11 @@
         <p class="hero-sub" data-t="hero_sub">
           Find verified training camps and elite coaches worldwide. FightBase is the home for serious combat sports athletes — wherever your next camp takes you.
         </p>
-        <div class="hero-ctas">
-          <a class="btn-primary" href="https://tally.so/r/EkvYaN" target="_blank" rel="noopener" data-t="hero_cta">Get Early Access</a>
-          <a class="btn-primary" href="https://fightbaseapp.com/list-your-camp" target="_blank" rel="noopener">List your camp</a>
+        <div class="hero-cta-stack">
+          <div class="hero-cta-row">
+            <a class="btn-primary" href="https://tally.so/r/EkvYaN" target="_blank" rel="noopener" data-t="hero_cta">Get Early Access</a>
+            <a class="btn-primary" href="https://app.fightbaseapp.com/list-your-camp" target="_blank" rel="noopener">List your camp</a>
+          </div>
           <a href="#how-it-works" data-t="hero_how" style="display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,0.06);color:#fff;font-size:14px;font-weight:600;padding:12px 22px;border-radius:10px;border:1px solid rgba(255,255,255,0.15);font-family:'Inter',sans-serif;text-decoration:none;transition:background 0.2s;cursor:pointer;">See How It Works</a>
         </div>
       </div>
@@ -738,7 +745,7 @@
       <p class="section-sub" data-t="final_p">FightBase is launching soon. Get early access and be among the first athletes and operators on the platform.</p>
       <div class="hero-ctas">
         <a class="btn-primary" href="https://tally.so/r/EkvYaN" target="_blank" rel="noopener" data-t="final_cta">Get Early Access — It's Free</a>
-        <a class="btn-primary" href="https://fightbaseapp.com/list-your-camp" target="_blank" rel="noopener">List your camp</a>
+        <a class="btn-primary" href="https://app.fightbaseapp.com/list-your-camp" target="_blank" rel="noopener">List your camp</a>
       </div>
     </div>
   </div>
