@@ -1,3 +1,9 @@
 {
+  "redirects": [
+    { "source": "/", "has": [{ "type": "cookie", "key": "fb_lang", "value": "ru" }], "destination": "/ru", "permanent": false },
+    { "source": "/", "has": [{ "type": "cookie", "key": "fb_lang", "value": "en" }], "destination": "/en", "permanent": false },
+    { "source": "/et", "destination": "/", "permanent": false },
+    { "source": "/et/", "destination": "/", "permanent": false }
+  ],
   "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }]
 }

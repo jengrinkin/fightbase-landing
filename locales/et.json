@@ -1,0 +1,109 @@
+{
+  "meta": {
+    "lang": "et",
+    "path": "/",
+    "title": "FightBase — tööriist võitlusspordi treeneritele",
+    "description": "Halda treeninguid, kohalolekut ja treeninglaagreid otse telefonist. Loodud poksi-, MMA- ja võitlusspordi treeneritele."
+  },
+  "nav": {
+    "coaches": "Treeneritele",
+    "pricing": "Hinnad",
+    "how": "Kuidas see töötab",
+    "cta": "Alusta",
+    "menu": "Menüü",
+    "language": "Keel"
+  },
+  "hero": {
+    "eyebrow": "Tööriist võitlusspordi treeneritele",
+    "line1": "Halda treeninguid.",
+    "line2": "Korralda laagreid.",
+    "line3": "Rohkem aega trenniks.",
+    "sub": "FightBase on tööriist poksi-, MMA- ja võitlusspordi treeneritele. Halda oma liikmeid, märgi kohalolekut, saada teavitusi ja korralda treeninglaagreid — otse telefonist.",
+    "ctaPrimary": "Alusta",
+    "ctaCamps": "Halda oma laagreid",
+    "ctaHow": "Vaata, kuidas see töötab",
+    "imageAlt": "FightBase'i rakenduse treeningute avaleht."
+  },
+  "disciplines": {
+    "label": "Alad",
+    "boxing": "Poks",
+    "mma": "MMA",
+    "muayThai": "Muay Thai",
+    "bjj": "BJJ",
+    "kickboxing": "Kikkpoks",
+    "wrestling": "Maadlus",
+    "judo": "Judo",
+    "karate": "Karate",
+    "sambo": "Sambo"
+  },
+  "problem": {
+    "eyebrow": "Probleem",
+    "title": "Sinu klubi töötab grupivestluste ja märkmike peal.",
+    "p1": "Kohalolek on kirjas märkmikus. Teated kaovad WhatsAppi gruppi ära. Laagrisse registreerumised on laiali sõnumites ja tabelis, mida keegi teine avada ei saa.",
+    "p2": "See toimib — kuni grupp kasvab, trenn liigub teisele ajale või sul on vaja teada, kes päriselt kohal oli.",
+    "p3": "FightBase koondab kõik ühte kohta.",
+    "before": "Enne",
+    "after": "FightBase'iga",
+    "before1": "Paberleht ukse juures → pilt lehest → õhtul kõik tabelisse ümber trükkida",
+    "after1": "Ava trenn → vajuta, kes on kohal → kohalolek salvestatud",
+    "before2": "Trenn liigub → sõnum kolme gruppi → vastad kümme korda samale küsimusele",
+    "after2": "Postita üks teade → kõik grupi liikmed näevad seda rakenduses"
+  },
+  "features": {
+    "eyebrow": "Treeneritele",
+    "title": "Kõik, mida vajad oma grupi juhtimiseks.",
+    "sub": "Loodud selle järgi, kuidas võitlusspordi treenerid päriselt töötavad — trennid, sparringud ja laagrid.",
+    "f1Title": "Liikmed ja kohalolek",
+    "f1Body": "Hoia iga grupi nimekiri ühes kohas. Märgi kohalolek sekunditega ja vaata iga liikme treeningute ajalugu.",
+    "f2Title": "Teated",
+    "f2Body": "Saada ajakava muudatused ja uudised grupi liikmetele — enam ei pea vastuseid eri vestlustest taga ajama.",
+    "f3Title": "Treeninglaagrid",
+    "f3Body": "Loo laager, lisa kuupäevad ja detailid ning näe kõiki registreerumisi ühes nimekirjas."
+  },
+  "how": {
+    "eyebrow": "Kuidas see töötab",
+    "title": "Valmis kolme sammuga.",
+    "s1Title": "Registreeru",
+    "s1Body": "Loo treeneri konto ja lisa oma klubi.",
+    "s2Title": "Lisa grupid ja laagrid",
+    "s2Body": "Seadista oma trennid ja treeninglaagrid koos ajakavaga.",
+    "s3Title": "Sportlased liituvad",
+    "s3Body": "Sportlased registreeruvad rakenduses ja saadavad liitumissoovi. Sina kinnitad — ja nad ongi sinu nimekirjas."
+  },
+  "pricing": {
+    "eyebrow": "Hinnad",
+    "title": "Mis on kaasas",
+    "badge": "Beeta — kohti on piiratud arv",
+    "name": "Coach Pro",
+    "_notRendered_priceForLaunch": {
+      "price": "29 €",
+      "period": "/ kuu"
+    },
+    "desc": "Treeneritele, kes juhivad oma gruppe ja laagreid.",
+    "feature1": "Liikmete nimekirjad ja kohalolek",
+    "feature2": "Teated gruppidele",
+    "feature3": "Treeninglaagrite haldus ja registreerumised",
+    "feature4": "Saadaval eesti, vene ja inglise keeles",
+    "cta": "Alusta beetas",
+    "launchNote": "Hinnad avalikustame käivitamisel — beetas osalevad treenerid saavad erihinna."
+  },
+  "quote": {
+    "before": "„Maailma parimad võitlejad ei satu hea treeneri juurde juhuslikult — ",
+    "emphasis": "nad otsivad seda teadlikult.",
+    "after": " FightBase teeb selle võimalikuks kõigile.“",
+    "role": "Asutaja, Poksiklubi Kalev"
+  },
+  "final": {
+    "eyebrow": "Alusta",
+    "title": "Vähem paberitööd. Rohkem aega saalis.",
+    "sub": "Registreeru ja aitame sul esimese grupi üles seada.",
+    "ctaPrimary": "Alusta",
+    "ctaCamps": "Halda oma laagreid"
+  },
+  "footer": {
+    "company": "Poksiklubi Kalev MTÜ · Tallinn, Eesti · EL",
+    "terms": "Kasutustingimused (inglise keeles)",
+    "privacy": "Privaatsuspoliitika (inglise keeles)",
+    "contact": "Kontakt"
+  }
+}

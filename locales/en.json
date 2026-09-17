@@ -1,0 +1,109 @@
+{
+  "meta": {
+    "lang": "en",
+    "path": "/en",
+    "title": "FightBase — Coaching tool for combat sports",
+    "description": "Manage classes, attendance and training camps from your phone. Built for boxing, MMA and martial arts coaches."
+  },
+  "nav": {
+    "coaches": "For coaches",
+    "pricing": "Pricing",
+    "how": "How it works",
+    "cta": "Get started",
+    "menu": "Menu",
+    "language": "Language"
+  },
+  "hero": {
+    "eyebrow": "Coaching tool for combat sports",
+    "line1": "Run your classes.",
+    "line2": "Manage camps.",
+    "line3": "Coach more.",
+    "sub": "FightBase is the coaching tool for boxing, MMA and martial arts coaches. Manage your members, track attendance, send announcements and run training camps — from your phone.",
+    "ctaPrimary": "Get started",
+    "ctaCamps": "Manage your camps",
+    "ctaHow": "See how it works",
+    "imageAlt": "FightBase app training hub screen."
+  },
+  "disciplines": {
+    "label": "Disciplines",
+    "boxing": "Boxing",
+    "mma": "MMA",
+    "muayThai": "Muay Thai",
+    "bjj": "BJJ",
+    "kickboxing": "Kickboxing",
+    "wrestling": "Wrestling",
+    "judo": "Judo",
+    "karate": "Karate",
+    "sambo": "Sambo"
+  },
+  "problem": {
+    "eyebrow": "The problem",
+    "title": "Your club runs on group chats and notebooks.",
+    "p1": "Attendance lives in a notebook. Announcements get lost in a WhatsApp group. Camp sign-ups are scattered across DMs and a spreadsheet nobody else can open.",
+    "p2": "It works — until the group grows, a session moves, or you need to know who actually showed up.",
+    "p3": "FightBase puts it all in one place.",
+    "before": "Before",
+    "after": "With FightBase",
+    "before1": "Paper list at the door → photo of the page → retype it into a spreadsheet at night",
+    "after1": "Open the session → tap who's here → attendance saved",
+    "before2": "Session moves → message three group chats → answer the same question ten times",
+    "after2": "Post one announcement → every member of the group sees it in the app"
+  },
+  "features": {
+    "eyebrow": "For coaches",
+    "title": "Everything you need to run your group.",
+    "sub": "Built around how combat sports coaches actually work — classes, sparring sessions and camps.",
+    "f1Title": "Members and attendance",
+    "f1Body": "Keep one roster for each group. Mark attendance in seconds and see each member's training history.",
+    "f2Title": "Announcements",
+    "f2Body": "Send schedule changes and news to the members of a group — no more chasing replies across chats.",
+    "f3Title": "Training Camps",
+    "f3Body": "Create a camp, add the dates and details, and see every registration in one list."
+  },
+  "how": {
+    "eyebrow": "How it works",
+    "title": "Set up in three steps.",
+    "s1Title": "Register",
+    "s1Body": "Create your coach account and add your club.",
+    "s2Title": "Add your groups and camps",
+    "s2Body": "Set up your classes and training camps with their schedule.",
+    "s3Title": "Your athletes join",
+    "s3Body": "Athletes register in the app and request to join. You accept them, and they're on your roster."
+  },
+  "pricing": {
+    "eyebrow": "Pricing",
+    "title": "What's included",
+    "badge": "Beta — limited spots",
+    "name": "Coach Pro",
+    "_notRendered_priceForLaunch": {
+      "price": "€29",
+      "period": "/ month"
+    },
+    "desc": "For coaches running their own groups and camps.",
+    "feature1": "Member rosters and attendance",
+    "feature2": "Announcements to your groups",
+    "feature3": "Training camp management and registrations",
+    "feature4": "Available in Estonian, Russian and English",
+    "cta": "Apply for Early Access",
+    "launchNote": "Pricing announced at launch — early beta coaches get a special rate."
+  },
+  "quote": {
+    "before": "\"The best fighters in the world don't stumble into great coaching — ",
+    "emphasis": "they seek it out deliberately.",
+    "after": " FightBase makes that possible for everyone.\"",
+    "role": "Founder, Poksiklubi Kalev"
+  },
+  "final": {
+    "eyebrow": "Get started",
+    "title": "Less admin. More time in the gym.",
+    "sub": "Register and we'll help you set up your first group.",
+    "ctaPrimary": "Get started",
+    "ctaCamps": "Manage your camps"
+  },
+  "footer": {
+    "company": "Poksiklubi Kalev MTÜ · Tallinn, Estonia · EU",
+    "terms": "Terms of Service",
+    "privacy": "Privacy Policy",
+    "contact": "Contact"
+  }
+}
