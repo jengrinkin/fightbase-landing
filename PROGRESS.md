@@ -13,6 +13,9 @@ _Last updated: 2026-10-25_
 
 ## Next
 - Answer the native-speaker questions in `TRANSLATION_REVIEW.md` (ET and RU).
+- Small fix: `TRANSLATION_REVIEW.md` says the "Manage your camps" links go to
+  `fightbase-web.vercel.app/list-your-camp`; they go to https://app.fightbaseapp.com/signup.
 
 ## Waiting on Jen
+- Decide whether the old local branch `hero-redesign` is still needed. If not, delete it.
 - Native ET/RU check of the wording.
