@@ -47,6 +47,7 @@ const pages = LOCALES.map((loc) => {
     ...dicts[loc.code],
     _build: {
       canonical: loc.url,
+      lang: loc.code,
       ogLocale: loc.ogLocale,
       activeEt: loc.code === 'et' ? 'active' : '',
       activeRu: loc.code === 'ru' ? 'active' : '',
