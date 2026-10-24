@@ -52,6 +52,6 @@ Register decision (pending native check): **informal throughout** — ET uses *s
 - **Special beta rate:** the note now promises only "a special rate", not a locked-in or permanent one. Make sure whatever is offered at launch matches this.
 - **Nav link "Pricing" / section eyebrow "Pricing"** (`nav.pricing`, `pricing.eyebrow`) still say Pricing / Hinnad / Цены while no price is shown. Rename (e.g. "Coach Pro") or keep?
 
-- **"Get started" links** still go to the Tally early-access form (`https://tally.so/r/EkvYaN`). Should they go to app sign-up instead?
+- **"Get started" links** go to the app signup page (`https://app.fightbaseapp.com/signup`), same as the "Manage your camps" buttons.
 - **"Manage your camps" links** go to `https://fightbase-web.vercel.app/list-your-camp` (temporary URL from commit 2d4289f).
 - **Coach Pro price (for launch, not rendered now):** is €29 VAT-inclusive? Decide before `pricing._notRendered_priceForLaunch` goes back on the page.
