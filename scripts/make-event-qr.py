@@ -1,6 +1,7 @@
 """Make the event QR code (SVG + 2000px PNG) and the A5 print PDF into <repo>/event.
 
 Needs Python with: pip install segno pillow pymupdf.  Run: python scripts/make-event-qr.py .
+"""
 import sys
 from pathlib import Path
 
