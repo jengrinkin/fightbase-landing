@@ -19,6 +19,9 @@ _Last updated: 2026-10-25_
 ## Next
 - Rewrite Terms and Privacy for the coach tool: coaches enter members' personal data, so
   FightBase acts as their data processor (GDPR). Before the first real club.
+- App repo (`fightbaseapp`), small fix: with an expired saved sign-in, the app shows Täna for
+  a few seconds, then drops to the welcome screen. It should check the sign-in before showing
+  Täna (or send to "Logi sisse" instead). Seen on Jen's phone 2026-10-25; new visitors are fine.
 - Step 3: event QR code + A5 print PDF in `/event` (after the page is merged).
 - Optional: a real "Täna" phone screenshot below the fold. Needs a test account with invented
   names; skipped because it needs a login to the live app.
