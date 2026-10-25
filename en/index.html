@@ -4,8 +4,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>FightBase — Coaching tool for combat sports</title>
-  <meta name="description" content="Manage classes, attendance and training camps from your phone. Built for boxing, MMA and martial arts coaches." />
+  <title>FightBase — for boxing and combat sports clubs</title>
+  <meta name="description" content="Run your club from your phone. Today's classes at a glance, mark attendance in seconds, members join with one link, message the whole club at once." />
   <link rel="canonical" href="https://www.fightbaseapp.com/en" />
   <link rel="alternate" hreflang="et" href="https://www.fightbaseapp.com/" />
   <link rel="alternate" hreflang="ru" href="https://www.fightbaseapp.com/ru" />
@@ -13,8 +13,8 @@
   <link rel="alternate" hreflang="x-default" href="https://www.fightbaseapp.com/" />
 
   <!-- Open Graph -->
-  <meta property="og:title" content="FightBase — Coaching tool for combat sports" />
-  <meta property="og:description" content="Manage classes, attendance and training camps from your phone. Built for boxing, MMA and martial arts coaches." />
+  <meta property="og:title" content="FightBase — for boxing and combat sports clubs" />
+  <meta property="og:description" content="Run your club from your phone. Today's classes at a glance, mark attendance in seconds, members join with one link, message the whole club at once." />
   <meta property="og:url" content="https://www.fightbaseapp.com/en" />
   <meta property="og:locale" content="en_GB" />
   <meta property="og:type" content="website" />
@@ -38,7 +38,6 @@
       --gold: #EEC748;
       --bg: #07070A;
       --white: #FFFFFF;
-      --card: #161618;
       --border: rgba(255,255,255,0.08);
       --text-muted: #9CA3AF;
     }
@@ -54,8 +53,8 @@
 
     a { color: inherit; text-decoration: none; }
 
-    button:focus, a:focus { outline: none; }
-    button:focus-visible, a:focus-visible { outline: 2px solid rgba(220,38,38,0.5); outline-offset: 2px; }
+    a:focus { outline: none; }
+    a:focus-visible { outline: 2px solid rgba(220,38,38,0.5); outline-offset: 2px; }
 
     /* ─── NAV ─── */
     nav {
@@ -64,7 +63,7 @@
       z-index: 100;
       display: flex;
       align-items: center;
-      justify-content: space-between;
+      gap: 24px;
       padding: 0 48px;
       height: 68px;
       background: rgba(7,7,10,0);
@@ -80,58 +79,36 @@
       border-bottom-color: var(--border);
       box-shadow: 0 8px 24px rgba(0,0,0,0.35);
     }
-    .nav-logo img { transform-origin: left center; transition: transform 0.3s ease; }
-    nav.nav-scrolled .nav-logo img { transform: scale(0.9); }
 
-    .nav-logo {
-      font-size: 22px;
-      font-weight: 900;
-      letter-spacing: -0.5px;
-    }
+    .nav-logo { margin-right: auto; }
+    .nav-logo img { height: 32px; width: auto; display: block; }
 
-    .nav-logo span { color: var(--red); }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 32px;
-      list-style: none;
-    }
-
-    .nav-links a {
+    .nav-signin {
       font-size: 14px;
-      font-weight: 500;
-      color: var(--text-muted);
-      transition: color 0.2s;
-    }
-
-    .nav-links a:hover { color: var(--white); }
-
-    .btn-nav {
-      display: inline-block;
-      padding: 10px 22px;
-      background: var(--red);
-      color: var(--white) !important;
-      font-size: 14px;
-      font-weight: 700;
+      font-weight: 600;
+      color: var(--white);
+      padding: 8px 14px;
+      border: 1px solid rgba(255,255,255,0.15);
       border-radius: 8px;
-      transition: opacity 0.2s;
+      white-space: nowrap;
+      transition: border-color 0.2s, background 0.2s;
     }
+    .nav-signin:hover { border-color: rgba(255,255,255,0.3); background: rgba(255,255,255,0.04); }
 
-    .btn-nav:hover { opacity: 0.88; }
+    /* ─── LANG SWITCHER ─── */
+    .lang-switcher { display: flex; align-items: center; gap: 2px; }
+    .lang-btn { font-size: 12px; font-weight: 600; color: #70708a; padding: 4px 6px; border-radius: 4px; transition: all 0.18s; letter-spacing: 0.05em; }
+    .lang-btn.active { color: #fff; background: rgba(255,255,255,0.08); }
+    .lang-btn:hover { color: #fff; }
+    .lang-sep { color: #303045; font-size: 11px; }
 
     /* ─── HERO ─── */
     .hero {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 48px;
-      padding: 96px 48px 80px;
-      max-width: 1200px;
+      max-width: 720px;
       margin: 0 auto;
+      padding: 88px 48px 96px;
+      text-align: center;
     }
-
-    .hero-left { flex: 1; }
 
     .hero-eyebrow {
       display: inline-block;
@@ -140,262 +117,97 @@
       letter-spacing: 2px;
       text-transform: uppercase;
       color: var(--gold);
-      margin-bottom: 20px;
+      margin-bottom: 18px;
     }
 
     .hero-headline {
-      font-size: 48px;
+      font-size: 52px;
       font-weight: 900;
-      line-height: 1.1;
-      white-space: nowrap;
-      margin-bottom: 28px;
+      line-height: 1.08;
+      letter-spacing: -0.5px;
+      margin-bottom: 32px;
     }
 
-    .hero-headline .line-white { color: var(--white); display: block; }
-
-    .hero-headline .line-gold {
-      display: block;
-      color: var(--gold);
+    .hero-list {
+      list-style: none;
+      display: inline-flex;
+      flex-direction: column;
+      gap: 12px;
+      text-align: left;
+      margin-bottom: 36px;
     }
-
-    .hero-sub {
+    .hero-list li {
       font-size: 18px;
-      color: var(--text-muted);
-      line-height: 1.65;
-      max-width: 480px;
-      margin-bottom: 40px;
+      line-height: 1.4;
+      color: #E5E7EB;
+      padding-left: 30px;
+      position: relative;
+    }
+    .hero-list li::before {
+      content: "";
+      position: absolute;
+      left: 2px;
+      top: 7px;
+      width: 13px;
+      height: 7px;
+      border-left: 2px solid var(--gold);
+      border-bottom: 2px solid var(--gold);
+      transform: rotate(-45deg);
     }
 
-    .hero-ctas { display: flex; gap: 16px; flex-wrap: wrap; }
-
-    .hero-cta-stack { display: flex; flex-direction: column; gap: 16px; align-items: flex-start; }
-    .hero-cta-row { display: flex; gap: 16px; flex-wrap: wrap; }
+    .cta-block { display: flex; flex-direction: column; align-items: center; gap: 14px; }
 
     .btn-primary {
       display: inline-block;
-      padding: 15px 32px;
+      padding: 16px 36px;
       background: var(--red);
       color: var(--white);
-      font-size: 16px;
-      font-weight: 700;
-      border-radius: 10px;
-      transition: opacity 0.2s;
-    }
-
-    .btn-primary:hover { opacity: 0.88; }
-
-    .btn-secondary {
-      display: inline-block;
-      padding: 15px 32px;
-      background: transparent;
-      color: var(--white);
-      font-size: 16px;
-      font-weight: 600;
-      border-radius: 10px;
-      border: 1px solid var(--border);
-      transition: border-color 0.2s, background 0.2s;
-    }
-
-    .btn-secondary:hover { border-color: rgba(255,255,255,0.3); background: rgba(255,255,255,0.04); }
-
-    .hero-right {
-      flex: 0 0 auto;
-    }
-
-    .phone-frame {
-      width: 270px;
-      height: 540px;
-      border-radius: 36px;
-      border: 3px solid #222;
-      overflow: hidden;
-      box-shadow: 0 32px 80px rgba(0,0,0,0.7);
-      object-fit: cover;
-      display: block;
-    }
-
-    /* ─── DISCIPLINES BAR ─── */
-    .disc-bar { padding: 13px 32px; border-top: 1px solid rgba(255,255,255,0.05); border-bottom: 1px solid rgba(255,255,255,0.05); background: rgba(255,255,255,0.01); }
-    .disc-inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; gap: 12px; flex-wrap: wrap; justify-content: center; }
-    .disc-label { font-size: 10px; font-weight: 700; letter-spacing: .15em; text-transform: uppercase; color: #505068; margin-right: 8px; }
-    .disc-pill { font-size: 12px; font-weight: 500; color: #70708a; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.07); border-radius: 100px; padding: 4px 14px; }
-
-    /* ─── SECTION SHARED ─── */
-    section { padding: 96px 48px; }
-
-    .section-inner {
-      max-width: 1100px;
-      margin: 0 auto;
-    }
-
-    .section-tag {
-      display: inline-block;
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 16px;
-    }
-
-    .section-title {
-      font-size: 38px;
-      font-weight: 900;
-      line-height: 1.15;
-      margin-bottom: 16px;
-    }
-
-    .section-sub {
       font-size: 17px;
-      color: var(--text-muted);
-      line-height: 1.65;
-      max-width: 560px;
-      margin-bottom: 56px;
-    }
-
-    /* ─── PROBLEM ─── */
-    .problem { background: #0C0C10; }
-    .problem-two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; }
-    .problem-left .section-sub { max-width: 100%; margin-bottom: 24px; }
-    .problem-p { font-size: 17px; color: var(--text-muted); line-height: 1.65; margin-bottom: 16px; }
-    .cc-stack { display: flex; flex-direction: column; gap: 11px; padding-top: 48px; }
-    .cc { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.07); border-radius: 12px; padding: 17px 19px; transition: all .22s; }
-    .cc:hover { border-color: rgba(255,255,255,0.13); transform: translateX(4px); }
-    .cc.pos { background: rgba(220,38,38,0.04); border-color: rgba(220,38,38,0.17); }
-    .cc.pos:hover { border-color: rgba(220,38,38,0.3); }
-    .cc-l { font-size: 10px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; margin-bottom: 7px; }
-    .cc-l.neg { color: #505068; }
-    .cc-l.pos { color: #DC2626; }
-    .cc p { font-size: 13px; color: #a0a0b8; line-height: 1.65; margin: 0; }
-    .cc.pos p { color: #d4d4e4; }
-
-    /* ─── FEATURES ─── */
-    .features-section-label {
-      text-align: center;
-      font-size: 12px;
       font-weight: 700;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: var(--text-muted);
-      margin-bottom: 24px;
+      border-radius: 10px;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
     }
+    @media (hover: hover) {
+      .btn-primary:hover {
+        background: #E53935;
+        transform: translateY(-2px);
+        box-shadow: 0 10px 28px rgba(220,38,38,0.35), 0 0 0 1px rgba(220,38,38,0.4);
+      }
+    }
+    .btn-primary:active { transform: translateY(0) scale(0.98); box-shadow: 0 4px 12px rgba(220,38,38,0.25); }
 
-    .cards-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 24px;
-    }
-
-    .athlete-card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 32px;
-    }
-
-    .athlete-card h3 {
-      font-size: 18px;
-      font-weight: 700;
-      margin-bottom: 12px;
-    }
-
-    .athlete-card p {
-      font-size: 15px;
-      color: var(--text-muted);
-      line-height: 1.65;
-    }
+    .member-note { font-size: 14px; color: var(--text-muted); }
 
     /* ─── HOW IT WORKS ─── */
-    .how-section { background: #0C0C10; }
+    .how-section { background: #0C0C10; padding: 88px 48px; border-top: 1px solid var(--border); }
+    .section-inner { max-width: 1000px; margin: 0 auto; }
+
+    .section-title {
+      font-size: 36px;
+      font-weight: 900;
+      line-height: 1.15;
+      text-align: center;
+      margin-bottom: 48px;
+    }
 
     .steps-grid {
+      list-style: none;
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      grid-template-columns: repeat(3, 1fr);
       gap: 32px;
+      margin-bottom: 48px;
     }
+    .step { display: flex; flex-direction: column; gap: 14px; }
+    .step-num { font-size: 40px; font-weight: 900; color: var(--red); line-height: 1; }
+    .step h3 { font-size: 19px; font-weight: 700; line-height: 1.35; }
 
-    .step {
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-    }
-
-    .step-num {
-      font-size: 40px;
-      font-weight: 900;
-      color: var(--red);
-      line-height: 1;
-    }
-
-    .step h3 {
-      font-size: 18px;
-      font-weight: 700;
-    }
-
-    .step p {
-      font-size: 15px;
-      color: var(--text-muted);
-      line-height: 1.65;
-    }
-
-    /* ─── QUOTE ─── */
-    .quote-sec { padding: 56px 32px; border-top: 1px solid rgba(255,255,255,0.05); border-bottom: 1px solid rgba(255,255,255,0.05); background: rgba(220,38,38,0.02); }
-    .quote-wrap { max-width: 740px; margin: 0 auto; text-align: left; }
-    .q-bar { width: 36px; height: 3px; background: linear-gradient(90deg, #DC2626, #EEC748); border-radius: 2px; margin-bottom: 22px; display: block; }
-    .q-text { font-size: 22px; font-weight: 600; color: #fff; line-height: 1.6; margin-bottom: 28px; font-style: italic; }
-    .q-attr { display: flex; align-items: center; gap: 13px; }
-    .q-av { width: 44px; height: 44px; border-radius: 50%; background: #DC2626; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 700; color: #fff; flex-shrink: 0; }
-    .q-name { font-size: 14px; font-weight: 700; color: #fff; }
-    .q-role { font-size: 12px; color: #9090a8; margin-top: 2px; }
-
-    /* ─── OPERATOR SECTION ─── */
-    .operator-section { background: var(--bg); }
-
-    .operator-card {
-      background: #111008;
-      border: 1px solid rgba(238,199,72,0.25);
-      border-radius: 16px;
-      padding: 32px;
-    }
-
-    .operator-card h3 {
-      font-size: 18px;
-      font-weight: 700;
-      margin-bottom: 12px;
-      color: var(--gold);
-    }
-
-    .operator-card p {
-      font-size: 15px;
-      color: var(--text-muted);
-      line-height: 1.65;
-    }
-
-    /* ─── FINAL CTA ─── */
-    .cta-section {
-      background: linear-gradient(135deg, #12050A 0%, #07070A 100%);
-      text-align: center;
-      padding: 96px 48px;
-      border-top: 1px solid var(--border);
-    }
-
-    .cta-section .section-title { margin-bottom: 20px; }
-
-    .cta-section .section-sub {
-      margin: 0 auto 40px;
-      text-align: center;
-    }
-
-    .cta-section .hero-ctas { justify-content: center; }
+    .disc-line { font-size: 13px; color: #70708a; text-align: center; line-height: 1.7; margin-bottom: 48px; }
 
     /* ─── FOOTER ─── */
-    footer {
-      background: #07070A;
-      border-top: 1px solid var(--border);
-      padding: 40px 48px;
-    }
+    footer { border-top: 1px solid var(--border); padding: 40px 48px; }
 
     .footer-inner {
-      max-width: 1100px;
+      max-width: 1000px;
       margin: 0 auto;
       display: flex;
       align-items: center;
@@ -403,166 +215,33 @@
       flex-wrap: wrap;
       gap: 24px;
     }
-
-    .footer-brand {
-      font-size: 20px;
-      font-weight: 900;
-    }
-
-    .footer-brand span { color: var(--red); }
-
-    .footer-company {
-      font-size: 13px;
-      color: var(--text-muted);
-      margin-top: 6px;
-    }
-
-    .footer-links {
-      display: flex;
-      gap: 24px;
-      flex-wrap: wrap;
-    }
-
-    .footer-links a {
-      font-size: 13px;
-      color: var(--text-muted);
-      transition: color 0.2s;
-    }
-
+    .footer-inner img { height: 28px; width: auto; display: block; margin-bottom: 8px; }
+    .footer-company { font-size: 13px; color: var(--text-muted); }
+    .footer-links { display: flex; gap: 24px; flex-wrap: wrap; }
+    .footer-links a { font-size: 13px; color: var(--text-muted); transition: color 0.2s; }
     .footer-links a:hover { color: var(--white); }
-
-    .footer-social {
-      display: flex;
-      gap: 16px;
-    }
-
-    .footer-social a {
-      font-size: 13px;
-      font-weight: 600;
-      color: var(--text-muted);
-      transition: color 0.2s;
-    }
-
-    .footer-social a:hover { color: var(--white); }
-
-    /* ─── LANG SWITCHER ─── */
-    .lang-switcher { display: flex; align-items: center; gap: 4px; }
-    .lang-btn { background: none; border: none; font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 600; color: #505068; cursor: pointer; padding: 4px 6px; border-radius: 4px; transition: all 0.18s; letter-spacing: 0.05em; }
-    .lang-btn.active { color: #fff; background: rgba(255,255,255,0.08); }
-    .lang-btn:hover { color: #fff; }
-    .lang-sep { color: #303045; font-size: 11px; }
-
-    /* ─── PHONE GLOW ─── */
-    .phone-wrap {
-      position: relative;
-      display: flex;
-      justify-content: center;
-    }
-    .phone-screen {
-      position: relative;
-      z-index: 1;
-      filter: drop-shadow(0 0 40px rgba(220,38,38,0.25)) drop-shadow(0 0 80px rgba(238,199,72,0.15));
-    }
-    .phone-glow {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 120%;
-      height: 120%;
-      background: radial-gradient(ellipse at center, rgba(220,38,38,0.12) 0%, rgba(238,199,72,0.06) 40%, transparent 70%);
-      pointer-events: none;
-      z-index: 0;
-      border-radius: 50%;
-    }
 
     /* ─── RESPONSIVE ─── */
     @media (max-width: 860px) {
-      nav { padding: 0 24px; }
-      .nav-links { display: none; }
-      .lang-switcher { display: none; }
-      .hero { flex-direction: column; padding: 64px 24px 56px; text-align: center; }
-      .hero-headline { white-space: normal; font-size: 36px; }
-      .hero-sub { max-width: 100%; }
-      .hero-ctas { justify-content: center; }
-      .hero-cta-stack { align-items: center; }
-      .hero-right { order: 2; }
-      .hero-left { order: 1; }
-      .problem-two-col { grid-template-columns: 1fr; gap: 32px; }
-      .cc-stack { padding-top: 0; }
-      .phone-frame { width: 220px; height: 440px; }
-      section { padding: 64px 24px; }
-      .quote-section { padding: 64px 24px; }
-      .cta-section { padding: 64px 24px; }
-      footer { padding: 32px 24px; }
+      nav { padding: 0 16px; gap: 12px; }
+      .nav-logo img { height: 26px; }
+      .nav-signin { padding: 7px 12px; font-size: 13px; }
+      .hero { padding: 40px 20px 64px; }
+      .hero-eyebrow { font-size: 11px; letter-spacing: 1.5px; margin-bottom: 14px; }
+      .hero-headline { font-size: 34px; margin-bottom: 24px; }
+      .hero-list { gap: 10px; margin-bottom: 28px; }
+      .hero-list li { font-size: 16px; }
+      .hero-list li::before { top: 6px; }
+      .btn-primary { width: 100%; max-width: 340px; text-align: center; }
+      .how-section { padding: 64px 20px; }
+      .section-title { font-size: 28px; margin-bottom: 36px; }
+      .steps-grid { grid-template-columns: 1fr; gap: 28px; max-width: 340px; margin-left: auto; margin-right: auto; }
+      .step { flex-direction: row; align-items: center; gap: 18px; }
+      .step-num { font-size: 32px; min-width: 44px; }
+      .step h3 { font-size: 17px; }
+      footer { padding: 32px 20px; }
       .footer-inner { flex-direction: column; align-items: flex-start; }
-      .section-title { font-size: 30px; }
-      .quote-text { font-size: 20px; }
     }
-
-    /* ─── BURGER / MOBILE MENU ─── */
-    .burger { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 4px; margin-left: auto; }
-    .burger span { display: block; width: 22px; height: 2px; background: #fff; border-radius: 2px; transition: all 0.2s; }
-    .burger.open span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
-    .burger.open span:nth-child(2) { opacity: 0; }
-    .burger.open span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
-    .mobile-menu { display: none; flex-direction: column; background: #0c0c12; border-bottom: 1px solid rgba(255,255,255,0.07); padding: 16px 24px 24px; gap: 4px; }
-    .mobile-menu.open { display: flex; }
-    .mobile-menu a { font-size: 16px; font-weight: 600; color: #9090a8; padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.05); text-decoration: none; transition: color 0.18s; }
-    .mobile-menu a:hover { color: #fff; }
-    .mobile-menu a:last-child { border-bottom: none; }
-    .mobile-lang { display: flex; align-items: center; gap: 8px; padding: 16px 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
-    .mobile-lang .lang-btn { font-size: 14px; padding: 6px 10px; }
-    .mobile-cta { background: #DC2626 !important; color: #fff !important; text-align: center; border-radius: 8px; padding: 14px !important; margin-top: 8px; font-size: 15px !important; border-bottom: none !important; }
-
-    @media (max-width: 768px) {
-      .nav-links { display: none !important; }
-      .lang-switcher { display: none !important; }
-      .nav-cta { display: none !important; }
-      .burger { display: flex !important; }
-      #nav-cta-mobile { display: none !important; }
-      .hero-cta-row { flex-direction: column; align-items: center; }
-      .hero-grid {
-        grid-template-columns: 1fr !important;
-        gap: 40px !important;
-      }
-      .hero-grid > div:first-child {
-        order: 1 !important;
-      }
-      .hero-grid > div:last-child {
-        order: 2 !important;
-      }
-      .hero-h1 .w, .hero-h1 .g {
-        font-size: 36px !important;
-        white-space: normal !important;
-      }
-      .phone-screen {
-        max-width: 280px !important;
-        margin: 0 auto !important;
-        display: block !important;
-      }
-    }
-
-    /* ─── PRICING ─── */
-    .pricing-card {
-      max-width: 440px;
-      margin: 0 auto;
-      background: var(--card);
-      border: 1px solid rgba(238,199,72,0.25);
-      border-radius: 16px;
-      padding: 40px 36px;
-    }
-    .pricing-name { font-size: 14px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; }
-    .pricing-badge { display: inline-block; font-size: 12px; font-weight: 700; color: var(--gold); background: rgba(238,199,72,0.1); border: 1px solid rgba(238,199,72,0.3); border-radius: 100px; padding: 4px 12px; margin-bottom: 16px; }
-    .pricing-desc { font-size: 15px; color: var(--text-muted); line-height: 1.65; margin-bottom: 28px; }
-    .pricing-list { list-style: none; display: flex; flex-direction: column; gap: 12px; margin-bottom: 32px; }
-    .pricing-list li { font-size: 15px; line-height: 1.5; padding-left: 26px; position: relative; }
-    .pricing-list li::before { content: ""; position: absolute; left: 0; top: 8px; width: 12px; height: 6px; border-left: 2px solid var(--gold); border-bottom: 2px solid var(--gold); transform: rotate(-45deg); }
-    .pricing-card .btn-primary { display: block; text-align: center; }
-    .pricing-note { font-size: 13px; color: var(--text-muted); text-align: center; margin-top: 16px; }
-    .section-head-center { text-align: center; }
-    .section-head-center .section-sub { margin-left: auto; margin-right: auto; }
-    .lang-btn { text-decoration: none; }
 
     /* ─── MOTION ─── */
     /* Scroll reveal: opacity + transform only, so no layout shift. Hidden only when JS is on. */
@@ -572,65 +251,8 @@
       transition: opacity 0.6s ease, transform 0.6s cubic-bezier(0.2, 0.7, 0.2, 1);
       transition-delay: var(--d, 0ms);
     }
-    .js .reveal.reveal-scale { transform: translateY(14px) scale(0.97); }
     .js .reveal.is-visible { opacity: 1; transform: none; }
     .js.no-reveal-transition .reveal { transition: none; }
-
-    /* Primary red buttons: lift + red glow. */
-    .btn-primary, .btn-nav, .mobile-cta {
-      transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
-    }
-    .btn-primary:hover, .btn-nav:hover { opacity: 1; }
-    @media (hover: hover) {
-      .btn-primary:hover, .btn-nav:hover {
-        background: #E53935;
-        transform: translateY(-2px);
-        box-shadow: 0 10px 28px rgba(220,38,38,0.35), 0 0 0 1px rgba(220,38,38,0.4);
-      }
-    }
-    .btn-primary:active, .btn-nav:active, .mobile-cta:active {
-      transform: translateY(0) scale(0.98);
-      box-shadow: 0 4px 12px rgba(220,38,38,0.25);
-    }
-
-    /* Gold hero line: slow glow. Paused when the hero is off-screen. */
-    @keyframes gold-glow {
-      from { text-shadow: 0 0 0 rgba(238,199,72,0); }
-      to   { text-shadow: 0 0 22px rgba(238,199,72,0.35), 0 0 2px rgba(238,199,72,0.2); }
-    }
-    .hero-headline .line-gold { animation: gold-glow 3.6s ease-in-out infinite alternate; }
-    .hero-offscreen .hero-headline .line-gold { animation-play-state: paused; }
-
-    /* Feature cards: lift, brighter border, soft spotlight that follows the cursor.
-       Neutral white on the dark cards, gold on the gold card — red stays reserved for buttons. */
-    .athlete-card, .operator-card {
-      position: relative;
-      overflow: hidden;
-      transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
-    }
-    .athlete-card::before, .operator-card::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      border-radius: inherit;
-      pointer-events: none;
-      opacity: 0;
-      transition: opacity 0.3s ease;
-      background: radial-gradient(320px circle at var(--mx, 50%) var(--my, 0%), rgba(255,255,255,0.06), transparent 65%);
-    }
-    .operator-card::before {
-      background: radial-gradient(320px circle at var(--mx, 50%) var(--my, 0%), rgba(238,199,72,0.10), transparent 65%);
-    }
-    .athlete-card > *, .operator-card > * { position: relative; }
-    @media (hover: hover) and (pointer: fine) {
-      .athlete-card:hover, .operator-card:hover {
-        transform: translateY(-4px);
-        box-shadow: 0 18px 40px rgba(0,0,0,0.45);
-      }
-      .athlete-card:hover { border-color: rgba(255,255,255,0.16); }
-      .operator-card:hover { border-color: rgba(238,199,72,0.45); }
-      .athlete-card:hover::before, .operator-card:hover::before { opacity: 1; }
-    }
 
     /* Language switch: native cross-page fade where supported (Chrome/Edge 126+, Safari 18.2+). */
     @view-transition { navigation: auto; }
@@ -641,13 +263,9 @@
 
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
-      .js .reveal, .js .reveal.reveal-scale { opacity: 1; transform: none; transition: none; }
-      .hero-headline .line-gold { animation: none; }
-      .btn-primary, .btn-nav, .mobile-cta, nav, .nav-logo img, body { transition: none; }
-      .btn-primary:hover, .btn-nav:hover { transform: none; }
-      .athlete-card, .operator-card, .cc { transition: none; }
-      .athlete-card:hover, .operator-card:hover, .cc:hover { transform: none; }
-      .athlete-card::before, .operator-card::before { display: none; }
+      .js .reveal { opacity: 1; transform: none; transition: none; }
+      .btn-primary, nav, body { transition: none; }
+      .btn-primary:hover { transform: none; }
       @view-transition { navigation: none; }
     }
   </style>
@@ -655,13 +273,8 @@
 <body>
 
   <!-- NAV -->
-  <nav class="nav-i">
-    <a class="nav-logo" href="/en"><img src="https://i.ibb.co/Q7jWSMcw/Untitled-6-1.png" alt="FightBase" style="height:32px;width:auto;display:block;"></a>
-    <ul class="nav-links">
-      <li><a href="#coaches">For coaches</a></li>
-      <li><a href="#pricing">Pricing</a></li>
-      <li><a href="#how-it-works">How it works</a></li>
-    </ul>
+  <nav>
+    <a class="nav-logo" href="/en"><img src="https://i.ibb.co/Q7jWSMcw/Untitled-6-1.png" alt="FightBase"></a>
     <div class="lang-switcher" role="group" aria-label="Language">
       <a class="lang-btn " href="/" hreflang="et" lang="et" data-lang="et">ET</a>
       <span class="lang-sep">|</span>
@@ -669,222 +282,64 @@
       <span class="lang-sep">|</span>
       <a class="lang-btn active" href="/en" hreflang="en" lang="en" data-lang="en">EN</a>
     </div>
-    <a class="btn-nav nav-cta" href="https://app.fightbaseapp.com/signup?lang=en" target="_blank" rel="noopener">Get started</a>
-    <button class="burger" onclick="toggleMenu()" aria-label="Menu">
-      <span></span><span></span><span></span>
-    </button>
+    <a class="nav-signin" href="https://app.fightbaseapp.com/signin?lang=en">Sign in</a>
   </nav>
 
-  <div class="mobile-menu" id="mobile-menu">
-    <a href="#coaches" onclick="closeMenu()">For coaches</a>
-    <a href="#pricing" onclick="closeMenu()">Pricing</a>
-    <a href="#how-it-works" onclick="closeMenu()">How it works</a>
-    <div class="mobile-lang" role="group" aria-label="Language">
-      <a class="lang-btn " href="/" hreflang="et" lang="et" data-lang="et">ET</a>
-      <span class="lang-sep">|</span>
-      <a class="lang-btn " href="/ru" hreflang="ru" lang="ru" data-lang="ru">RU</a>
-      <span class="lang-sep">|</span>
-      <a class="lang-btn active" href="/en" hreflang="en" lang="en" data-lang="en">EN</a>
-    </div>
-    <a href="https://app.fightbaseapp.com/signup?lang=en" target="_blank" rel="noopener" class="mobile-cta">Get started</a>
-  </div>
-
-  <!-- HERO -->
-  <div style="max-width:1200px;margin:0 auto;">
+  <!-- HERO: everything that must fit above the fold on a phone -->
+  <main>
     <div class="hero">
-      <div class="hero-left">
-        <span class="hero-eyebrow reveal">Coaching tool for combat sports</span>
-        <h1 class="hero-headline">
-          <span class="line-white reveal" style="--d:60ms">Run your classes.</span>
-          <span class="line-white reveal" style="--d:120ms">Manage camps.</span>
-          <span class="line-gold reveal" style="--d:180ms">Coach more.</span>
-        </h1>
-        <p class="hero-sub reveal" style="--d:260ms">FightBase is the coaching tool for boxing, MMA and martial arts coaches. Manage your members, track attendance, send announcements and run training camps — from your phone.</p>
-        <div class="hero-cta-stack reveal" style="--d:340ms">
-          <div class="hero-cta-row">
-            <a class="btn-primary" href="https://app.fightbaseapp.com/signup?lang=en" target="_blank" rel="noopener">Get started</a>
-            <a class="btn-secondary" href="https://app.fightbaseapp.com/signup?lang=en" target="_blank" rel="noopener">Manage your camps</a>
-          </div>
-          <a href="#how-it-works" style="display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,0.06);color:#fff;font-size:14px;font-weight:600;padding:12px 22px;border-radius:10px;border:1px solid rgba(255,255,255,0.15);font-family:'Inter',sans-serif;text-decoration:none;transition:background 0.2s;cursor:pointer;">See how it works</a>
-        </div>
-      </div>
-      <div class="hero-right">
-        <div class="phone-wrap reveal reveal-scale" style="--d:200ms">
-          <div class="phone-glow"></div>
-          <img
-            class="phone-frame phone-screen"
-            src="/assets/fightbase-hero.png"
-            alt="FightBase app training hub screen."
-            loading="eager"
-          />
-        </div>
+      <span class="hero-eyebrow reveal">For boxing and combat sports clubs</span>
+      <h1 class="hero-headline reveal" style="--d:60ms">Run your club from your phone.</h1>
+      <ul class="hero-list reveal" style="--d:140ms">
+        <li>Today's classes at a glance</li>
+        <li>Mark attendance in seconds</li>
+        <li>Members join with one link</li>
+        <li>Message the whole club at once</li>
+      </ul>
+      <div class="cta-block reveal" style="--d:220ms">
+        <a class="btn-primary" href="https://app.fightbaseapp.com/?lang=en">Create your club</a>
+        <p class="member-note">Member? Ask your coach for the class link.</p>
       </div>
     </div>
-  </div>
 
-  <!-- DISCIPLINES BAR -->
-  <div class="disc-bar">
-    <div class="disc-inner reveal">
-      <span class="disc-label">Disciplines</span>
-      <span class="disc-pill">Boxing</span>
-      <span class="disc-pill">MMA</span>
-      <span class="disc-pill">Muay Thai</span>
-      <span class="disc-pill">BJJ</span>
-      <span class="disc-pill">Kickboxing</span>
-      <span class="disc-pill">Wrestling</span>
-      <span class="disc-pill">Judo</span>
-      <span class="disc-pill">Karate</span>
-      <span class="disc-pill">Sambo</span>
-    </div>
-  </div>
-
-  <!-- PROBLEM -->
-  <section class="problem">
-    <div class="section-inner">
-      <div class="problem-two-col">
-        <div class="problem-left">
-          <span class="section-tag reveal">The problem</span>
-          <h2 class="section-title reveal" style="--d:60ms">Your club runs on group chats and notebooks.</h2>
-          <p class="section-sub reveal" style="--d:120ms">Attendance lives in a notebook. Announcements get lost in a WhatsApp group. Camp sign-ups are scattered across DMs and a spreadsheet nobody else can open.</p>
-          <p class="problem-p reveal" style="--d:180ms">It works — until the group grows, a session moves, or you need to know who actually showed up.</p>
-          <p class="problem-p reveal" style="--d:220ms">FightBase puts it all in one place.</p>
-        </div>
-        <div class="problem-right">
-          <div class="cc-stack">
-            <div class="cc reveal">
-              <div class="cc-l neg">Before</div>
-              <p>Paper list at the door → photo of the page → retype it into a spreadsheet at night</p>
-            </div>
-            <div class="cc pos reveal" style="--d:80ms">
-              <div class="cc-l pos">With FightBase</div>
-              <p>Open the session → tap who's here → attendance saved</p>
-            </div>
-            <div class="cc reveal" style="--d:160ms">
-              <div class="cc-l neg">Before</div>
-              <p>Session moves → message three group chats → answer the same question ten times</p>
-            </div>
-            <div class="cc pos reveal" style="--d:240ms">
-              <div class="cc-l pos">With FightBase</div>
-              <p>Post one announcement → every member of the group sees it in the app</p>
-            </div>
-          </div>
+    <!-- HOW IT WORKS -->
+    <section class="how-section" id="how-it-works">
+      <div class="section-inner">
+        <h2 class="section-title reveal">How it works</h2>
+        <ol class="steps-grid">
+          <li class="step reveal">
+            <div class="step-num">01</div>
+            <h3>Create your club and classes</h3>
+          </li>
+          <li class="step reveal" style="--d:90ms">
+            <div class="step-num">02</div>
+            <h3>Share the link with members</h3>
+          </li>
+          <li class="step reveal" style="--d:180ms">
+            <div class="step-num">03</div>
+            <h3>Mark attendance and send messages</h3>
+          </li>
+        </ol>
+        <p class="disc-line reveal">Boxing · MMA · Muay Thai · BJJ · Kickboxing · Wrestling · Judo · Karate · Sambo</p>
+        <div class="cta-block reveal">
+          <a class="btn-primary" href="https://app.fightbaseapp.com/?lang=en">Create your club</a>
+          <p class="member-note">Member? Ask your coach for the class link.</p>
         </div>
       </div>
-    </div>
-  </section>
-
-  <!-- FEATURES: FOR COACHES -->
-  <section id="coaches">
-    <div class="section-inner">
-      <div class="features-section-label reveal">For coaches</div>
-      <h2 class="section-title reveal" style="text-align:center;--d:60ms">Everything you need to run your group.</h2>
-      <p class="section-sub reveal" style="margin:0 auto 56px;text-align:center;--d:120ms">Built around how combat sports coaches actually work — classes, sparring sessions and camps.</p>
-      <div class="cards-grid">
-        <div class="operator-card reveal">
-          <h3>Members and attendance</h3>
-          <p>Keep one roster for each group. Mark attendance in seconds and see each member's training history.</p>
-        </div>
-        <div class="operator-card reveal" style="--d:90ms">
-          <h3>Announcements</h3>
-          <p>Send schedule changes and news to the members of a group — no more chasing replies across chats.</p>
-        </div>
-        <div class="operator-card reveal" style="--d:180ms">
-          <h3>Training Camps</h3>
-          <p>Create a camp, add the dates and details, and see every registration in one list.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- HOW IT WORKS -->
-  <section class="how-section" id="how-it-works">
-    <div class="section-inner">
-      <span class="section-tag reveal">How it works</span>
-      <h2 class="section-title reveal" style="--d:60ms">Set up in three steps.</h2>
-      <div class="steps-grid">
-        <div class="step reveal">
-          <div class="step-num">01</div>
-          <h3>Register</h3>
-          <p>Create your coach account and add your club.</p>
-        </div>
-        <div class="step reveal" style="--d:90ms">
-          <div class="step-num">02</div>
-          <h3>Add your groups and camps</h3>
-          <p>Set up your classes and training camps with their schedule.</p>
-        </div>
-        <div class="step reveal" style="--d:180ms">
-          <div class="step-num">03</div>
-          <h3>Your athletes join</h3>
-          <p>Athletes register in the app and request to join. You accept them, and they're on your roster.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- PRICING -->
-  <section class="operator-section" id="pricing">
-    <div class="section-inner">
-      <div class="section-head-center reveal">
-        <span class="section-tag">Pricing</span>
-        <h2 class="section-title">What's included</h2>
-      </div>
-      <div class="pricing-card reveal reveal-scale" style="margin-top:40px;--d:100ms">
-        <span class="pricing-badge">Beta — limited spots</span>
-        <div class="pricing-name">Coach Pro</div>
-        <p class="pricing-desc">For coaches running their own groups and camps.</p>
-        <ul class="pricing-list">
-          <li>Member rosters and attendance</li>
-          <li>Announcements to your groups</li>
-          <li>Training camp management and registrations</li>
-          <li>Available in Estonian, Russian and English</li>
-        </ul>
-        <a class="btn-primary" href="https://app.fightbaseapp.com/signup?lang=en" target="_blank" rel="noopener">Apply for Early Access</a>
-        <p class="pricing-note">Pricing announced at launch — early beta coaches get a special rate.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- QUOTE -->
-  <div class="quote-sec">
-    <div class="quote-wrap reveal">
-      <span class="q-bar"></span>
-      <p class="q-text">&quot;The best fighters in the world don't stumble into great coaching — <em>they seek it out deliberately.</em> FightBase makes that possible for everyone.&quot;</p>
-      <div class="q-attr">
-        <div class="q-av">TG</div>
-        <div>
-          <div class="q-name">Tõnis Grinkin</div>
-          <div class="q-role">Founder, Poksiklubi Kalev</div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- FINAL CTA -->
-  <div class="cta-section">
-    <div class="section-inner">
-      <span class="section-tag reveal">Get started</span>
-      <h2 class="section-title reveal" style="--d:60ms">Less admin. More time in the gym.</h2>
-      <p class="section-sub reveal" style="--d:120ms">Register and we'll help you set up your first group.</p>
-      <div class="hero-ctas reveal" style="--d:180ms">
-        <a class="btn-primary" href="https://app.fightbaseapp.com/signup?lang=en" target="_blank" rel="noopener">Get started</a>
-        <a class="btn-secondary" href="https://app.fightbaseapp.com/signup?lang=en" target="_blank" rel="noopener">Manage your camps</a>
-      </div>
-    </div>
-  </div>
+    </section>
+  </main>
 
   <!-- FOOTER -->
   <footer>
     <div class="footer-inner">
       <div>
-        <img src="https://i.ibb.co/Q7jWSMcw/Untitled-6-1.png" alt="FightBase" style="height:28px;width:auto;display:block;margin-bottom:8px;">
+        <img src="https://i.ibb.co/Q7jWSMcw/Untitled-6-1.png" alt="FightBase">
         <div class="footer-company">Poksiklubi Kalev MTÜ · Tallinn, Estonia · EU</div>
       </div>
       <div class="footer-links">
         <a href="/terms" hreflang="en">Terms of Service</a>
         <a href="/privacy-policy" hreflang="en">Privacy Policy</a>
         <a href="mailto:support@fightbaseapp.com">Contact</a>
-      </div>
-      <div class="footer-social">
         <a href="https://www.instagram.com/fightbaseapp/" target="_blank" rel="noopener">Instagram</a>
       </div>
     </div>
@@ -904,11 +359,10 @@
         sessionStorage.removeItem('fb_lang_switch');
       } catch (e) {}
 
-      // Scroll reveal. Once an element has finished revealing, its reveal classes are
-      // removed so its own hover transform/transition (cards, before/after rows) works normally.
+      // Scroll reveal. Once an element has finished revealing, its reveal classes are removed.
       var reveals = document.querySelectorAll('.reveal');
       function finishReveal(el) {
-        el.classList.remove('reveal', 'reveal-scale', 'is-visible');
+        el.classList.remove('reveal', 'is-visible');
       }
       if (fromLangSwitch || reduceMotion || !('IntersectionObserver' in window)) {
         root.classList.add('no-reveal-transition');
@@ -920,18 +374,10 @@
             var el = entry.target;
             revealObserver.unobserve(el);
             el.classList.add('is-visible');
-            var done = false;
-            function finish() { if (!done) { done = true; finishReveal(el); } }
-            el.addEventListener('transitionend', function onEnd(e) {
-              if (e.target === el && e.propertyName === 'transform') {
-                el.removeEventListener('transitionend', onEnd);
-                finish();
-              }
-            });
-            // Fallback in case transitionend doesn't fire (e.g. tab hidden).
-            setTimeout(finish, 1200);
+            // Remove reveal classes after the transition (fallback if transitionend doesn't fire).
+            setTimeout(function () { finishReveal(el); }, 1200);
           });
-          // Anything already scrolled past (fast scroll, nav anchor jump) shows at once,
+          // Anything already scrolled past (fast scroll, anchor jump) shows at once,
           // so scrolling back up never reveals blank sections.
           document.querySelectorAll('.reveal:not(.is-visible)').forEach(function (el) {
             if (el.getBoundingClientRect().bottom < 0) {
@@ -943,23 +389,7 @@
         reveals.forEach(function (el) { revealObserver.observe(el); });
       }
 
-      // Card spotlight follows the cursor (mouse only). One rAF per frame at most.
-      if (!reduceMotion && window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
-        document.querySelectorAll('.athlete-card, .operator-card').forEach(function (card) {
-          var frame = 0, x = 0, y = 0;
-          card.addEventListener('pointermove', function (e) {
-            var rect = card.getBoundingClientRect();
-            x = e.clientX - rect.left; y = e.clientY - rect.top;
-            if (!frame) frame = requestAnimationFrame(function () {
-              card.style.setProperty('--mx', x + 'px');
-              card.style.setProperty('--my', y + 'px');
-              frame = 0;
-            });
-          });
-        });
-      }
-
-      // Nav: solid background once the page is scrolled; pause the gold glow when the hero is off-screen.
+      // Nav: solid background once the page is scrolled.
       var nav = document.querySelector('nav');
       var ticking = false;
       function updateNav() {
@@ -970,13 +400,6 @@
         if (!ticking) { ticking = true; requestAnimationFrame(updateNav); }
       }, { passive: true });
       updateNav();
-
-      var hero = document.querySelector('.hero');
-      if (hero && 'IntersectionObserver' in window) {
-        new IntersectionObserver(function (entries) {
-          root.classList.toggle('hero-offscreen', !entries[0].isIntersecting);
-        }).observe(hero);
-      }
 
       // Language switch: remember the choice (vercel.json redirects "/" on this cookie) and fade.
       document.querySelectorAll('[data-lang]').forEach(function (link) {
@@ -993,15 +416,6 @@
       // Coming back via the back button restores a faded-out page from cache.
       window.addEventListener('pageshow', function () { document.body.classList.remove('is-leaving'); });
     })();
-
-    function toggleMenu() {
-      document.getElementById('mobile-menu').classList.toggle('open');
-      document.querySelector('.burger').classList.toggle('open');
-    }
-    function closeMenu() {
-      document.getElementById('mobile-menu').classList.remove('open');
-      document.querySelector('.burger').classList.remove('open');
-    }
   </script>
 </body>
 </html>
