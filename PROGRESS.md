@@ -19,9 +19,16 @@ _Last updated: 2026-10-25_
 - 2026-10-25 — Branch `event-qr`: `/event` has the QR code for https://app.fightbaseapp.com/?lang=et
   (SVG + 2000px PNG, error correction H, black on white, 4-module quiet zone) and an A5 print
   PDF (QR 74 mm). Scan-tested from the PDF, incl. tilted/blurred/dim phone-photo simulations.
-  Made by `scripts/make-event-qr.py`. Not merged yet.
+  Made by `scripts/make-event-qr.py`. Merged to main (1f4de76), live at /event/.
+
+- 2026-10-25 — Branch `hero-vibe` (preview only): RaceCore-style look. Red accent word in the
+  headline, a dark "stage" below the fold with a phone showing a copy of the app's coach "Täna"
+  screen (invented names), an empty dashed frame for the boxer photo, and a giant FIGHTBASE
+  wordmark. Phone: hero fills the first screen, stage starts below the fold. **Not merged.**
 
 ## Next
+- Boxer photo for `hero-vibe`: boxer in hand wraps holding a phone (screen off), dark gym, one
+  side light. Then replace the dashed frame, and remove the "stand-in" label before merging.
 - Rewrite Terms and Privacy for the coach tool: coaches enter members' personal data, so
   FightBase acts as their data processor (GDPR). Before the first real club.
 - App repo (`fightbaseapp`), small fix: with an expired saved sign-in, the app shows Täna for
@@ -32,6 +39,7 @@ _Last updated: 2026-10-25_
 - Answer the native-speaker questions in `TRANSLATION_REVIEW.md` (ET and RU).
 
 ## Waiting on Jen
-- Print one A5 sheet, scan it with your phone, then say "merge it" for `event-qr`.
+- Print one A5 sheet and scan it with your phone before the event.
+- Look at the `hero-vibe` preview; get the boxer photo.
 - Decide whether the old local branch `hero-redesign` is still needed. If not, delete it.
 - Native ET/RU check of the wording.

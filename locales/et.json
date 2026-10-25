@@ -11,13 +11,32 @@
   },
   "hero": {
     "eyebrow": "Poksi- ja võitlusspordiklubidele",
-    "headline": "Halda oma klubi telefonist.",
+    "headlineA": "Halda oma ",
+    "headlineB": "klubi",
+    "headlineC": " telefonist.",
     "item1": "Tänased trennid ühe pilguga",
     "item2": "Kohalolu märkimine sekunditega",
     "item3": "Liikmed liituvad ühe lingiga",
     "item4": "Teade kogu klubile korraga",
     "cta": "Loo oma klubi",
     "member": "Liige? Küsi treenerilt trenni linki."
+  },
+  "stage": {
+    "photoNote": "Ajutine — siia tuleb foto poksijast käemähistega",
+    "phoneAlt": "FightBase'i treeneri „Täna” vaade: tänased trennid, kohalolek ja teade kogu klubile."
+  },
+  "mock": {
+    "greeting": "Tere, Marko",
+    "date": "Neljapäev, 12. november",
+    "clubAnnounce": "Teade kogu klubile",
+    "today": "Täna",
+    "c1Name": "Poks · algajad",
+    "c2Name": "Poks · edasijõudnud",
+    "place": "Saal 1",
+    "c1Members": "12 liiget",
+    "c2Members": "9 liiget",
+    "attendance": "Kohalolek",
+    "announce": "Teade"
   },
   "how": {
     "title": "Kuidas see töötab",

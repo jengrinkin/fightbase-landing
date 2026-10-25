@@ -49,6 +49,7 @@
       background: var(--bg);
       color: var(--white);
       -webkit-font-smoothing: antialiased;
+      overflow-x: clip;
     }
 
     a { color: inherit; text-decoration: none; }
@@ -178,6 +179,78 @@
 
     .member-note { font-size: 14px; color: var(--text-muted); }
 
+    .hero-headline .accent { color: var(--red); }
+
+    /* ─── STAGE: photo + phone + giant wordmark ─── */
+    .stage-wrap { max-width: 1160px; margin: 0 auto; padding: 0 48px; position: relative; }
+    .stage {
+      position: relative;
+      height: 620px;
+      border-radius: 28px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.06);
+      background: linear-gradient(180deg, #101016 0%, #07070A 100%);
+    }
+    .stage-glow {
+      position: absolute; inset: 0; pointer-events: none;
+      background:
+        radial-gradient(45% 60% at 72% 38%, rgba(220,38,38,0.32), transparent 70%),
+        radial-gradient(35% 45% at 18% 85%, rgba(238,199,72,0.10), transparent 70%);
+    }
+    .photo-slot {
+      position: absolute; top: 28px; right: 28px; bottom: 28px; width: 50%;
+      border: 1px dashed rgba(255,255,255,0.18);
+      border-radius: 20px;
+      display: flex; align-items: flex-end; justify-content: flex-end;
+      padding: 18px;
+    }
+    .photo-slot span {
+      font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase;
+      color: rgba(255,255,255,0.45); text-align: right; max-width: 220px; line-height: 1.5;
+    }
+
+    /* Phone showing the app's "Today" screen (colours from the app's dark theme). */
+    .phone {
+      position: absolute; left: 16%; top: 64px;
+      width: 280px; height: 580px;
+      border-radius: 46px;
+      padding: 10px;
+      background: linear-gradient(145deg, #2a2a30, #0c0c0f 40%, #1c1c22);
+      box-shadow: 0 40px 90px rgba(0,0,0,0.75), 0 0 0 1px rgba(255,255,255,0.08), inset 0 0 0 1px rgba(255,255,255,0.06);
+      transform: rotate(-9deg);
+      z-index: 2;
+    }
+    .phone-screen {
+      height: 100%; border-radius: 37px; overflow: hidden;
+      background: #080C16; color: #F1F5F9;
+      padding: 14px 16px; font-size: 11px;
+    }
+    .ps-status { display: flex; justify-content: space-between; align-items: center; font-size: 11px; font-weight: 600; margin-bottom: 18px; }
+    .ps-island { width: 74px; height: 20px; border-radius: 12px; background: #000; }
+    .ps-greeting { font-size: 20px; font-weight: 700; }
+    .ps-date { color: #7A8AA3; font-size: 11px; margin: 2px 0 14px; }
+    .ps-announce { background: #1D2433; border: 1px solid #222B3A; border-radius: 14px; padding: 9px; text-align: center; font-weight: 600; font-size: 11px; }
+    .ps-h { font-size: 15px; font-weight: 700; margin: 14px 0 10px; }
+    .ps-card { background: #0D1321; border: 1px solid #1B2232; border-left: 3px solid #FF0000; border-radius: 14px; padding: 11px; margin-bottom: 9px; }
+    .ps-time { color: var(--gold); font-weight: 600; font-variant-numeric: tabular-nums; }
+    .ps-class { font-size: 13px; font-weight: 700; margin-top: 4px; }
+    .ps-meta { color: #7A8AA3; font-size: 10px; margin-top: 3px; }
+    .ps-actions { display: flex; gap: 6px; margin-top: 9px; }
+    .ps-btn { flex: 1; text-align: center; padding: 7px 0; border-radius: 10px; background: #1D2433; font-weight: 600; font-size: 10px; }
+    .ps-btn.primary { background: #EF3333; color: #fff; }
+
+    .wordmark {
+      position: relative; z-index: 3;
+      margin-top: -0.42em;
+      font-size: clamp(56px, 13.4vw, 196px);
+      font-weight: 900; font-style: italic;
+      letter-spacing: -0.045em; line-height: 0.9;
+      text-align: center; white-space: nowrap;
+      background: linear-gradient(180deg, #FFFFFF 40%, rgba(255,255,255,0.25) 100%);
+      -webkit-background-clip: text; background-clip: text; color: transparent;
+      user-select: none;
+    }
+
     /* ─── HOW IT WORKS ─── */
     .how-section { background: #0C0C10; padding: 88px 48px; border-top: 1px solid var(--border); }
     .section-inner { max-width: 1000px; margin: 0 auto; }
@@ -233,6 +306,14 @@
       .hero-list li { font-size: 16px; }
       .hero-list li::before { top: 6px; }
       .btn-primary { width: 100%; max-width: 340px; text-align: center; }
+      .stage-wrap { padding: 0 16px; }
+      .stage { height: 500px; border-radius: 22px; }
+      .photo-slot { top: 16px; right: 16px; bottom: 16px; width: 58%; padding: 12px; }
+      .photo-slot span { font-size: 10px; max-width: 150px; }
+      .phone { left: 6%; top: 40px; transform: rotate(-8deg) scale(0.66); transform-origin: top left; }
+      /* Hero fills the first screen, so the photo stage always starts below the fold. */
+      .hero { min-height: calc(100svh - 68px); display: flex; flex-direction: column; align-items: center; justify-content: center; padding-top: 24px; padding-bottom: 32px; }
+      .hero .cta-block { width: 100%; }
       .how-section { padding: 64px 20px; }
       .section-title { font-size: 28px; margin-bottom: 36px; }
       .steps-grid { grid-template-columns: 1fr; gap: 28px; max-width: 340px; margin-left: auto; margin-right: auto; }
@@ -289,7 +370,7 @@
   <main>
     <div class="hero">
       <span class="hero-eyebrow reveal">Poksi- ja võitlusspordiklubidele</span>
-      <h1 class="hero-headline reveal" style="--d:60ms">Halda oma klubi telefonist.</h1>
+      <h1 class="hero-headline reveal" style="--d:60ms">Halda oma <span class="accent">klubi</span> telefonist.</h1>
       <ul class="hero-list reveal" style="--d:140ms">
         <li>Tänased trennid ühe pilguga</li>
         <li>Kohalolu märkimine sekunditega</li>
@@ -300,6 +381,36 @@
         <a class="btn-primary" href="https://app.fightbaseapp.com/?lang=et">Loo oma klubi</a>
         <p class="member-note">Liige? Küsi treenerilt trenni linki.</p>
       </div>
+    </div>
+
+    <!-- STAGE: boxer photo + the app's "Today" screen. The photo slot is a stand-in until the real photo arrives. -->
+    <div class="stage-wrap">
+      <div class="stage reveal">
+        <div class="stage-glow"></div>
+        <div class="photo-slot" aria-hidden="true"><span>Ajutine — siia tuleb foto poksijast käemähistega</span></div>
+        <div class="phone" role="img" aria-label="FightBase'i treeneri „Täna” vaade: tänased trennid, kohalolek ja teade kogu klubile.">
+          <div class="phone-screen">
+            <div class="ps-status"><span>9:41</span><span class="ps-island"></span><span>●●●</span></div>
+            <div class="ps-greeting">Tere, Marko</div>
+            <div class="ps-date">Neljapäev, 12. november</div>
+            <div class="ps-announce">Teade kogu klubile</div>
+            <div class="ps-h">Täna</div>
+            <div class="ps-card">
+              <div class="ps-time">17:30–18:30</div>
+              <div class="ps-class">Poks · algajad</div>
+              <div class="ps-meta">Saal 1 · 12 liiget</div>
+              <div class="ps-actions"><span class="ps-btn primary">Kohalolek</span><span class="ps-btn">Teade</span></div>
+            </div>
+            <div class="ps-card">
+              <div class="ps-time">19:00–20:30</div>
+              <div class="ps-class">Poks · edasijõudnud</div>
+              <div class="ps-meta">Saal 1 · 9 liiget</div>
+              <div class="ps-actions"><span class="ps-btn primary">Kohalolek</span><span class="ps-btn">Teade</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="wordmark" aria-hidden="true">FIGHTBASE</div>
     </div>
 
     <!-- HOW IT WORKS -->

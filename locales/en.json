@@ -11,13 +11,32 @@
   },
   "hero": {
     "eyebrow": "For boxing and combat sports clubs",
-    "headline": "Run your club from your phone.",
+    "headlineA": "Run your ",
+    "headlineB": "club",
+    "headlineC": " from your phone.",
     "item1": "Today's classes at a glance",
     "item2": "Mark attendance in seconds",
     "item3": "Members join with one link",
     "item4": "Message the whole club at once",
     "cta": "Create your club",
     "member": "Member? Ask your coach for the class link."
+  },
+  "stage": {
+    "photoNote": "Stand-in — boxer photo with hand wraps goes here",
+    "phoneAlt": "FightBase coach Today screen: today's classes, attendance and an announcement to the whole club."
+  },
+  "mock": {
+    "greeting": "Hi, Marko",
+    "date": "Thursday, 12 November",
+    "clubAnnounce": "Announcement to the whole club",
+    "today": "Today",
+    "c1Name": "Boxing · beginners",
+    "c2Name": "Boxing · advanced",
+    "place": "Gym 1",
+    "c1Members": "12 members",
+    "c2Members": "9 members",
+    "attendance": "Attendance",
+    "announce": "Announcement"
   },
   "how": {
     "title": "How it works",
