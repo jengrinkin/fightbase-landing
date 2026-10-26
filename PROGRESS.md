@@ -23,12 +23,12 @@ _Last updated: 2026-10-25_
 
 - 2026-10-25 — Branch `hero-vibe` (preview only): RaceCore-style look. Red accent word in the
   headline, a dark "stage" below the fold with a phone showing a copy of the app's coach "Täna"
-  screen (invented names), an empty dashed frame for the boxer photo, and a giant FIGHTBASE
-  wordmark. Phone: hero fills the first screen, stage starts below the fold. **Not merged.**
+  screen (invented names) and a giant FIGHTBASE wordmark. Empty photo frame removed
+  2026-10-26 so it can go live without the photo. Phone: hero fills the first screen, stage starts below the fold. **Not merged.**
 
 ## Next
 - Boxer photo for `hero-vibe`: boxer in hand wraps holding a phone (screen off), dark gym, one
-  side light. Then replace the dashed frame, and remove the "stand-in" label before merging.
+  side light. Then add it to the stage behind the phone.
 - Rewrite Terms and Privacy for the coach tool: coaches enter members' personal data, so
   FightBase acts as their data processor (GDPR). Before the first real club.
 - App repo (`fightbaseapp`), small fix: with an expired saved sign-in, the app shows Täna for
