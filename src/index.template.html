@@ -186,16 +186,12 @@
     .stage {
       position: relative;
       height: 620px;
-      border-radius: 28px;
       overflow: hidden;
-      border: 1px solid rgba(255,255,255,0.06);
-      background: linear-gradient(180deg, #101016 0%, #07070A 100%);
     }
     .stage-glow {
       position: absolute; inset: 0; pointer-events: none;
       background:
-        radial-gradient(50% 65% at 50% 40%, rgba(220,38,38,0.32), transparent 70%),
-        radial-gradient(35% 45% at 18% 85%, rgba(238,199,72,0.10), transparent 70%);
+        radial-gradient(50% 65% at 50% 40%, rgba(220,38,38,0.32), transparent 70%);
     }
 
     /* Phone showing the app's "Today" screen (colours from the app's dark theme). */
@@ -343,7 +339,7 @@
       .hero-list li::before { top: 6px; }
       .btn-primary { width: 100%; max-width: 340px; text-align: center; }
       .stage-wrap { padding: 0 16px; }
-      .stage { height: 460px; border-radius: 22px; }
+      .stage { height: 460px; }
       .phone { left: 50%; margin-left: -92px; top: 40px; transform: rotate(-8deg) scale(0.66); transform-origin: top left; }
       /* Hero fills the first screen, so the photo stage always starts below the fold. */
       .hero { min-height: calc(100svh - 68px); display: flex; flex-direction: column; align-items: center; justify-content: center; padding-top: 24px; padding-bottom: 32px; }
