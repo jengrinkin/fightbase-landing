@@ -240,6 +240,53 @@
       user-select: none;
     }
 
+    /* ─── FEATURES ─── */
+    .features-section { padding: 96px 48px 88px; }
+    .features-grid {
+      list-style: none;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+    .feature {
+      background: #0C0C10;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 28px;
+    }
+    .feature svg { width: 30px; height: 30px; stroke: var(--gold); fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+    .feature h3 { font-size: 19px; font-weight: 700; line-height: 1.3; margin: 16px 0 8px; }
+    .feature p { font-size: 15px; line-height: 1.55; color: var(--text-muted); }
+
+    /* ─── MEMBER BLOCK ─── */
+    .member-section { padding: 0 48px 96px; background: #0C0C10; }
+    .member-card {
+      max-width: 1000px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 32px;
+      padding: 40px 44px;
+      border-radius: 24px;
+      border: 1px solid var(--border);
+      background: radial-gradient(60% 120% at 0% 0%, rgba(220,38,38,0.16), transparent 70%), #101016;
+    }
+    .member-label { display: block; font-size: 12px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); margin-bottom: 10px; }
+    .member-card h2 { font-size: 28px; font-weight: 900; line-height: 1.15; margin-bottom: 10px; }
+    .member-card p { font-size: 16px; line-height: 1.5; color: var(--text-muted); max-width: 460px; }
+    .btn-outline {
+      display: inline-block;
+      padding: 15px 32px;
+      border: 1px solid rgba(255,255,255,0.25);
+      border-radius: 10px;
+      font-size: 16px;
+      font-weight: 700;
+      white-space: nowrap;
+      transition: border-color 0.2s, background-color 0.2s;
+    }
+    @media (hover: hover) { .btn-outline:hover { border-color: rgba(255,255,255,0.5); background: rgba(255,255,255,0.05); } }
+
     /* ─── HOW IT WORKS ─── */
     .how-section { background: #0C0C10; padding: 88px 48px; border-top: 1px solid var(--border); }
     .section-inner { max-width: 1000px; margin: 0 auto; }
@@ -301,6 +348,13 @@
       /* Hero fills the first screen, so the photo stage always starts below the fold. */
       .hero { min-height: calc(100svh - 68px); display: flex; flex-direction: column; align-items: center; justify-content: center; padding-top: 24px; padding-bottom: 32px; }
       .hero .cta-block { width: 100%; }
+      .features-section { padding: 64px 20px 56px; }
+      .features-grid { grid-template-columns: 1fr; gap: 14px; }
+      .feature { padding: 22px; }
+      .member-section { padding: 0 20px 64px; }
+      .member-card { flex-direction: column; align-items: flex-start; padding: 28px 22px; gap: 22px; }
+      .member-card h2 { font-size: 24px; }
+      .btn-outline { width: 100%; text-align: center; }
       .how-section { padding: 64px 20px; }
       .section-title { font-size: 28px; margin-bottom: 36px; }
       .steps-grid { grid-template-columns: 1fr; gap: 28px; max-width: 340px; margin-left: auto; margin-right: auto; }
@@ -399,6 +453,35 @@
       <div class="wordmark" aria-hidden="true">FIGHTBASE</div>
     </div>
 
+    <!-- FEATURES -->
+    <section class="features-section" id="features">
+      <div class="section-inner">
+        <h2 class="section-title reveal">Всё, что нужно клубу</h2>
+        <ul class="features-grid">
+          <li class="feature reveal">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="6" width="18" height="13" rx="3"/><path d="M3 10h18M7 15h4"/></svg>
+            <h3>Членство и прайс-лист</h3>
+            <p>Абонементы на месяц, на занятия и на период. Отмечайте оплату, видьте неоплаченные и скоро заканчивающиеся.</p>
+          </li>
+          <li class="feature reveal" style="--d:70ms">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg>
+            <h3>Обзор месяца</h3>
+            <p>Поступления, новые и ушедшие участники, заполняемость тренировок по месяцам.</p>
+          </li>
+          <li class="feature reveal" style="--d:140ms">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M8 3v4M16 3v4M3 10h18"/></svg>
+            <h3>Сборы</h3>
+            <p>Организуйте сбор. Участники записываются сами, вы подтверждаете и отмечаете оплату.</p>
+          </li>
+          <li class="feature reveal" style="--d:210ms">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v11H9l-5 4z"/></svg>
+            <h3>Сообщения и уведомления</h3>
+            <p>Чат с участником и уведомления прямо на телефон.</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
     <!-- HOW IT WORKS -->
     <section class="how-section" id="how-it-works">
       <div class="section-inner">
@@ -422,6 +505,18 @@
           <a class="btn-primary" href="https://app.fightbaseapp.com/?lang=ru">Создать свой клуб</a>
           <p class="member-note">Участник? Попросите у тренера ссылку.</p>
         </div>
+      </div>
+    </section>
+
+    <!-- FOR MEMBERS -->
+    <section class="member-section" id="members">
+      <div class="member-card reveal">
+        <div>
+          <span class="member-label">Участнику</span>
+          <h2>Есть код тренировки?</h2>
+          <p>Присоединяйтесь к своему клубу и видьте тренировки, объявления и своё членство.</p>
+        </div>
+        <a class="btn-outline" href="https://app.fightbaseapp.com/?lang=ru">Ввести код тренировки</a>
       </div>
     </section>
   </main>

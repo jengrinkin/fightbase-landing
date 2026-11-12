@@ -20,3 +20,5 @@ Register: **ET sina, RU вы** (RU switched from ты to вы to match the app).
 | 6 | `disciplines.line` | Muay Thai, BJJ | Muay Thai, BJJ | Муай-тай, BJJ | ET: keep "Muay Thai" or "Tai poks"? RU: **Муай-тай** vs **тайский бокс**; latin **BJJ** or **БЖЖ**? | |
 | 7 | `disciplines.line` | Wrestling | Maadlus | Борьба | Generic term fine, or vabamaadlus / вольная борьба? | |
 | 8 | `footer.terms`, `footer.privacy` | Terms / Privacy | …(inglise keeles) | …(на английском) | Legal pages are English-only; is the "(in English)" note wanted? | |
+| 9 | `features.f1Title`–`f4Body` | Memberships and price list / Monthly overview / Camps / Messages and notifications | Liikmelisus ja hinnakiri / Kuu ülevaade / Laagrid / Sõnumid ja teavitused | Членство и прайс-лист / Обзор месяца / Сборы / Сообщения и уведомления | Added 2026-11-12. Same words as the app (ET "Hinnakiri", "Laagrid"; RU "Прайс-лист", "Сборы"). Natural as card titles? | |
+| 10 | `memberBlock.*` | For members / Got a class code? / Enter class code | Liikmele / Sul on trenni kood? / Sisesta trenni kood | Участнику / Есть код тренировки? / Ввести код тренировки | Added 2026-11-12. RU uses вы like the rest. | |
