@@ -3,9 +3,14 @@
 _Last updated: 2026-11-12_
 
 ## Done
-- 2026-11-12 — Branch `landing-features` (preview, **not merged**): new "Kõik, mida klubi vajab" section
+- 2026-11-12 — Branch `phone-no-box` (preview, **not merged**): removed the rounded dark square
+  (border, corners, fill) behind the phone on the home page, and the faint gold glow that showed
+  a hard corner without it. Phone, red glow and FIGHTBASE wordmark stay. Checked locally at
+  desktop and 375px (ET, RU, EN). Branch `restore-oct25-page` (plain page without the phone) was
+  also pushed this day, then dropped: Jen chose to keep the phone. It can be deleted.
+- 2026-11-12 — Branch `landing-features`: new "Kõik, mida klubi vajab" section
   (memberships and price list, monthly overview, camps, messages and notifications) and a "Liikmele"
-  block with "Sisesta trenni kood" → app `/?lang=`. ET/RU/EN. Checked locally at desktop and 375px (ET, RU).
+  block with "Sisesta trenni kood" → app `/?lang=`. ET/RU/EN. Merged to main (73a2501), live.
 - 2026-10-25 — All 7 signup buttons point to https://app.fightbaseapp.com/signup (ET/RU/EN).
   Merged to main (7f23c13), live and verified on www.fightbaseapp.com.
 - 2026-10-25 — Signup buttons pass the page language (`/signup?lang=et|ru|en`); the app reads
@@ -27,11 +32,10 @@ _Last updated: 2026-11-12_
 - 2026-10-25 — Branch `hero-vibe` (preview only): RaceCore-style look. Red accent word in the
   headline, a dark "stage" below the fold with a phone showing a copy of the app's coach "Täna"
   screen (invented names) and a giant FIGHTBASE wordmark. Empty photo frame removed
-  2026-10-26 so it can go live without the photo. Phone: hero fills the first screen, stage starts below the fold. **Not merged.**
+  2026-10-26 so it can go live without the photo. Phone: hero fills the first screen, stage starts below the fold.
+  On main (3051da7, cdc1a16), live.
 
 ## Next
-- Boxer photo for `hero-vibe`: boxer in hand wraps holding a phone (screen off), dark gym, one
-  side light. Then add it to the stage behind the phone.
 - Rewrite Terms and Privacy for the coach tool: coaches enter members' personal data, so
   FightBase acts as their data processor (GDPR). Before the first real club.
 - App repo (`fightbaseapp`), small fix: with an expired saved sign-in, the app shows Täna for
@@ -43,6 +47,6 @@ _Last updated: 2026-11-12_
 
 ## Waiting on Jen
 - Print one A5 sheet and scan it with your phone before the event.
-- Look at the `hero-vibe` preview; get the boxer photo.
+- Check the `phone-no-box` Vercel preview; say "merge it" to put it live.
 - Decide whether the old local branch `hero-redesign` is still needed. If not, delete it.
 - Native ET/RU check of the wording.
