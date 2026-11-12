@@ -1,8 +1,11 @@
 # FightBase landing — progress
 
-_Last updated: 2026-10-25_
+_Last updated: 2026-11-12_
 
 ## Done
+- 2026-11-12 — Branch `landing-features` (preview, **not merged**): new "Kõik, mida klubi vajab" section
+  (memberships and price list, monthly overview, camps, messages and notifications) and a "Liikmele"
+  block with "Sisesta trenni kood" → app `/?lang=`. ET/RU/EN. Checked locally at desktop and 375px (ET, RU).
 - 2026-10-25 — All 7 signup buttons point to https://app.fightbaseapp.com/signup (ET/RU/EN).
   Merged to main (7f23c13), live and verified on www.fightbaseapp.com.
 - 2026-10-25 — Signup buttons pass the page language (`/signup?lang=et|ru|en`); the app reads

@@ -24,6 +24,23 @@
   "stage": {
     "phoneAlt": "FightBase coach Today screen: today's classes, attendance and an announcement to the whole club."
   },
+  "features": {
+    "title": "Everything your club needs",
+    "f1Title": "Memberships and price list",
+    "f1Body": "Monthly fees, class cards and periods. Mark paid, see who hasn't paid and whose card ends soon.",
+    "f2Title": "Monthly overview",
+    "f2Body": "Money received, new and leaving members, and how full your classes are, month by month.",
+    "f3Title": "Camps",
+    "f3Body": "Run a camp. Members sign up themselves, you confirm and mark who has paid.",
+    "f4Title": "Messages and notifications",
+    "f4Body": "Chat with a member and notifications straight to the phone."
+  },
+  "memberBlock": {
+    "label": "For members",
+    "title": "Got a class code?",
+    "body": "Join your club and see classes, announcements and your membership.",
+    "cta": "Enter class code"
+  },
   "mock": {
     "greeting": "Hi, Marko",
     "date": "Thursday, 12 November",

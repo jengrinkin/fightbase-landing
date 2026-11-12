@@ -24,6 +24,23 @@
   "stage": {
     "phoneAlt": "FightBase'i treeneri „Täna” vaade: tänased trennid, kohalolek ja teade kogu klubile."
   },
+  "features": {
+    "title": "Kõik, mida klubi vajab",
+    "f1Title": "Liikmelisus ja hinnakiri",
+    "f1Body": "Kuutasud, kordade kaardid ja perioodid. Märgi makstud, näe maksmata ja varsti lõppevad.",
+    "f2Title": "Kuu ülevaade",
+    "f2Body": "Laekumised, uued ja lahkunud liikmed ning trennide täituvus kuu kaupa.",
+    "f3Title": "Laagrid",
+    "f3Body": "Korralda laager. Liikmed registreeruvad ise, sina kinnitad ja märgid makstud.",
+    "f4Title": "Sõnumid ja teavitused",
+    "f4Body": "Vestlus liikmega ja teated otse telefoni."
+  },
+  "memberBlock": {
+    "label": "Liikmele",
+    "title": "Sul on trenni kood?",
+    "body": "Liitu oma klubiga ja näed trenne, teateid ja oma liikmelisust.",
+    "cta": "Sisesta trenni kood"
+  },
   "mock": {
     "greeting": "Tere, Marko",
     "date": "Neljapäev, 12. november",
