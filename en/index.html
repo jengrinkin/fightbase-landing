@@ -145,7 +145,7 @@
       color: #F4F8FC;
     }
     .poster-boxer {
-      position: absolute; z-index: 2; left: 50%; bottom: 0; height: 90%; transform: translateX(-50%);
+      position: absolute; z-index: 2; left: 50%; bottom: -6px; height: 84%; transform: translateX(-50%);
       /* the red "rim light" lining: a tight bright edge plus a soft glow */
       filter: drop-shadow(0 0 1px #FF4B3E) drop-shadow(0 0 1px #FF4B3E) drop-shadow(0 0 4px rgba(255,59,59,0.85)) drop-shadow(0 0 30px rgba(220,38,38,0.6));
     }
@@ -159,7 +159,7 @@
     .p-time { left: 4.5vw; top: 50%; display: flex; flex-direction: column; gap: 6px; }
     .p-time strong { font-size: clamp(48px, 6.2vw, 96px); line-height: 0.9; font-weight: 900; letter-spacing: -0.04em; }
     .p-time span { font-size: 12px; font-weight: 800; letter-spacing: 0.16em; text-transform: uppercase; color: var(--stone); }
-    .p-list { right: 4.5vw; top: 46%; list-style: none; width: min(300px, 24vw); text-align: right; }
+    .p-list { right: 4.5vw; top: 36%; list-style: none; width: min(300px, 24vw); text-align: right; }
     .p-list li { font-size: 12px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #D6E4F0; line-height: 1.45; padding: 11px 0; border-bottom: 1px solid rgba(255,255,255,0.16); }
     .p-list li:first-child { border-top: 1px solid rgba(255,255,255,0.16); }
     .p-head {
@@ -329,7 +329,7 @@
       .nav-signin { padding: 7px 12px; font-size: 13px; }
       .poster { min-height: max(700px, calc(100svh - 68px)); }
       .poster-word { top: 9%; font-size: 15.6vw; }
-      .poster-boxer { height: 84%; }
+      .poster-boxer { height: 86%; left: 66%; }
       .poster-eyebrow { left: 20px; right: 20px; top: 20px; max-width: none; font-size: 11px; letter-spacing: 0.12em; }
       .p-time, .p-list { display: none; }
       .p-head { left: 20px; right: 20px; width: auto; margin-left: 0; bottom: 118px; font-size: clamp(30px, 9.4vw, 44px); max-width: 64%; z-index: 4; }
@@ -409,7 +409,7 @@
       <div class="poster-boxer" aria-hidden="true">
         <picture>
           <source type="image/avif" srcset="/assets/boxer-cutout.avif">
-          <img src="/assets/boxer-cutout.png" width="800" height="1500" alt="" fetchpriority="high" decoding="async">
+          <img src="/assets/boxer-cutout.png" width="800" height="1031" alt="" fetchpriority="high" decoding="async">
         </picture>
       </div>
       <span class="poster-eyebrow pin">For boxing and combat sports clubs</span>

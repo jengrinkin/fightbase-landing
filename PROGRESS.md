@@ -7,7 +7,7 @@ _Last updated: 2026-11-13_
   hero copied from Jen's reference layout. Giant white FIGHTBASE behind a cut-out boxer with a red rim
   light, navy `#03203D` + stone blue `#639CC5` + brand red `#DC2626` (no gold). Bold headline in front,
   "17:30 + class name" tag, the 4 hero lines as a small list, red button with an arrow. Boxer cut out
-  on this Mac with Apple Vision (nothing uploaded); `assets/boxer-cutout.avif` (54 KB) + PNG fallback.
+  on this Mac with Apple Vision (nothing uploaded), cropped waist-up; `assets/boxer-cutout.avif` (44 KB) + PNG fallback.
   No new text: only existing ET/RU/EN keys. Checked at 1440px and 375px (ET/RU/EN): no sideways
   scroll, no console errors. The slow float only runs on desktop. Old `boxer-hero*.jpg` removed.
   The giant name now also appears in the phone block below, so that wordmark may be redundant.
