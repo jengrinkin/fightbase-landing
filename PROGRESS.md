@@ -3,6 +3,15 @@
 _Last updated: 2026-11-13_
 
 ## Done
+- 2026-11-13 — Branch `poster-hero` (cont.): interactivity. (1) Cursor parallax: name, boxer and glow move at
+  different depths (desktop). (3) The four hero lines now drive an app demo that replaces the old static
+  phone: click/hover a line (or a tab in the new demo section) to switch the phone between Today,
+  Attendance (tap members to mark present), Join (code + members arriving) and Message (bubble +
+  notification). Auto-cycles while in view until the visitor touches it. (4) Scroll: the name splits and
+  slides apart, boxer grows, hero text fades. (5) Magnetic CTA button, phone tilts toward the cursor.
+  No "punch" effect (Jen said no). All demo words reuse existing ET/RU/EN keys; member names are
+  invented and language-neutral. Reduced-motion visitors get none of the motion. Old giant wordmark
+  under the phone removed. Checked 1440px and 375px (ET/RU/EN): no overflow, no console errors.
 - 2026-11-13 — Branch `poster-hero` (preview only, NOT merged; built on `video-hero`): poster-style home
   hero copied from Jen's reference layout. Giant white FIGHTBASE behind a cut-out boxer with a red rim
   light, navy `#03203D` + stone blue `#639CC5` + brand red `#DC2626` (no gold). Bold headline in front,
