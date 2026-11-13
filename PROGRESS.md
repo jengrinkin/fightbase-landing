@@ -3,6 +3,12 @@
 _Last updated: 2026-11-13_
 
 ## Done
+- 2026-11-13 — Branch `poster-hero` (cont.): new photo `_MG_9879` (guard up, face behind the glove) replaces the
+  first boxer. Cut out on this Mac (Apple Vision), cropped waist-up, shipped as `assets/boxer-guard.jpg`
+  (115 KB) + `assets/boxer-guard-mask.png` (22 KB outline, applied with CSS mask). AVIF was dropped: Chrome
+  showed Apple-made AVIFs as fully transparent. Removed the "name splits left/right on scroll" effect
+  (Jen didn't like it); the name now only drifts up slightly. Old `boxer-cutout.*` removed.
+  Photo has visible Venum glove and Nike shirt logos.
 - 2026-11-13 — Branch `poster-hero` (cont.): interactivity. (1) Cursor parallax: name, boxer and glow move at
   different depths (desktop). (3) The four hero lines now drive an app demo that replaces the old static
   phone: click/hover a line (or a tab in the new demo section) to switch the phone between Today,
@@ -16,7 +22,7 @@ _Last updated: 2026-11-13_
   hero copied from Jen's reference layout. Giant white FIGHTBASE behind a cut-out boxer with a red rim
   light, navy `#03203D` + stone blue `#639CC5` + brand red `#DC2626` (no gold). Bold headline in front,
   "17:30 + class name" tag, the 4 hero lines as a small list, red button with an arrow. Boxer cut out
-  on this Mac with Apple Vision (nothing uploaded), cropped waist-up; `assets/boxer-cutout.avif` (44 KB) + PNG fallback.
+  on this Mac with Apple Vision (nothing uploaded), cropped waist-up; (see the newer entry above for the current photo files).
   No new text: only existing ET/RU/EN keys. Checked at 1440px and 375px (ET/RU/EN): no sideways
   scroll, no console errors. The slow float only runs on desktop. Old `boxer-hero*.jpg` removed.
   The giant name now also appears in the phone block below, so that wordmark may be redundant.

@@ -146,10 +146,6 @@
       color: #F4F8FC;
       transform: translate3d(calc(var(--mx, 0) * -16px), calc(var(--my, 0) * -9px + var(--p, 0) * -60px), 0);
     }
-    /* On scroll the name splits in two and slides apart, leaving the boxer in the middle. */
-    .pw { display: inline-block; }
-    .pw-l { transform: translateX(calc(var(--p, 0) * -9vw)); }
-    .pw-r { transform: translateX(calc(var(--p, 0) * 9vw)); }
     .poster-boxer {
       position: absolute; z-index: 2; left: 50%; bottom: -6px; height: 84%; transform: translateX(-50%);
       /* the red "rim light" lining: a tight bright edge plus a soft glow */
@@ -159,7 +155,10 @@
     @media (hover: hover) and (min-width: 861px) { .poster-boxer { animation: boxer-float 9s ease-in-out infinite alternate; } }
     .poster-boxer picture { display: block; height: 100%; transform-origin: 50% 100%;
       transform: translate3d(calc(var(--mx, 0) * 22px), calc(var(--my, 0) * 12px + var(--p, 0) * 46px), 0) scale(calc(1 + var(--p, 0) * 0.07)); }
-    .poster-boxer img { display: block; height: 100%; width: auto; }
+    /* The photo keeps its background; this outline image cuts the boxer out of it. */
+    .poster-boxer img { display: block; height: 100%; width: auto;
+      -webkit-mask: url(/assets/boxer-guard-mask.png) center / 100% 100% no-repeat;
+      mask: url(/assets/boxer-guard-mask.png) center / 100% 100% no-repeat; }
     @keyframes boxer-float { from { transform: translateX(-50%) translateY(0) scale(1); } to { transform: translateX(-50%) translateY(-6px) scale(1.012); } }
 
     .poster-ui { position: absolute; inset: 0; z-index: 4; pointer-events: none;
@@ -378,8 +377,6 @@
       .poster-boxer { height: 86%; left: 66%; }
       .poster-eyebrow { left: 20px; right: 20px; top: 20px; max-width: none; font-size: 11px; letter-spacing: 0.12em; }
       .p-time, .p-list { display: none; }
-      .pw-l { transform: translateX(calc(var(--p, 0) * -14vw)); }
-      .pw-r { transform: translateX(calc(var(--p, 0) * 14vw)); }
       .p-head { left: 20px; right: 20px; width: auto; margin-left: 0; bottom: 118px; font-size: clamp(30px, 9.4vw, 44px); max-width: 64%; z-index: 4; }
       .p-cta { left: 20px; right: 20px; bottom: 22px; }
       .p-cta .cta-block { align-items: stretch; }
@@ -457,11 +454,10 @@
   <main>
     <section class="poster">
       <div class="poster-bg" aria-hidden="true"></div>
-      <div class="poster-word" aria-hidden="true"><span class="pw pw-l">FIGHT</span><span class="pw pw-r">BASE</span></div>
+      <div class="poster-word" aria-hidden="true">FIGHTBASE</div>
       <div class="poster-boxer" aria-hidden="true">
         <picture>
-          <source type="image/avif" srcset="/assets/boxer-cutout.avif">
-          <img src="/assets/boxer-cutout.png" width="800" height="1031" alt="" fetchpriority="high" decoding="async">
+          <img src="/assets/boxer-guard.jpg" width="800" height="1081" alt="" fetchpriority="high" decoding="async">
         </picture>
       </div>
       <div class="poster-ui">
