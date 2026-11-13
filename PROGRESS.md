@@ -1,8 +1,14 @@
 # FightBase landing — progress
 
-_Last updated: 2026-11-12_
+_Last updated: 2026-11-13_
 
 ## Done
+- 2026-11-13 — Branch `video-hero` (preview only, NOT merged): new cinematic home hero. Boxer
+  photo (Jen's `_MG_9258.JPG`, resized to `assets/boxer-hero*.jpg`) with a slow camera push-in,
+  flickering gym lights, red glow, grain and rising embers. No video, no cost, no outside files.
+  Desktop: text left, photo right fading into the dark. Phone: photo on top, text below. Text is
+  unchanged, so no locale edits. Reduced-motion visitors get a still photo. Checked locally at
+  1440px and 375px (ET/RU/EN): no sideways scroll, no console errors.
 - 2026-11-12 — Branch `phone-no-box`: removed the rounded dark square
   (border, corners, fill) behind the phone on the home page, and the faint gold glow that showed
   a hard corner without it. Phone, red glow and FIGHTBASE wordmark stay. Checked locally at
@@ -47,6 +53,10 @@ _Last updated: 2026-11-12_
 - Answer the native-speaker questions in `TRANSLATION_REVIEW.md` (ET and RU).
 
 ## Waiting on Jen
+- Check the `video-hero` Vercel preview (desktop + phone). Say "merge it" to go live.
+- Confirm the person in the boxer photo is OK with it being on the public site.
+- Optional: real boxing motion needs a short phone clip, or an AI image-to-video tool (paid credits,
+  ask first). The photo can then be swapped for the video.
 - Print one A5 sheet and scan it with your phone before the event.
 - Decide whether the old local branch `hero-redesign` is still needed. If not, delete it.
 - Native ET/RU check of the wording.
