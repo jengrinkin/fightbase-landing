@@ -200,16 +200,10 @@
       -webkit-mask-image: linear-gradient(90deg, transparent 6%, rgba(0,0,0,0.25) 22%, rgba(0,0,0,0.7) 38%, #000 62%), linear-gradient(180deg, #000 70%, transparent 100%);
       -webkit-mask-composite: source-in; mask-image: linear-gradient(90deg, transparent 6%, rgba(0,0,0,0.25) 22%, rgba(0,0,0,0.7) 38%, #000 62%), linear-gradient(180deg, #000 70%, transparent 100%); mask-composite: intersect;
     }
-    .hero-photo-motion { position: absolute; inset: 0; transform-origin: 62% 32%; animation: photo-drift 16s ease-in-out infinite alternate; }
     .hero-photo img {
-      position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;
+      position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 60% 20%;
+      transform-origin: 62% 32%; animation: photo-drift 16s ease-in-out infinite alternate;
       filter: contrast(1.05) saturate(1.05);
-    }
-    /* Light blur over the boxer's face (a second copy of the photo, blurred and masked to the face). */
-    .hero-photo img.face-blur {
-      filter: blur(5px) contrast(1.05) saturate(1.05);
-      -webkit-mask-image: radial-gradient(ellipse 11% 9% at 53% 28%, #000 45%, transparent 100%);
-      mask-image: radial-gradient(ellipse 11% 9% at 53% 28%, #000 45%, transparent 100%);
     }
     .hero-photo .lamp {
       position: absolute; width: 38%; height: 14%; border-radius: 50%;
@@ -453,7 +447,7 @@
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
       .js .reveal { opacity: 1; transform: none; transition: none; }
-      .hero-photo-motion, .hero-photo .lamp, .hero-glow { animation: none; }
+      .hero-photo img, .hero-photo .lamp, .hero-glow { animation: none; }
       .hero-embers { display: none; }
       .btn-primary, nav, body { transition: none; }
       .btn-primary:hover { transform: none; }
@@ -481,11 +475,10 @@
     <div class="hero-wrap">
     <div class="hero-bg" aria-hidden="true">
       <div class="hero-glow"></div>
-      <div class="hero-photo"><div class="hero-photo-motion">
+      <div class="hero-photo">
         <img src="/assets/boxer-hero.jpg" srcset="/assets/boxer-hero-sm.jpg 900w, /assets/boxer-hero.jpg 1600w" sizes="(max-width: 860px) 100vw, 40vw" width="1067" height="1600" alt="" fetchpriority="high" decoding="async">
-        <img class="face-blur" src="/assets/boxer-hero.jpg" srcset="/assets/boxer-hero-sm.jpg 900w, /assets/boxer-hero.jpg 1600w" sizes="(max-width: 860px) 100vw, 40vw" width="1067" height="1600" alt="" decoding="async">
         <span class="lamp a"></span><span class="lamp b"></span>
-      </div></div>
+      </div>
       <div class="hero-embers" id="embers"></div>
       <div class="hero-grain"></div>
     </div>
