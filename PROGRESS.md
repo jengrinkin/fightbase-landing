@@ -3,6 +3,14 @@
 _Last updated: 2026-11-13_
 
 ## Done
+- 2026-11-13 — Branch `poster-hero` (preview only, NOT merged; built on `video-hero`): poster-style home
+  hero copied from Jen's reference layout. Giant white FIGHTBASE behind a cut-out boxer with a red rim
+  light, navy `#03203D` + stone blue `#639CC5` + brand red `#DC2626` (no gold). Bold headline in front,
+  "17:30 + class name" tag, the 4 hero lines as a small list, red button with an arrow. Boxer cut out
+  on this Mac with Apple Vision (nothing uploaded); `assets/boxer-cutout.avif` (54 KB) + PNG fallback.
+  No new text: only existing ET/RU/EN keys. Checked at 1440px and 375px (ET/RU/EN): no sideways
+  scroll, no console errors. The slow float only runs on desktop. Old `boxer-hero*.jpg` removed.
+  The giant name now also appears in the phone block below, so that wordmark may be redundant.
 - 2026-11-13 — Branch `video-hero` (preview only, NOT merged): new cinematic home hero. Boxer
   photo (Jen's `_MG_9258.JPG`, resized to `assets/boxer-hero*.jpg`) with a slow camera push-in,
   flickering gym lights, red glow, grain and rising embers. No video, no cost, no outside files.
@@ -53,7 +61,7 @@ _Last updated: 2026-11-13_
 - Answer the native-speaker questions in `TRANSLATION_REVIEW.md` (ET and RU).
 
 ## Waiting on Jen
-- Check the `video-hero` Vercel preview (desktop + phone). Say "merge it" to go live.
+- Pick one: `video-hero` (photo + embers) or `poster-hero` (poster layout). Check the Vercel preview, then say "merge it".
 - Confirm the person in the boxer photo is OK with it being on the public site.
 - Optional: real boxing motion needs a short phone clip, or an AI image-to-video tool (paid credits,
   ask first). The photo can then be swapped for the video.

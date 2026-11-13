@@ -37,6 +37,8 @@
       --red: #DC2626;
       --gold: #EEC748;
       --bg: #07070A;
+      --navy: #03203D;   /* Egyptian Blue */
+      --stone: #639CC5;  /* Stone Blue */
       --white: #FFFFFF;
       --border: rgba(255,255,255,0.08);
       --text-muted: #9CA3AF;
@@ -67,8 +69,8 @@
       gap: 24px;
       padding: 0 48px;
       height: 68px;
-      background: rgba(7,7,10,0);
-      border-bottom: 1px solid transparent;
+      background: var(--navy);
+      border-bottom: 1px solid rgba(255,255,255,0.1);
       transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
     }
 
@@ -103,59 +105,7 @@
     .lang-btn:hover { color: #fff; }
     .lang-sep { color: #303045; font-size: 11px; }
 
-    /* ─── HERO ─── */
-    .hero {
-      max-width: 720px;
-      margin: 0 auto;
-      padding: 88px 48px 96px;
-      text-align: center;
-    }
-
-    .hero-eyebrow {
-      display: inline-block;
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 18px;
-    }
-
-    .hero-headline {
-      font-size: 52px;
-      font-weight: 900;
-      line-height: 1.08;
-      letter-spacing: -0.5px;
-      margin-bottom: 32px;
-    }
-
-    .hero-list {
-      list-style: none;
-      display: inline-flex;
-      flex-direction: column;
-      gap: 12px;
-      text-align: left;
-      margin-bottom: 36px;
-    }
-    .hero-list li {
-      font-size: 18px;
-      line-height: 1.4;
-      color: #E5E7EB;
-      padding-left: 30px;
-      position: relative;
-    }
-    .hero-list li::before {
-      content: "";
-      position: absolute;
-      left: 2px;
-      top: 7px;
-      width: 13px;
-      height: 7px;
-      border-left: 2px solid var(--gold);
-      border-bottom: 2px solid var(--gold);
-      transform: rotate(-45deg);
-    }
-
+    /* ─── HERO: poster. Giant name behind a cut-out boxer with a red rim light. ─── */
     .cta-block { display: flex; flex-direction: column; align-items: center; gap: 14px; }
 
     .btn-primary {
@@ -179,68 +129,53 @@
 
     .member-note { font-size: 14px; color: var(--text-muted); }
 
-    .hero-headline .accent { color: var(--red); }
 
-    /* ─── CINEMATIC HERO BACKDROP: boxer photo, gym lights, red glow, embers (no video, no outside files) ─── */
-    .hero-wrap { position: relative; overflow: hidden; margin-top: -68px; padding-top: 68px; isolation: isolate; }
-    .hero-bg { position: absolute; inset: 0; z-index: -1; pointer-events: none; background: var(--bg); }
-    .hero-bg::after { /* vignette keeps the edges dark and the text readable */
-      content: ""; position: absolute; inset: 0;
-      background: radial-gradient(120% 90% at 50% 45%, transparent 35%, rgba(7,7,10,0.85) 100%),
-                  linear-gradient(180deg, rgba(7,7,10,0) 70%, var(--bg) 100%);
+    .poster { position: relative; overflow: hidden; isolation: isolate; background: var(--navy); min-height: max(680px, calc(100svh - 68px)); }
+    .poster-bg {
+      position: absolute; inset: 0; z-index: 0;
+      background:
+        radial-gradient(52% 58% at 50% 64%, rgba(99,156,197,0.40), transparent 70%),
+        radial-gradient(38% 34% at 50% 100%, rgba(220,38,38,0.30), transparent 72%),
+        linear-gradient(180deg, var(--navy) 0%, #031A33 72%, var(--bg) 100%);
     }
-    .hero-glow {
-      position: absolute; left: 50%; bottom: -30%; width: 120vmax; height: 70%; margin-left: -60vmax;
-      background: radial-gradient(50% 60% at 50% 100%, rgba(220,38,38,0.42), transparent 70%);
-      animation: glow-breathe 7s ease-in-out infinite alternate;
+    .poster-word {
+      position: absolute; left: 0; right: 0; top: 3%; z-index: 1;
+      text-align: center; white-space: nowrap; user-select: none;
+      font-weight: 900; font-size: min(15.6vw, 44svh); line-height: 0.8; letter-spacing: -0.055em;
+      color: #F4F8FC;
     }
-    /* Boxer photo: slow handheld push-in, flickering gym lights. Percentages are of the photo itself (2:3). */
-    .hero-photo {
-      position: absolute; right: 0; top: 0; height: 100%; aspect-ratio: 2 / 3; max-width: 66%;
-      -webkit-mask-image: linear-gradient(90deg, transparent 6%, rgba(0,0,0,0.25) 22%, rgba(0,0,0,0.7) 38%, #000 62%), linear-gradient(180deg, #000 70%, transparent 100%);
-      -webkit-mask-composite: source-in; mask-image: linear-gradient(90deg, transparent 6%, rgba(0,0,0,0.25) 22%, rgba(0,0,0,0.7) 38%, #000 62%), linear-gradient(180deg, #000 70%, transparent 100%); mask-composite: intersect;
+    .poster-boxer {
+      position: absolute; z-index: 2; left: 50%; bottom: 0; height: 90%; transform: translateX(-50%);
+      /* the red "rim light" lining: a tight bright edge plus a soft glow */
+      filter: drop-shadow(0 0 1px #FF4B3E) drop-shadow(0 0 1px #FF4B3E) drop-shadow(0 0 4px rgba(255,59,59,0.85)) drop-shadow(0 0 30px rgba(220,38,38,0.6));
     }
-    .hero-photo img {
-      position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 60% 20%;
-      transform-origin: 62% 32%; animation: photo-drift 16s ease-in-out infinite alternate;
-      filter: contrast(1.05) saturate(1.05);
+    /* The slow float only runs on desktop-class devices; phones keep it still to stay smooth. */
+    @media (hover: hover) and (min-width: 861px) { .poster-boxer { animation: boxer-float 9s ease-in-out infinite alternate; } }
+    .poster-boxer img { display: block; height: 100%; width: auto; }
+    @keyframes boxer-float { from { transform: translateX(-50%) translateY(0) scale(1); } to { transform: translateX(-50%) translateY(-6px) scale(1.012); } }
+
+    .poster-eyebrow, .p-time, .p-list, .p-head, .p-cta { position: absolute; z-index: 4; }
+    .poster-eyebrow { left: 4.5vw; top: 37%; font-size: 12px; font-weight: 800; letter-spacing: 0.16em; text-transform: uppercase; color: var(--red); max-width: 24vw; line-height: 1.5; }
+    .p-time { left: 4.5vw; top: 50%; display: flex; flex-direction: column; gap: 6px; }
+    .p-time strong { font-size: clamp(48px, 6.2vw, 96px); line-height: 0.9; font-weight: 900; letter-spacing: -0.04em; }
+    .p-time span { font-size: 12px; font-weight: 800; letter-spacing: 0.16em; text-transform: uppercase; color: var(--stone); }
+    .p-list { right: 4.5vw; top: 46%; list-style: none; width: min(300px, 24vw); text-align: right; }
+    .p-list li { font-size: 12px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #D6E4F0; line-height: 1.45; padding: 11px 0; border-bottom: 1px solid rgba(255,255,255,0.16); }
+    .p-list li:first-child { border-top: 1px solid rgba(255,255,255,0.16); }
+    .p-head {
+      left: 50%; margin-left: -3vw; bottom: 15%; width: 30vw;
+      font-size: clamp(26px, 3.5vw, 54px); font-weight: 900; line-height: 0.98; letter-spacing: -0.02em; text-transform: uppercase;
+      text-shadow: 0 2px 22px rgba(3,32,61,0.75);
     }
-    .hero-photo .lamp {
-      position: absolute; width: 38%; height: 14%; border-radius: 50%;
-      background: radial-gradient(closest-side, rgba(255,214,170,0.7), transparent);
-      mix-blend-mode: screen; pointer-events: none;
-      animation: lamp-flicker 5.5s steps(1, end) infinite;
-    }
-    .hero-photo .lamp.a { left: 22%; top: 12%; transform: rotate(-24deg); }
-    .hero-photo .lamp.b { left: 74%; top: -4%; width: 34%; animation-delay: -2.3s; }
-    @keyframes photo-drift {
-      from { transform: scale(1.02) translate3d(0, 0, 0) rotate(0deg); }
-      to   { transform: scale(1.1) translate3d(-1.2%, 1%, 0) rotate(-0.6deg); }
-    }
-    @keyframes lamp-flicker {
-      0%, 100% { opacity: 0.75; } 8% { opacity: 1; } 12% { opacity: 0.4; } 15% { opacity: 0.95; }
-      40% { opacity: 0.8; } 63% { opacity: 1; } 66% { opacity: 0.55; } 69% { opacity: 0.9; }
-    }
-    .hero-embers span {
-      position: absolute; bottom: -10px; left: var(--x); width: var(--s); height: var(--s); border-radius: 50%;
-      background: #FF6A4D; box-shadow: 0 0 8px 1px rgba(255,90,60,0.85); opacity: 0;
-      animation: ember-rise var(--t) linear var(--dl) infinite;
-    }
-    .hero-grain {
-      position: absolute; inset: 0; opacity: 0.07; mix-blend-mode: overlay;
-      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
-    }
-    @keyframes spot-sway { from { transform: rotate(-3deg); } to { transform: rotate(3deg); } }
-    @keyframes glow-breathe { from { opacity: 0.55; } to { opacity: 1; } }
-    @keyframes ember-rise {
-      0% { transform: translate3d(0, 0, 0); opacity: 0; }
-      10% { opacity: 0.9; }
-      100% { transform: translate3d(var(--dx), -85svh, 0); opacity: 0; }
-    }
-    .hero-wrap .hero { position: relative; max-width: 1160px; text-align: left; padding-left: 48px; padding-right: 48px; min-height: min(760px, calc(100svh - 68px)); display: flex; flex-direction: column; align-items: flex-start; justify-content: center; }
-    .hero-wrap .hero .cta-block { align-items: flex-start; }
-    .hero-wrap .hero-headline { max-width: 9.5em; font-size: clamp(40px, 6.2vw, 84px); line-height: 1.02; letter-spacing: -0.035em; text-wrap: balance; }
-    .hero-wrap .hero-eyebrow { padding: 7px 14px; border: 1px solid rgba(238,199,72,0.35); border-radius: 999px; background: rgba(7,7,10,0.5); }
+    .p-head .accent { background: var(--red); color: #fff; padding: 0 0.16em; margin: 0 -0.02em; text-shadow: none; -webkit-box-decoration-break: clone; box-decoration-break: clone; }
+    .p-cta { left: 4.5vw; bottom: 7%; }
+    .p-cta .cta-block { align-items: flex-start; gap: 12px; }
+    .p-cta .member-note { color: #B7CCE0; }
+    /* Above the fold, so it fades in at once instead of waiting for the scroll-reveal script. */
+    .js .pin { animation: pin 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) both; animation-delay: var(--d, 0ms); }
+    @keyframes pin { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+    .btn-primary .arr { display: inline-block; margin-left: 10px; transition: transform .2s ease; }
+    @media (hover: hover) { .btn-primary:hover .arr { transform: translateX(4px); } }
 
     /* ─── STAGE: photo + phone + giant wordmark ─── */
     .stage-wrap { max-width: 1160px; margin: 0 auto; padding: 0 48px; position: relative; }
@@ -392,23 +327,19 @@
       nav { padding: 0 16px; gap: 12px; }
       .nav-logo img { height: 26px; }
       .nav-signin { padding: 7px 12px; font-size: 13px; }
-      .hero { padding: 40px 20px 64px; }
-      .hero-photo { max-width: none; width: 100%; height: auto; opacity: 0.95; }
-      .hero-bg::before { content: ""; position: absolute; inset: 0; z-index: 2; background: linear-gradient(180deg, rgba(7,7,10,0.25) 0%, rgba(7,7,10,0) 30%, rgba(7,7,10,0.82) 52%, var(--bg) 70%); }
-      .hero-wrap .hero { padding-left: 20px; padding-right: 20px; align-items: flex-start; justify-content: flex-end; }
-      .hero-wrap .hero-headline { font-size: clamp(36px, 10.5vw, 46px); }
-      .hero-eyebrow { font-size: 11px; letter-spacing: 1.5px; margin-bottom: 14px; }
-      .hero-headline { font-size: 34px; margin-bottom: 24px; }
-      .hero-list { gap: 10px; margin-bottom: 28px; }
-      .hero-list li { font-size: 16px; }
-      .hero-list li::before { top: 6px; }
+      .poster { min-height: max(700px, calc(100svh - 68px)); }
+      .poster-word { top: 9%; font-size: 15.6vw; }
+      .poster-boxer { height: 84%; }
+      .poster-eyebrow { left: 20px; right: 20px; top: 20px; max-width: none; font-size: 11px; letter-spacing: 0.12em; }
+      .p-time, .p-list { display: none; }
+      .p-head { left: 20px; right: 20px; width: auto; margin-left: 0; bottom: 118px; font-size: clamp(30px, 9.4vw, 44px); max-width: 64%; z-index: 4; }
+      .p-cta { left: 20px; right: 20px; bottom: 22px; }
+      .p-cta .cta-block { align-items: stretch; }
+      .poster::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 40%; z-index: 3; pointer-events: none; background: linear-gradient(180deg, rgba(7,7,10,0), rgba(7,7,10,0.9) 70%, var(--bg)); }
       .btn-primary { width: 100%; max-width: 340px; text-align: center; }
       .stage-wrap { padding: 0 16px; }
       .stage { height: 460px; }
       .phone { left: 50%; margin-left: -92px; top: 40px; transform: rotate(-8deg) scale(0.66); transform-origin: top left; }
-      /* Hero fills the first screen, so the photo stage always starts below the fold. */
-      .hero { min-height: calc(100svh - 68px); display: flex; flex-direction: column; align-items: center; justify-content: center; padding-top: 24px; padding-bottom: 32px; }
-      .hero .cta-block { width: 100%; }
       .features-section { padding: 64px 20px 56px; }
       .features-grid { grid-template-columns: 1fr; gap: 14px; }
       .feature { padding: 22px; }
@@ -447,8 +378,8 @@
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
       .js .reveal { opacity: 1; transform: none; transition: none; }
-      .hero-photo img, .hero-photo .lamp, .hero-glow { animation: none; }
-      .hero-embers { display: none; }
+      .poster-boxer { animation: none; }
+      .js .pin { animation: none; }
       .btn-primary, nav, body { transition: none; }
       .btn-primary:hover { transform: none; }
       @view-transition { navigation: none; }
@@ -472,31 +403,31 @@
 
   <!-- HERO: everything that must fit above the fold on a phone -->
   <main>
-    <div class="hero-wrap">
-    <div class="hero-bg" aria-hidden="true">
-      <div class="hero-glow"></div>
-      <div class="hero-photo">
-        <img src="/assets/boxer-hero.jpg" srcset="/assets/boxer-hero-sm.jpg 900w, /assets/boxer-hero.jpg 1600w" sizes="(max-width: 860px) 100vw, 40vw" width="1067" height="1600" alt="" fetchpriority="high" decoding="async">
-        <span class="lamp a"></span><span class="lamp b"></span>
+    <section class="poster">
+      <div class="poster-bg" aria-hidden="true"></div>
+      <div class="poster-word" aria-hidden="true">FIGHTBASE</div>
+      <div class="poster-boxer" aria-hidden="true">
+        <picture>
+          <source type="image/avif" srcset="/assets/boxer-cutout.avif">
+          <img src="/assets/boxer-cutout.png" width="800" height="1500" alt="" fetchpriority="high" decoding="async">
+        </picture>
       </div>
-      <div class="hero-embers" id="embers"></div>
-      <div class="hero-grain"></div>
-    </div>
-    <div class="hero">
-      <span class="hero-eyebrow reveal">Для клубов бокса и единоборств</span>
-      <h1 class="hero-headline reveal" style="--d:60ms">Управляйте <span class="accent">клубом</span> с телефона.</h1>
-      <ul class="hero-list reveal" style="--d:140ms">
+      <span class="poster-eyebrow pin">Для клубов бокса и единоборств</span>
+      <div class="p-time pin" style="--d:80ms"><strong>17:30</strong><span>Бокс · начинающие</span></div>
+      <ul class="p-list pin" style="--d:120ms">
         <li>Сегодняшние тренировки на одном экране</li>
         <li>Отметка посещений за секунды</li>
         <li>Участники присоединяются по одной ссылке</li>
         <li>Сообщение всему клубу сразу</li>
       </ul>
-      <div class="cta-block reveal" style="--d:220ms">
-        <a class="btn-primary" href="https://app.fightbaseapp.com/?lang=ru">Создать свой клуб</a>
-        <p class="member-note">Участник? Попросите у тренера ссылку.</p>
+      <h1 class="p-head pin" style="--d:60ms">Управляйте <span class="accent">клубом</span> с телефона.</h1>
+      <div class="p-cta pin" style="--d:200ms">
+        <div class="cta-block">
+          <a class="btn-primary" href="https://app.fightbaseapp.com/?lang=ru">Создать свой клуб<span class="arr" aria-hidden="true">→</span></a>
+          <p class="member-note">Участник? Попросите у тренера ссылку.</p>
+        </div>
       </div>
-    </div>
-    </div>
+    </section>
 
     <!-- STAGE: the app's "Today" screen on a phone. The boxer photo goes here once it exists. -->
     <div class="stage-wrap">
@@ -681,22 +612,6 @@
       });
       // Coming back via the back button restores a faded-out page from cache.
       window.addEventListener('pageshow', function () { document.body.classList.remove('is-leaving'); });
-    })();
-  </script>
-  <script>
-    // Hero embers: 22 tiny sparks rising slowly. Skipped when the visitor prefers reduced motion.
-    (function () {
-      var box = document.getElementById('embers');
-      if (!box || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-      for (var i = 0; i < 22; i++) {
-        var e = document.createElement('span');
-        e.style.setProperty('--x', (Math.random() * 100).toFixed(1) + '%');
-        e.style.setProperty('--s', (2 + Math.random() * 2.5).toFixed(1) + 'px');
-        e.style.setProperty('--dx', (Math.random() * 80 - 40).toFixed(0) + 'px');
-        e.style.setProperty('--t', (9 + Math.random() * 9).toFixed(1) + 's');
-        e.style.setProperty('--dl', '-' + (Math.random() * 16).toFixed(1) + 's');
-        box.appendChild(e);
-      }
     })();
   </script>
 </body>
