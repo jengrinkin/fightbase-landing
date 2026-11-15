@@ -215,16 +215,33 @@
 
     /* Phone (colours from the app's dark theme). It leans slightly toward the cursor. */
     .phone {
-      position: relative; width: 280px; height: 580px; flex: none;
-      border-radius: 46px; padding: 10px;
-      background: linear-gradient(145deg, #2a2a30, #0c0c0f 40%, #1c1c22);
-      box-shadow: 0 40px 90px rgba(0,0,0,0.75), 0 0 0 1px rgba(255,255,255,0.08), inset 0 0 0 1px rgba(255,255,255,0.06);
+      position: relative; width: 286px; height: 606px; flex: none;
+      border-radius: 54px; padding: 9px;
+      background: #000;                      /* black glass bezel */
+      /* titanium frame: thin dark gap, brushed-metal edge, outer shadow line, then the drop shadow */
+      box-shadow:
+        0 0 0 1.5px #1a1a1c,
+        0 0 0 4px #8b8b90,
+        0 0 0 5px #45454a,
+        inset 0 0 0 1.5px #2c2c2f,
+        0 50px 90px rgba(0,0,0,0.8);
       transform: perspective(900px) rotateY(calc(var(--tx, 0) * 7deg)) rotateX(calc(var(--ty, 0) * -5deg));
       transition: transform 0.2s ease-out;
     }
-    .phone-screen { position: relative; height: 100%; border-radius: 37px; overflow: hidden; display: flex; flex-direction: column; background: #080C16; color: #F1F5F9; padding: 14px 16px; font-size: 11px; }
-    .ps-status { display: flex; justify-content: space-between; align-items: center; font-size: 11px; font-weight: 600; margin-bottom: 16px; }
-    .ps-island { width: 74px; height: 20px; border-radius: 12px; background: #000; }
+    /* side buttons: action + two volume keys on the left, power on the right */
+    .phone::before, .phone::after { content: ""; position: absolute; width: 3.5px; background: #7c7c82; }
+    .phone::before { left: -8.5px; top: 104px; height: 168px; border-radius: 2px 0 0 2px;
+      background: linear-gradient(#7c7c82 0 22px, transparent 22px 44px, #7c7c82 44px 96px, transparent 96px 110px, #7c7c82 110px 162px, transparent 162px); }
+    .phone::after { right: -8.5px; top: 178px; height: 84px; border-radius: 0 2px 2px 0; }
+    .phone-screen { position: relative; height: 100%; border-radius: 45px; overflow: hidden; display: flex; flex-direction: column; background: #080C16; color: #F1F5F9; padding: 14px 18px; font-size: 11px; }
+    /* faint glass reflection */
+    .phone-screen::after { content: ""; position: absolute; inset: 0; pointer-events: none; border-radius: inherit;
+      background: linear-gradient(125deg, rgba(255,255,255,0.07) 0%, rgba(255,255,255,0) 28%, rgba(255,255,255,0) 72%, rgba(255,255,255,0.03) 100%); }
+    .ps-status { position: relative; display: flex; justify-content: space-between; align-items: center; height: 26px; padding: 0 8px 0 12px; font-size: 13px; font-weight: 700; letter-spacing: -0.01em; margin-bottom: 16px; }
+    .ps-island { position: absolute; left: 50%; top: 0; width: 86px; height: 26px; margin-left: -43px; border-radius: 14px; background: #000; }
+    .ps-island::after { content: ""; position: absolute; right: 9px; top: 8px; width: 9px; height: 9px; border-radius: 50%; background: radial-gradient(circle at 35% 35%, #2a2f45, #0a0c14 60%); }
+    .ps-icons { display: flex; align-items: center; gap: 5px; }
+    .ps-icons svg { display: block; height: 11px; width: auto; fill: #F1F5F9; }
     .scr-wrap { position: relative; flex: 1; min-height: 0; }
     .scr { position: absolute; inset: 0; opacity: 0; visibility: hidden; transform: translateY(10px); pointer-events: none; transition: opacity 0.35s ease, transform 0.35s ease, visibility 0.35s; }
     .scr.is-active { opacity: 1; visibility: visible; transform: none; pointer-events: auto; }
@@ -513,7 +530,11 @@
           <div class="demo-glow" aria-hidden="true"></div>
           <div class="phone" role="group" aria-label="Экран тренера «Сегодня» в FightBase: тренировки на сегодня, посещаемость и объявление для всего клуба.">
             <div class="phone-screen">
-              <div class="ps-status"><span>9:41</span><span class="ps-island"></span><span>●●●</span></div>
+              <div class="ps-status"><span>9:41</span><span class="ps-island"></span><span class="ps-icons" aria-hidden="true">
+                <svg viewBox="0 0 18 12"><rect x="0" y="8" width="3" height="4" rx="0.8"/><rect x="5" y="5.5" width="3" height="6.5" rx="0.8"/><rect x="10" y="3" width="3" height="9" rx="0.8"/><rect x="15" y="0" width="3" height="12" rx="0.8"/></svg>
+                <svg viewBox="0 0 16 12" style="fill:none;stroke:#F1F5F9;stroke-width:1.7;stroke-linecap:round"><path d="M1.5 4.2a9.4 9.4 0 0 1 13 0"/><path d="M4 6.9a5.8 5.8 0 0 1 8 0"/><circle cx="8" cy="10" r="1.1" style="fill:#F1F5F9;stroke:none"/></svg>
+                <svg viewBox="0 0 27 12"><rect x="0.6" y="0.6" width="22.8" height="10.8" rx="3.4" fill="none" stroke="#F1F5F9" stroke-opacity="0.45" stroke-width="1.2"/><rect x="2.3" y="2.3" width="19.4" height="7.4" rx="2"/><path d="M25 4v4c.9-.3 1.500-1.100 1.500-2S25.900 4.300 25 4z" fill-opacity="0.5"/></svg>
+              </span></div>
               <div class="scr-wrap">
                 <div class="scr is-active" id="scr-today" role="tabpanel" aria-labelledby="tab-today">
                   <div class="ps-greeting">Привет, Марко</div>

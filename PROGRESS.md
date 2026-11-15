@@ -3,6 +3,9 @@
 _Last updated: 2026-11-15_
 
 ## Done
+- 2026-11-15 — Branch `mono-hero` (cont.): plain solid FIGHTBASE (speckle removed); red gradient removed
+  from the "Liikmele" box; hero button corners rounded to 14px (same as app cards); demo phone restyled
+  as a realistic iPhone (black bezel, titanium edge, side buttons, Dynamic Island, signal/wifi/battery).
 - 2026-11-15 — Branch `mono-hero` (preview only, NOT merged; built on `poster-hero`): black-and-white hero
   recreated from Jen's "Cloud Castle" reference. Giant plain off-white FIGHTBASE (Anton font, speckle removed at Jen's request) across the top,
   greyscale cut-out boxer (`boxer-guard.jpg` + mask) in the middle, grid lines, drifting smoke and grain,
