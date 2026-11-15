@@ -1,8 +1,15 @@
 # FightBase landing — progress
 
-_Last updated: 2026-11-13_
+_Last updated: 2026-11-15_
 
 ## Done
+- 2026-11-15 — Branch `mono-hero` (preview only, NOT merged; built on `poster-hero`): black-and-white hero
+  recreated from Jen's "Cloud Castle" reference. Giant distressed FIGHTBASE (Anton font) across the top,
+  greyscale cut-out boxer (`boxer-guard.jpg` + mask) in the middle, grid lines, drifting smoke and grain,
+  a row of small red labels, headline + feature list + button on the left, "How it works" steps on the
+  right. Red is the only colour. Navy/stone blue replaced by black/grey across the hero and demo.
+  Parallax, scroll effect, demo and magnetic button kept. Only existing ET/RU/EN text is used.
+  Checked at 1440px and 375px: no sideways scroll.
 - 2026-11-13 — Branch `poster-hero` (cont.): new photo `_MG_9879` (guard up, face behind the glove) replaces the
   first boxer. Cut out on this Mac (Apple Vision), cropped waist-up, shipped as `assets/boxer-guard.jpg`
   (115 KB) + `assets/boxer-guard-mask.png` (22 KB outline, applied with CSS mask). AVIF was dropped: Chrome
@@ -76,7 +83,7 @@ _Last updated: 2026-11-13_
 - Answer the native-speaker questions in `TRANSLATION_REVIEW.md` (ET and RU).
 
 ## Waiting on Jen
-- Pick one: `video-hero` (photo + embers) or `poster-hero` (poster layout). Check the Vercel preview, then say "merge it".
+- Pick one: `video-hero` (photo + embers), `poster-hero` (navy poster) or `mono-hero` (black-and-white). Check the Vercel preview, then say "merge it".
 - Confirm the person in the boxer photo is OK with it being on the public site.
 - Optional: real boxing motion needs a short phone clip, or an AI image-to-video tool (paid credits,
   ask first). The photo can then be swapped for the video.
