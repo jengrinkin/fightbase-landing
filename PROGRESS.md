@@ -3,6 +3,9 @@
 _Last updated: 2026-11-15_
 
 ## Done
+- 2026-11-15 — Branch `mono-hero` (cont.): the cut-out boxer looked fake, so the hero now uses the real photo
+  (`_MG_9879`, cropped to `assets/boxer-photo.jpg`, 174 KB) uncut, in natural colour, with its own gym
+  background faded softly into the black (CSS mask). Cut-out files `boxer-guard.*` removed.
 - 2026-11-15 — Branch `mono-hero` (cont.): plain solid FIGHTBASE (speckle removed); red gradient removed
   from the "Liikmele" box; hero button corners rounded to 14px (same as app cards); demo phone restyled
   as a realistic iPhone (black bezel, titanium edge, side buttons, Dynamic Island, signal/wifi/battery).
