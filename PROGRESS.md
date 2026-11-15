@@ -3,6 +3,10 @@
 _Last updated: 2026-11-15_
 
 ## Done
+- 2026-11-15 — Branch `mono-hero` (cont.): Jen wanted the black-and-white cut-out back (head overlapping the
+  name) but not "cartoon" looking. Redone from the full-size original: `assets/boxer-hq.jpg` (1200px,
+  219 KB) + `assets/boxer-hq-mask.png` (finer outline, edge trimmed and softened), greyscale with almost no
+  contrast boost. The uncut colour-photo version (`boxer-photo.jpg`) was tried and dropped.
 - 2026-11-15 — Branch `mono-hero` (cont.): the cut-out boxer looked fake, so the hero now uses the real photo
   (`_MG_9879`, cropped to `assets/boxer-photo.jpg`, 174 KB) uncut, in natural colour, with its own gym
   background faded softly into the black (CSS mask). Cut-out files `boxer-guard.*` removed.
