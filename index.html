@@ -130,7 +130,7 @@
     .member-note { font-size: 14px; color: var(--text-muted); }
 
 
-    /* ─── HERO: black-and-white poster. Giant distressed name, boxer in the middle, grid + smoke. ─── */
+    /* ─── HERO: black-and-white poster. Giant plain name, boxer in the middle, grid + smoke. ─── */
     .poster { --wm: min(21.5vw, 50svh); position: relative; overflow: hidden; isolation: isolate; background: var(--navy); min-height: max(700px, calc(100svh - 68px)); }
     .poster-bg {
       position: absolute; inset: -4%; z-index: 0;
@@ -154,7 +154,6 @@
       text-align: center; white-space: nowrap; user-select: none;
       font-family: 'Anton', 'Impact', 'Inter', sans-serif; font-weight: 400; font-size: var(--wm); line-height: 0.92; letter-spacing: 0.005em;
       color: #EDEDED;
-      -webkit-mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='420' height='420'><filter id='g'><feTurbulence type='fractalNoise' baseFrequency='0.16' numOctaves='5' seed='4' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  -9 -9 -9 0 17.6'/></filter><rect width='100%' height='100%' filter='url(%23g)'/></svg>") 0 0 / 420px 420px; mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='420' height='420'><filter id='g'><feTurbulence type='fractalNoise' baseFrequency='0.16' numOctaves='5' seed='4' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  -9 -9 -9 0 17.6'/></filter><rect width='100%' height='100%' filter='url(%23g)'/></svg>") 0 0 / 420px 420px;
       transform: translate3d(calc(var(--mx, 0) * -16px), calc(var(--my, 0) * -9px + var(--p, 0) * -60px), 0);
     }
     .poster-boxer { position: absolute; z-index: 2; left: 50%; bottom: -6px; height: 86%; transform: translateX(-50%); filter: grayscale(1) contrast(1.1) brightness(1.08) drop-shadow(0 30px 60px rgba(0,0,0,0.8)); }

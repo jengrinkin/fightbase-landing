@@ -4,7 +4,7 @@ _Last updated: 2026-11-15_
 
 ## Done
 - 2026-11-15 — Branch `mono-hero` (preview only, NOT merged; built on `poster-hero`): black-and-white hero
-  recreated from Jen's "Cloud Castle" reference. Giant distressed FIGHTBASE (Anton font) across the top,
+  recreated from Jen's "Cloud Castle" reference. Giant plain off-white FIGHTBASE (Anton font, speckle removed at Jen's request) across the top,
   greyscale cut-out boxer (`boxer-guard.jpg` + mask) in the middle, grid lines, drifting smoke and grain,
   a row of small red labels, headline + feature list + button on the left, "How it works" steps on the
   right. Red is the only colour. Navy/stone blue replaced by black/grey across the hero and demo.
