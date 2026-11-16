@@ -1,8 +1,16 @@
 # FightBase landing — progress
 
-_Last updated: 2026-11-15_
+_Last updated: 2026-11-16_
 
 ## Done
+- 2026-11-16 — Branch `mono-hero` (cont.): Jen said the cut-out still looked fake. Re-cut with Apple's
+  person-matting model (soft alpha: real hair edge, motion-blurred glove keeps its soft edge), cleaned
+  with the older rough mask. Files: `assets/boxer-hq.jpg` + `assets/boxer-matte.png` (110 KB).
+  Greyscale, light contrast, no drop shadow; film grain on the boxer only so he matches the background.
+  LESSON: a full-width layer above the boxer (grain/smoke, with or without blend modes or blur) made
+  the whole hero fail to draw at 2400x1500 in the test browser. Removed. Don't add full-size layers
+  over the masked boxer; test at a very large window size after hero changes.
+  Checked at 2400px, 1440px and 375px.
 - 2026-11-15 — Branch `mono-hero` (cont.): Jen wanted the black-and-white cut-out back (head overlapping the
   name) but not "cartoon" looking. Redone from the full-size original: `assets/boxer-hq.jpg` (1200px,
   219 KB) + `assets/boxer-hq-mask.png` (finer outline, edge trimmed and softened), greyscale with almost no
