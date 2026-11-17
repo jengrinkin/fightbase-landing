@@ -13,6 +13,10 @@ _Last updated: 2026-11-17_
   own ET/RU/EN wording (new `app.*` keys in locales), member names are invented. Hover switching unchanged.
   I could not log in to the live app (no credentials), so screens come from the app's source code; the public
   welcome screen of app.fightbaseapp.com was compared visually. New wording to check: TRANSLATION_REVIEW.md #11.
+  2026-11-17 update: Jen restyled the app's Classes tab (app repo, branch `native-push`, commit c223791, NOT merged to
+  the app's main yet, so the live app still shows the old look): neutral Add class/Add camp buttons, neutral outline tags,
+  "Active" in a foreground outline, only Delete keeps red. The phone demo's Classes screen now matches that. Today and
+  Attendance are unchanged in the app. Merge this landing branch AFTER the app change is live.
 - 2026-11-17 — Branch `smaller-boxes`: the four boxes around the phone made 30% smaller (200px -> 140px wide,
   105px at 861-1279px, 118px on phones) so the phone stays the focus; still tucked ~22px over the phone corners
   (left/right 119px in the 760px column; 84px at 861-1279px), covering no words. Body text has a 9.5px floor;

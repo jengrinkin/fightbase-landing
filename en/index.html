@@ -359,11 +359,11 @@
     .cl-h { font-size: 20px; line-height: 28px; font-weight: 700; } .cl-s { font-size: 12px; line-height: 16px; color: var(--mut); margin-top: 2px; }
     .cl-btns { display: flex; gap: 8px; margin: 16px 0; }
     .b-red, .b-out { flex: 1; text-align: center; border-radius: 999px; padding: 16px 0; font-size: 16px; line-height: 24px; font-weight: 700; }
-    .b-red { background: var(--pri); color: #fff; } .b-out { background: var(--card); border: 1px solid var(--pri); color: var(--pri); padding: 15px 0; }
+    .b-red, .b-out { background: var(--card); border: 1px solid var(--border); color: var(--fg); } /* app commit c223791: both buttons are neutral now */
     .ccard { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 16px; margin-bottom: 12px; }
     .cc-top { display: flex; align-items: center; } .cc-n { flex: 1; font-weight: 700; font-size: 16px; line-height: 24px; }
-    .st-chip, .gchip { border: 1px solid #22C55E; color: #22C55E; border-radius: 20px; padding: 4px 12px; font-size: 12px; line-height: 16px; }
-    .gchip { border-color: #EEC748; color: #EEC748; }
+    .st-chip, .gchip { border: 1px solid var(--border); color: var(--mut); border-radius: 999px; padding: 4px 12px; font-size: 12px; line-height: 16px; }
+    .st-chip { border-color: var(--fg); color: var(--fg); } /* Active: foreground outline */
     .cc-chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 6px; }
     .cc-loc { font-size: 12px; line-height: 16px; color: var(--mut); margin-top: 6px; }
     .cc-code { display: flex; align-items: center; margin-top: 8px; }
@@ -371,7 +371,7 @@
     .cp { background: var(--sec); color: var(--fg); border: 0; border-radius: 999px; padding: 6px 12px; font: inherit; font-size: 12px; line-height: 16px; font-weight: 600; margin-left: 8px; cursor: pointer; }
     .cc-foot { display: flex; gap: 8px; margin-top: 12px; padding-top: 12px; border-top: 1px solid var(--border); }
     .fb { flex: 1; display: flex; align-items: center; justify-content: center; gap: 6px; background: var(--sec); border-radius: 999px; padding: 10px 0; font-size: 12px; line-height: 16px; font-weight: 600; }
-    .fb.del { background: hsl(0 72% 51% / 0.1); color: hsl(0 72% 51%); }
+    .fb.del { background: var(--sec); color: hsl(0 72% 51%); } /* Delete keeps its red text and icon, on the plain secondary pill */
     /* announcement to the whole club (modal over Today) */
     .scr.ov { z-index: 8; transform: none; background: rgba(0,0,0,0.6); display: flex; align-items: center; justify-content: center; padding: 0 24px; }
     .mc { width: 100%; background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 20px; }
