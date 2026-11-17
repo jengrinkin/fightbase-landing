@@ -122,12 +122,11 @@ _Last updated: 2026-11-17_
   Täna (or send to "Logi sisse" instead). Seen on Jen's phone 2026-10-25; new visitors are fine.
 - Optional: a real "Täna" phone screenshot below the fold. Needs a test account with invented
   names; skipped because it needs a login to the live app.
-- Answer the native-speaker questions in `TRANSLATION_REVIEW.md` (ET and RU).
 
 ## Waiting on Jen
-- Confirm the person in the boxer photo is OK with it being on the public site.
+- (Done 2026-11-17, Jen confirmed:) the person in the hero boxer photo is aware and OK with it; the ET/RU wording
+  has been checked by a native speaker.
 - Optional: real boxing motion needs a short phone clip, or an AI image-to-video tool (paid credits,
   ask first). The photo can then be swapped for the video.
 - Print one A5 sheet and scan it with your phone before the event.
 - Decide whether the old local branch `hero-redesign` is still needed. If not, delete it.
-- Native ET/RU check of the wording.
