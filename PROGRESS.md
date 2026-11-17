@@ -3,6 +3,12 @@
 _Last updated: 2026-11-17_
 
 ## Done
+- 2026-11-17 — Branch `phone-cards` (preview only, NOT merged): the phone demo area restyled after Jen's
+  "Padel Point" reference: light grey panel, phone tilted -9 degrees, black hand silhouette (inline SVG)
+  holding it, four floating cards (white: Memberships, Messages; dark: Attendance 3/12, Today 17:30).
+  The numbered lines on the left and their hover switching are UNCHANGED. The card matching the
+  current phone screen lifts. Card text reuses existing ET/RU/EN keys. Checked at ~1200px and 375px.
+  Old trial branches video-hero, poster-hero, mono-hero deleted (local + GitHub) at Jen's yes.
 - 2026-11-17 — MERGED to main via PR #3 (05ce306), LIVE and checked on www.fightbaseapp.com (ET/RU/EN): new black
   poster hero (giant FIGHTBASE, boxer in original colours with his head over the name), interactive phone
   demo, realistic iPhone frame, rounded hero button, plain "Liikmele" box. Earlier trial branches
@@ -110,7 +116,6 @@ _Last updated: 2026-11-17_
 - Answer the native-speaker questions in `TRANSLATION_REVIEW.md` (ET and RU).
 
 ## Waiting on Jen
-- Old trial branches `video-hero`, `poster-hero`, `mono-hero` can be deleted (local and GitHub) if Jen agrees.
 - Confirm the person in the boxer photo is OK with it being on the public site.
 - Optional: real boxing motion needs a short phone clip, or an AI image-to-video tool (paid credits,
   ask first). The photo can then be swapped for the video.

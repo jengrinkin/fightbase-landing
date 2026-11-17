@@ -211,7 +211,7 @@
 
     /* ─── DEMO: the four hero lines drive an interactive phone ─── */
     .demo { position: relative; overflow: hidden; padding: 96px 48px; background: linear-gradient(180deg, var(--bg), #0B0B0D 55%, var(--bg)); }
-    .demo-inner { max-width: 1060px; margin: 0 auto; display: grid; grid-template-columns: 1fr 340px; gap: 64px; align-items: center; }
+    .demo-inner { max-width: 1320px; margin: 0 auto; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 680px); gap: 56px; align-items: center; }
     .demo-tabs { display: flex; flex-direction: column; }
     .dtab { position: relative; display: flex; align-items: baseline; gap: 20px; padding: 22px 0 22px 24px; background: none; border: 0; border-top: 1px solid rgba(255,255,255,0.12); font: inherit; text-align: left; color: #8A8A8A; cursor: pointer; transition: color 0.25s ease; }
     .dtab:last-child { border-bottom: 1px solid rgba(255,255,255,0.12); }
@@ -221,9 +221,33 @@
     .dtab.is-active, .dtab:hover { color: #fff; }
     .dtab.is-active::before { transform: scaleY(1); }
     .dtab:focus-visible { outline: 2px solid rgba(220,38,38,0.7); outline-offset: 2px; }
-    .demo-stage { position: relative; display: flex; justify-content: center; padding: 20px 0; }
-    .demo-glow { position: absolute; inset: -6% -10%; pointer-events: none;
-      background: radial-gradient(50% 55% at 50% 48%, rgba(170,170,170,0.30), transparent 70%), radial-gradient(34% 30% at 50% 88%, rgba(220,38,38,0.32), transparent 72%); }
+    /* Phone area, styled after Jen's reference: light panel, tilted phone held by a black hand, floating cards. */
+    .demo-stage { position: relative; display: flex; justify-content: center; align-items: center; min-height: 740px; border-radius: 30px; overflow: hidden;
+      background: linear-gradient(180deg, #C4C8CD 0%, #DDE0E3 48%, #FAFAFB 100%); }
+    .demo-hand { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+    .dcard { position: absolute; z-index: 3; width: 206px; border-radius: 22px; padding: 18px 20px 20px; text-align: left;
+      box-shadow: 0 18px 40px rgba(20,28,40,0.18); transition: transform 0.35s ease, box-shadow 0.35s ease;
+      animation: dcard-bob 7s ease-in-out infinite alternate; }
+    .dcard h3 { font-size: 21px; font-weight: 500; letter-spacing: -0.035em; line-height: 1.02; margin: 0; }
+    .dcard p { font-size: 12.5px; line-height: 1.4; color: #8B9096; }
+    .dcard-light { background: #F6F6F7; color: #131B24; min-height: 168px; display: flex; flex-direction: column; }
+    .dcard-light h3 { padding-right: 30px; }
+    .dcard-light hr { border: 0; border-top: 1px solid #D5D8DB; margin: 14px 0 12px; }
+    .dcard-light p { margin-top: auto; }
+    .dcard-arrow { position: absolute; top: 16px; right: 16px; width: 28px; height: 28px; border-radius: 50%; background: #17212C; display: grid; place-items: center; color: #fff; font-size: 13px; line-height: 1; }
+    .dcard-dark { background: #17212C; color: #fff; min-height: 196px; display: flex; flex-direction: column; overflow: hidden; }
+    .dcard-dark::before { content: ""; position: absolute; right: -60px; top: 36%; width: 180px; height: 180px; border-radius: 50%; border: 1px solid rgba(255,255,255,0.07); }
+    .dcard-dark .big { margin-top: 18px; font-size: 62px; font-weight: 500; letter-spacing: -0.05em; line-height: 0.95; }
+    .dcard-dark .pill { margin-top: auto; align-self: flex-start; padding: 7px 12px; border-radius: 999px; background: rgba(255,255,255,0.1); color: #DDE3EA; font-size: 11.5px; }
+    .dcard-a { left: 2%; top: 3.5%; }
+    .dcard-c { right: 2%; top: 7%; }
+    .dcard-b { left: 2%; bottom: 3.5%; }
+    .dcard-d { right: 2%; bottom: 4%; }
+    .dcard-b { animation-delay: -2s; } .dcard-c { animation-delay: -4s; } .dcard-d { animation-delay: -6s; }
+    @keyframes dcard-bob { from { translate: 0 0; } to { translate: 0 -9px; } }
+    /* the card that matches the screen showing on the phone lifts a little */
+    .demo-stage[data-screen="join"] .dcard-a, .demo-stage[data-screen="attendance"] .dcard-b,
+    .demo-stage[data-screen="today"] .dcard-c, .demo-stage[data-screen="message"] .dcard-d { transform: scale(1.05); box-shadow: 0 26px 52px rgba(20,28,40,0.3); }
 
     /* Phone (colours from the app's dark theme). It leans slightly toward the cursor. */
     .phone {
@@ -236,8 +260,9 @@
         0 0 0 4px #8b8b90,
         0 0 0 5px #45454a,
         inset 0 0 0 1.5px #2c2c2f,
-        0 50px 90px rgba(0,0,0,0.8);
-      transform: perspective(900px) rotateY(calc(var(--tx, 0) * 7deg)) rotateX(calc(var(--ty, 0) * -5deg));
+        0 46px 70px rgba(20,24,32,0.38);
+      position: relative; z-index: 2;
+      transform: perspective(1100px) rotate(-9deg) rotateY(calc(var(--tx, 0) * 7deg)) rotateX(calc(var(--ty, 0) * -5deg));
       transition: transform 0.2s ease-out;
     }
     /* side buttons: action + two volume keys on the left, power on the right */
@@ -421,6 +446,16 @@
       .btn-primary { width: 100%; max-width: 340px; text-align: center; }
       .demo { padding: 56px 20px 64px; }
       .demo-inner { grid-template-columns: 1fr; gap: 36px; }
+      .demo-stage { min-height: 640px; border-radius: 24px; }
+      .dcard-a, .dcard-d { display: none; }
+      .dcard { width: 150px; padding: 14px 15px 15px; border-radius: 18px; }
+      .dcard h3 { font-size: 18px; }
+      .dcard-dark { min-height: 150px; }
+      .dcard-dark .big { font-size: 42px; margin-top: 12px; }
+      .dcard-dark .pill { font-size: 10.5px; padding: 5px 9px; }
+      .dcard-b { left: 3%; bottom: 3%; }
+      .dcard-c { right: 3%; top: 3%; }
+      .demo-stage .phone { transform: perspective(1100px) rotate(-9deg) scale(0.86); }
       .dtab { padding: 16px 0 16px 18px; gap: 14px; }
       .dtab .dt { font-size: 20px; }
       .features-section { padding: 64px 20px 56px; }
@@ -463,7 +498,7 @@
       .js .reveal { opacity: 1; transform: none; transition: none; }
       .poster-bg::before, .poster-bg::after { animation: none; }
       .js .pin { animation: none; }
-      .scr, .dtab, .dtab::before, .att-row, .phone { transition: none; }
+      .scr, .dtab, .dtab::before, .att-row, .phone, .dcard { transition: none; animation: none; }
       .scr.is-active .notif { animation: none; opacity: 1; transform: none; }
       .scr.is-active .join-who .av, .scr.is-active .bubble, .scr.is-active .msg-state { animation: none; opacity: 1; transform: none; }
       .btn-primary, nav, body { transition: none; }
@@ -540,7 +575,17 @@
           <button class="dtab" role="tab" id="tab-message" aria-selected="false" aria-controls="scr-message" data-screen="message"><span class="dn">04</span><span class="dt">{{hero.item4}}</span></button>
         </div>
         <div class="demo-stage">
-          <div class="demo-glow" aria-hidden="true"></div>
+          <svg class="demo-hand" viewBox="0 0 680 740" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+            <defs><linearGradient id="hand-g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#1b1c20"/><stop offset="1" stop-color="#050506"/></linearGradient></defs>
+            <g fill="url(#hand-g)">
+              <ellipse cx="384" cy="508" rx="112" ry="150" transform="rotate(-14 384 508)"/>
+              <path d="M424 556 C498 516 592 556 628 648 L664 740 L440 740 C420 690 400 640 392 600 Z"/>
+              <path d="M310 258 C240 244 150 240 102 262 C70 277 70 322 104 330 C158 344 240 342 310 350 Z"/>
+              <path d="M300 364 C228 354 124 350 78 376 C44 395 50 440 86 448 C146 460 236 456 300 462 Z"/>
+              <path d="M300 474 C238 470 160 478 122 504 C94 524 104 562 138 566 C190 572 250 562 300 566 Z"/>
+              <path d="M470 268 C512 244 566 252 580 304 C592 356 576 424 548 486 L482 506 C464 430 458 340 470 268 Z"/>
+            </g>
+          </svg>
           <div class="phone" role="group" aria-label="{{stage.phoneAlt}}">
             <div class="phone-screen">
               <div class="ps-status"><span>9:41</span><span class="ps-island"></span><span class="ps-icons" aria-hidden="true">
@@ -602,6 +647,10 @@
               </div>
             </div>
           </div>
+          <div class="dcard dcard-light dcard-a"><h3>{{features.f1Title}}</h3><span class="dcard-arrow" aria-hidden="true">↗</span><hr><p>{{features.f1Body}}</p></div>
+          <div class="dcard dcard-dark dcard-b"><h3>{{mock.attendance}}</h3><div class="big">3/12</div><span class="pill">{{mock.c1Members}}</span></div>
+          <div class="dcard dcard-dark dcard-c"><h3>{{mock.today}}</h3><div class="big">17:30</div><span class="pill">{{mock.c1Name}}</span></div>
+          <div class="dcard dcard-light dcard-d"><h3>{{features.f4Title}}</h3><span class="dcard-arrow" aria-hidden="true">↗</span><hr><p>{{features.f4Body}}</p></div>
         </div>
       </div>
     </section>
@@ -777,6 +826,8 @@
       var current = 'today', touched = false, timer = null;
       function show(name) {
         current = name;
+        var stageEl = demo && demo.querySelector('.demo-stage');
+        if (stageEl) stageEl.setAttribute('data-screen', name);
         tabs.forEach(function (t) {
           var on = t.dataset.screen === name;
           t.classList.toggle('is-active', on);
