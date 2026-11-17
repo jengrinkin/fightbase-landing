@@ -221,10 +221,10 @@
     .dtab.is-active, .dtab:hover { color: #fff; }
     .dtab.is-active::before { transform: scaleY(1); }
     .dtab:focus-visible { outline: 2px solid rgba(220,38,38,0.7); outline-offset: 2px; }
-    /* Phone area, styled after Jen's reference: light panel, tilted phone held by a black hand, floating cards. */
-    .demo-stage { position: relative; display: flex; justify-content: center; align-items: center; min-height: 740px; border-radius: 30px; overflow: hidden;
-      background: linear-gradient(180deg, #C4C8CD 0%, #DDE0E3 48%, #FAFAFB 100%); }
-    .demo-hand { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+    /* Phone area: the upright phone with four floating cards around it. */
+    .demo-stage { position: relative; display: flex; justify-content: center; align-items: center; min-height: 700px; }
+    .demo-glow { position: absolute; inset: 0; pointer-events: none;
+      background: radial-gradient(34% 40% at 50% 46%, rgba(170,170,170,0.18), transparent 70%), radial-gradient(28% 24% at 50% 86%, rgba(220,38,38,0.26), transparent 72%); }
     .dcard { position: absolute; z-index: 3; width: 206px; border-radius: 22px; padding: 18px 20px 20px; text-align: left;
       box-shadow: 0 18px 40px rgba(20,28,40,0.18); transition: transform 0.35s ease, box-shadow 0.35s ease;
       animation: dcard-bob 7s ease-in-out infinite alternate; }
@@ -260,9 +260,9 @@
         0 0 0 4px #8b8b90,
         0 0 0 5px #45454a,
         inset 0 0 0 1.5px #2c2c2f,
-        0 46px 70px rgba(20,24,32,0.38);
+        0 50px 90px rgba(0,0,0,0.8);
       position: relative; z-index: 2;
-      transform: perspective(1100px) rotate(-9deg) rotateY(calc(var(--tx, 0) * 7deg)) rotateX(calc(var(--ty, 0) * -5deg));
+      transform: perspective(900px) rotateY(calc(var(--tx, 0) * 7deg)) rotateX(calc(var(--ty, 0) * -5deg));
       transition: transform 0.2s ease-out;
     }
     /* side buttons: action + two volume keys on the left, power on the right */
@@ -446,7 +446,7 @@
       .btn-primary { width: 100%; max-width: 340px; text-align: center; }
       .demo { padding: 56px 20px 64px; }
       .demo-inner { grid-template-columns: 1fr; gap: 36px; }
-      .demo-stage { min-height: 640px; border-radius: 24px; }
+      .demo-stage { min-height: 640px; }
       .dcard-a, .dcard-d { display: none; }
       .dcard { width: 150px; padding: 14px 15px 15px; border-radius: 18px; }
       .dcard h3 { font-size: 18px; }
@@ -455,7 +455,7 @@
       .dcard-dark .pill { font-size: 10.5px; padding: 5px 9px; }
       .dcard-b { left: 3%; bottom: 3%; }
       .dcard-c { right: 3%; top: 3%; }
-      .demo-stage .phone { transform: perspective(1100px) rotate(-9deg) scale(0.86); }
+      .demo-stage .phone { transform: scale(0.86); }
       .dtab { padding: 16px 0 16px 18px; gap: 14px; }
       .dtab .dt { font-size: 20px; }
       .features-section { padding: 64px 20px 56px; }
@@ -575,17 +575,7 @@
           <button class="dtab" role="tab" id="tab-message" aria-selected="false" aria-controls="scr-message" data-screen="message"><span class="dn">04</span><span class="dt">{{hero.item4}}</span></button>
         </div>
         <div class="demo-stage">
-          <svg class="demo-hand" viewBox="0 0 680 740" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-            <defs><linearGradient id="hand-g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#1b1c20"/><stop offset="1" stop-color="#050506"/></linearGradient></defs>
-            <g fill="url(#hand-g)">
-              <ellipse cx="384" cy="508" rx="112" ry="150" transform="rotate(-14 384 508)"/>
-              <path d="M424 556 C498 516 592 556 628 648 L664 740 L440 740 C420 690 400 640 392 600 Z"/>
-              <path d="M310 258 C240 244 150 240 102 262 C70 277 70 322 104 330 C158 344 240 342 310 350 Z"/>
-              <path d="M300 364 C228 354 124 350 78 376 C44 395 50 440 86 448 C146 460 236 456 300 462 Z"/>
-              <path d="M300 474 C238 470 160 478 122 504 C94 524 104 562 138 566 C190 572 250 562 300 566 Z"/>
-              <path d="M470 268 C512 244 566 252 580 304 C592 356 576 424 548 486 L482 506 C464 430 458 340 470 268 Z"/>
-            </g>
-          </svg>
+          <div class="demo-glow" aria-hidden="true"></div>
           <div class="phone" role="group" aria-label="{{stage.phoneAlt}}">
             <div class="phone-screen">
               <div class="ps-status"><span>9:41</span><span class="ps-island"></span><span class="ps-icons" aria-hidden="true">
