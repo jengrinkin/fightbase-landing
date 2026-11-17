@@ -3,6 +3,9 @@
 _Last updated: 2026-11-17_
 
 ## Done
+- 2026-11-17 — MERGED to main via PR #4 (6d9cbf0), LIVE and checked on www.fightbaseapp.com (ET/RU/EN): four floating
+  boxes tucked over the phone's corners in the phone demo area (see the `phone-cards` entry below for details).
+  Branches `phone-cards` and `docs-live-poster` are fully merged and can be deleted.
 - 2026-11-17 — Branch `phone-cards` (preview only, NOT merged): FINAL: Jen disliked the grey panel, so the grey
   background, the hand and the -9 degree tilt were removed; the phone is upright on the black page again with
   just the four floating cards around it (white: Memberships, Messages; dark: Attendance 3/12, Today 17:30).
