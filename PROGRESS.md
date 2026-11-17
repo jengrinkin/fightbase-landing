@@ -7,6 +7,7 @@ _Last updated: 2026-11-17_
   photo's look. Hero boxer is now in ORIGINAL COLOUR (light contrast/saturation tweak only). His own gym
   background is back as a dimmed, radially faded layer BEHIND the lettering (`.poster-env`, same photo),
   so the cut-out boxer shares its light/colour. Head still overlaps FIGHTBASE. Checked 2400, 1440, 375px.
+  Grid (checkered) lines removed from the hero background at Jen's request.
 - 2026-11-16 — Branch `mono-hero` (cont.): Jen said the cut-out still looked fake. Re-cut with Apple's
   person-matting model (soft alpha: real hair edge, motion-blurred glove keeps its soft edge), cleaned
   with the older rough mask. Files: `assets/boxer-hq.jpg` + `assets/boxer-matte.png` (110 KB).
