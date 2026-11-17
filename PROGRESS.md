@@ -3,6 +3,22 @@
 _Last updated: 2026-11-17_
 
 ## Done
+- 2026-11-17 — Branch `phone-cards` (preview only, NOT merged): FINAL: Jen disliked the grey panel, so the grey
+  background, the hand and the -9 degree tilt were removed; the phone is upright on the black page again with
+  just the four floating cards around it (white: Memberships, Messages; dark: Attendance 3/12, Today 17:30).
+  Jen then asked for the cards not to touch the phone, found that too disconnected, and settled on:
+  cards overlap only the phone's outer CORNERS by ~22px (left/right 59px in the 760px column; 39px at
+  861-1279px), covering no words. On phones the two dark cards sit in a row under the phone.
+  (Earlier in the day this was tried as a grey panel, restyled after Jen's
+  "Padel Point" reference: light grey panel, phone tilted -9 degrees, black hand silhouette (inline SVG)
+  holding it, four floating cards (white: Memberships, Messages; dark: Attendance 3/12, Today 17:30).
+  The numbered lines on the left and their hover switching are UNCHANGED. The card matching the
+  current phone screen lifts. Card text reuses existing ET/RU/EN keys. Checked at ~1200px and 375px.
+  Old trial branches video-hero, poster-hero, mono-hero deleted (local + GitHub) at Jen's yes.
+- 2026-11-17 — MERGED to main via PR #3 (05ce306), LIVE and checked on www.fightbaseapp.com (ET/RU/EN): new black
+  poster hero (giant FIGHTBASE, boxer in original colours with his head over the name), interactive phone
+  demo, realistic iPhone frame, rounded hero button, plain "Liikmele" box. Earlier trial branches
+  `video-hero` and `poster-hero` were NOT merged separately (their work is included in `mono-hero`).
 - 2026-11-17 — Branch `mono-hero` (cont.): Jen still found the greyscale cut-out fake and preferred the original
   photo's look. Hero boxer is now in ORIGINAL COLOUR (light contrast/saturation tweak only). His own gym
   background is back as a dimmed, radially faded layer BEHIND the lettering (`.poster-env`, same photo),
@@ -106,7 +122,6 @@ _Last updated: 2026-11-17_
 - Answer the native-speaker questions in `TRANSLATION_REVIEW.md` (ET and RU).
 
 ## Waiting on Jen
-- Pick one: `video-hero` (photo + embers), `poster-hero` (navy poster) or `mono-hero` (black-and-white). Check the Vercel preview, then say "merge it".
 - Confirm the person in the boxer photo is OK with it being on the public site.
 - Optional: real boxing motion needs a short phone clip, or an AI image-to-video tool (paid credits,
   ask first). The photo can then be swapped for the video.
