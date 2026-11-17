@@ -3,6 +3,10 @@
 _Last updated: 2026-11-17_
 
 ## Done
+- 2026-11-17 — MERGED to main via PR #3 (05ce306), LIVE and checked on www.fightbaseapp.com (ET/RU/EN): new black
+  poster hero (giant FIGHTBASE, boxer in original colours with his head over the name), interactive phone
+  demo, realistic iPhone frame, rounded hero button, plain "Liikmele" box. Earlier trial branches
+  `video-hero` and `poster-hero` were NOT merged separately (their work is included in `mono-hero`).
 - 2026-11-17 — Branch `mono-hero` (cont.): Jen still found the greyscale cut-out fake and preferred the original
   photo's look. Hero boxer is now in ORIGINAL COLOUR (light contrast/saturation tweak only). His own gym
   background is back as a dimmed, radially faded layer BEHIND the lettering (`.poster-env`, same photo),
@@ -106,7 +110,7 @@ _Last updated: 2026-11-17_
 - Answer the native-speaker questions in `TRANSLATION_REVIEW.md` (ET and RU).
 
 ## Waiting on Jen
-- Pick one: `video-hero` (photo + embers), `poster-hero` (navy poster) or `mono-hero` (black-and-white). Check the Vercel preview, then say "merge it".
+- Old trial branches `video-hero`, `poster-hero`, `mono-hero` can be deleted (local and GitHub) if Jen agrees.
 - Confirm the person in the boxer photo is OK with it being on the public site.
 - Optional: real boxing motion needs a short phone clip, or an AI image-to-video tool (paid credits,
   ask first). The photo can then be swapped for the video.
