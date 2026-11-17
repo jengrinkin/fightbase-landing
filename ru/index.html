@@ -211,7 +211,7 @@
 
     /* ─── DEMO: the four hero lines drive an interactive phone ─── */
     .demo { position: relative; overflow: hidden; padding: 96px 48px; background: linear-gradient(180deg, var(--bg), #0B0B0D 55%, var(--bg)); }
-    .demo-inner { max-width: 1320px; margin: 0 auto; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 680px); gap: 56px; align-items: center; }
+    .demo-inner { max-width: 1320px; margin: 0 auto; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 760px); gap: 56px; align-items: center; }
     .demo-tabs { display: flex; flex-direction: column; }
     .dtab { position: relative; display: flex; align-items: baseline; gap: 20px; padding: 22px 0 22px 24px; background: none; border: 0; border-top: 1px solid rgba(255,255,255,0.12); font: inherit; text-align: left; color: #8A8A8A; cursor: pointer; transition: color 0.25s ease; }
     .dtab:last-child { border-bottom: 1px solid rgba(255,255,255,0.12); }
@@ -225,13 +225,13 @@
     .demo-stage { position: relative; display: flex; justify-content: center; align-items: center; min-height: 700px; }
     .demo-glow { position: absolute; inset: 0; pointer-events: none;
       background: radial-gradient(34% 40% at 50% 46%, rgba(170,170,170,0.18), transparent 70%), radial-gradient(28% 24% at 50% 86%, rgba(220,38,38,0.26), transparent 72%); }
-    .dcard { position: absolute; z-index: 3; width: 206px; border-radius: 22px; padding: 18px 20px 20px; text-align: left;
+    .dcard { position: absolute; z-index: 3; width: 200px; border-radius: 22px; padding: 18px 20px 20px; text-align: left;
       box-shadow: 0 18px 40px rgba(20,28,40,0.18); transition: transform 0.35s ease, box-shadow 0.35s ease;
       animation: dcard-bob 7s ease-in-out infinite alternate; }
-    .dcard h3 { font-size: 21px; font-weight: 500; letter-spacing: -0.035em; line-height: 1.02; margin: 0; }
+    .dcard h3 { font-size: 20px; font-weight: 500; letter-spacing: -0.035em; line-height: 1.02; margin: 0; }
     .dcard p { font-size: 12.5px; line-height: 1.4; color: #8B9096; }
     .dcard-light { background: #F6F6F7; color: #131B24; min-height: 168px; display: flex; flex-direction: column; }
-    .dcard-light h3 { padding-right: 30px; }
+    .dcard-light h3 { padding-right: 34px; }
     .dcard-light hr { border: 0; border-top: 1px solid #D5D8DB; margin: 14px 0 12px; }
     .dcard-light p { margin-top: auto; }
     .dcard-arrow { position: absolute; top: 16px; right: 16px; width: 28px; height: 28px; border-radius: 50%; background: #17212C; display: grid; place-items: center; color: #fff; font-size: 13px; line-height: 1; }
@@ -239,10 +239,21 @@
     .dcard-dark::before { content: ""; position: absolute; right: -60px; top: 36%; width: 180px; height: 180px; border-radius: 50%; border: 1px solid rgba(255,255,255,0.07); }
     .dcard-dark .big { margin-top: 18px; font-size: 62px; font-weight: 500; letter-spacing: -0.05em; line-height: 0.95; }
     .dcard-dark .pill { margin-top: auto; align-self: flex-start; padding: 7px 12px; border-radius: 999px; background: rgba(255,255,255,0.1); color: #DDE3EA; font-size: 11.5px; }
-    .dcard-a { left: 2%; top: 3.5%; }
-    .dcard-c { right: 2%; top: 7%; }
-    .dcard-b { left: 2%; bottom: 3.5%; }
-    .dcard-d { right: 2%; bottom: 4%; }
+    /* The cards sit in the outer columns, clear of the phone (the phone is 286px wide, centred). */
+    .dcard-a { left: 0; top: 3.5%; }
+    .dcard-c { right: 0; top: 7%; }
+    .dcard-b { left: 0; bottom: 3.5%; }
+    .dcard-d { right: 0; bottom: 4%; }
+    @media (min-width: 861px) and (max-width: 1279px) {
+      .demo-inner { grid-template-columns: minmax(0, 1fr) 620px; }
+      .dcard { width: 150px; padding: 14px 15px 16px; border-radius: 18px; }
+      .dcard h3 { font-size: 18px; }
+      .dcard-light { min-height: 150px; }
+      .dcard-light p { font-size: 11.5px; }
+      .dcard-dark { min-height: 160px; }
+      .dcard-dark .big { font-size: 44px; margin-top: 12px; }
+      .dcard-dark .pill { font-size: 10.5px; padding: 5px 9px; }
+    }
     .dcard-b { animation-delay: -2s; } .dcard-c { animation-delay: -4s; } .dcard-d { animation-delay: -6s; }
     @keyframes dcard-bob { from { translate: 0 0; } to { translate: 0 -9px; } }
     /* the card that matches the screen showing on the phone lifts a little */
@@ -446,16 +457,13 @@
       .btn-primary { width: 100%; max-width: 340px; text-align: center; }
       .demo { padding: 56px 20px 64px; }
       .demo-inner { grid-template-columns: 1fr; gap: 36px; }
-      .demo-stage { min-height: 640px; }
+      .demo-stage { min-height: 0; flex-wrap: wrap; gap: 16px; align-content: center; padding: 8px 0 0; }
       .dcard-a, .dcard-d { display: none; }
-      .dcard { width: 150px; padding: 14px 15px 15px; border-radius: 18px; }
+      .dcard { position: relative; inset: auto; width: calc(50% - 8px); max-width: 168px; padding: 14px 15px 15px; border-radius: 18px; animation: none; }
       .dcard h3 { font-size: 18px; }
       .dcard-dark { min-height: 150px; }
       .dcard-dark .big { font-size: 42px; margin-top: 12px; }
       .dcard-dark .pill { font-size: 10.5px; padding: 5px 9px; }
-      .dcard-b { left: 3%; bottom: 3%; }
-      .dcard-c { right: 3%; top: 3%; }
-      .demo-stage .phone { transform: scale(0.86); }
       .dtab { padding: 16px 0 16px 18px; gap: 14px; }
       .dtab .dt { font-size: 20px; }
       .features-section { padding: 64px 20px 56px; }
