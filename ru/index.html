@@ -285,72 +285,103 @@
     .phone::before { left: -8.5px; top: 104px; height: 168px; border-radius: 2px 0 0 2px;
       background: linear-gradient(#7c7c82 0 22px, transparent 22px 44px, #7c7c82 44px 96px, transparent 96px 110px, #7c7c82 110px 162px, transparent 162px); }
     .phone::after { right: -8.5px; top: 178px; height: 84px; border-radius: 0 2px 2px 0; }
-    .phone-screen { position: relative; height: 100%; border-radius: 45px; overflow: hidden; display: flex; flex-direction: column; background: #080C16; color: #F1F5F9; padding: 14px 18px; font-size: 11px; }
+    .phone-screen { position: relative; height: 100%; border-radius: 45px; overflow: hidden; background: #080C16; }
     /* faint glass reflection */
-    .phone-screen::after { content: ""; position: absolute; inset: 0; pointer-events: none; border-radius: inherit;
+    .phone-screen::after { content: ""; position: absolute; inset: 0; pointer-events: none; border-radius: inherit; z-index: 9;
       background: linear-gradient(125deg, rgba(255,255,255,0.07) 0%, rgba(255,255,255,0) 28%, rgba(255,255,255,0) 72%, rgba(255,255,255,0.03) 100%); }
-    .ps-status { position: relative; display: flex; justify-content: space-between; align-items: center; height: 26px; padding: 0 8px 0 12px; font-size: 13px; font-weight: 700; letter-spacing: -0.01em; margin-bottom: 16px; }
-    .ps-island { position: absolute; left: 50%; top: 0; width: 86px; height: 26px; margin-left: -43px; border-radius: 14px; background: #000; }
-    .ps-island::after { content: ""; position: absolute; right: 9px; top: 8px; width: 9px; height: 9px; border-radius: 50%; background: radial-gradient(circle at 35% 35%, #2a2f45, #0a0c14 60%); }
-    .ps-icons { display: flex; align-items: center; gap: 5px; }
-    .ps-icons svg { display: block; height: 11px; width: auto; fill: #F1F5F9; }
-    .scr-wrap { position: relative; flex: 1; min-height: 0; }
+    /* The app is drawn at a real phone width (390px) with the real app's colours, sizes, icons and wording, then scaled to fit
+       the mock-up (268px wide). Source: the fightbaseapp repo (CoachToday, class-roster, CoachClassesTab). Dark mode only. */
+    .app { position: absolute; left: 0; top: 0; width: 390px; height: 856px; transform: scale(0.6872); transform-origin: 0 0; overflow: hidden;
+      --card: hsl(222 44% 9%); --border: hsl(222 25% 18%); --sec: hsl(222 30% 16%); --mut: hsl(215 20% 55%); --fg: hsl(210 40% 96%); --pri: hsl(0 85% 55%);
+      background: hsl(222 47% 6%); color: var(--fg); font-family: 'Inter', sans-serif; font-size: 16px; line-height: 1.5; text-align: left; }
+    .app svg.i { display: block; flex: none; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+    .sb { position: absolute; z-index: 6; top: 0; left: 0; right: 0; height: 54px; font-weight: 600; }
+    .sb-t { position: absolute; left: 42px; top: 17px; font-size: 17px; line-height: 22px; letter-spacing: -0.01em; }
+    .sb-island { position: absolute; left: 50%; top: 11px; width: 122px; height: 35px; margin-left: -61px; border-radius: 20px; background: #000; }
+    .sb-island::after { content: ""; position: absolute; right: 13px; top: 12px; width: 11px; height: 11px; border-radius: 50%; background: radial-gradient(circle at 35% 35%, #2a2f45, #0a0c14 60%); }
+    .sb-ic { position: absolute; right: 30px; top: 21px; display: flex; align-items: center; gap: 6px; }
+    .scw { position: absolute; left: 0; right: 0; top: 54px; bottom: 0; }
     .scr { position: absolute; inset: 0; opacity: 0; visibility: hidden; transform: translateY(10px); pointer-events: none; transition: opacity 0.35s ease, transform 0.35s ease, visibility 0.35s; }
     .scr.is-active { opacity: 1; visibility: visible; transform: none; pointer-events: auto; }
-    .ps-greeting { font-size: 20px; font-weight: 700; }
-    .ps-date { color: #7A8AA3; font-size: 11px; margin: 2px 0 14px; }
-    .ps-announce { background: #1D2433; border: 1px solid #222B3A; border-radius: 14px; padding: 9px; text-align: center; font-weight: 600; font-size: 11px; }
-    .ps-h { font-size: 15px; font-weight: 700; margin: 14px 0 10px; }
-    .ps-card { background: #0D1321; border: 1px solid #1B2232; border-left: 3px solid #FF0000; border-radius: 14px; padding: 11px; margin-bottom: 9px; }
-    .ps-time { color: var(--gold); font-weight: 600; font-variant-numeric: tabular-nums; }
-    .ps-class { font-size: 13px; font-weight: 700; margin-top: 4px; }
-    .ps-meta { color: #7A8AA3; font-size: 10px; margin-top: 3px; }
-    .ps-actions { display: flex; gap: 6px; margin-top: 9px; }
-    .ps-btn { flex: 1; text-align: center; padding: 7px 0; border-radius: 10px; background: #1D2433; font-weight: 600; font-size: 10px; }
-    .ps-btn.primary { background: #EF3333; color: #fff; }
-    .av { flex: none; width: 26px; height: 26px; border-radius: 50%; display: inline-grid; place-items: center; background: #26324A; color: #CFE0F2; font-size: 11px; font-weight: 700; }
-    /* attendance: tap a member to mark them present */
-    .att-list { list-style: none; display: flex; flex-direction: column; gap: 7px; }
-    .att-row { width: 100%; display: flex; align-items: center; gap: 10px; padding: 8px 10px; border-radius: 12px; background: #0D1321; border: 1px solid #1B2232; color: inherit; font: inherit; font-size: 12px; font-weight: 600; text-align: left; cursor: pointer; transition: background 0.2s, border-color 0.2s; }
-    .att-row .ck { position: relative; margin-left: auto; width: 20px; height: 20px; border-radius: 50%; border: 2px solid #34405A; transition: background 0.2s, border-color 0.2s, transform 0.2s; }
-    .att-row.is-on { border-color: rgba(239,51,51,0.55); background: #131A2B; }
-    .att-row.is-on .ck { background: #EF3333; border-color: #EF3333; transform: scale(1.08); }
-    .att-row.is-on .ck::after { content: ""; position: absolute; left: 5px; top: 2px; width: 4px; height: 8px; border: solid #fff; border-width: 0 2px 2px 0; transform: rotate(45deg); }
-    /* join: a code and members arriving one by one */
-    .join-qr { width: 168px; margin: 10px auto 18px; border-radius: 12px; box-shadow: 0 0 0 1px #222B3A, 0 12px 30px rgba(0,0,0,0.5); overflow: hidden; }
-    .join-qr svg { display: block; width: 100%; height: auto; }
-    .join-link { text-align: center; font-size: 13px; font-weight: 700; color: var(--stone); }
-    .join-cap { text-align: center; color: #A9B8CC; font-size: 12px; margin: 10px 8px 22px; line-height: 1.4; }
-    .join-who { display: flex; justify-content: center; align-items: center; }
-    .join-who .av { width: 32px; height: 32px; font-size: 12px; margin-left: -7px; border: 2px solid #080C16; opacity: 0; transform: scale(0.4); }
-    .join-who .av:first-child { margin-left: 0; }
-    .scr.is-active .join-who .av { animation: pop 0.45s cubic-bezier(0.2, 1.4, 0.4, 1) both; }
-    .scr.is-active .join-who .av:nth-child(2) { animation-delay: 0.25s; }
-    .scr.is-active .join-who .av:nth-child(3) { animation-delay: 0.5s; }
-    .scr.is-active .join-who .av:nth-child(4) { animation-delay: 0.75s; }
-    .join-who .more { margin-left: 8px; font-size: 11px; font-weight: 700; color: #A9B8CC; }
-    @keyframes pop { to { opacity: 1; transform: scale(1); } }
-    /* message: a bubble that pops in, then a delivered count */
-    .msg-meta { color: #7A8AA3; font-size: 10px; margin: -4px 0 14px; }
-    .bubble { margin-left: auto; max-width: 88%; padding: 11px 13px; border-radius: 16px 16px 4px 16px; background: #EF3333; color: #fff; font-size: 12px; font-weight: 600; line-height: 1.35; opacity: 0; transform: translateY(8px) scale(0.96); transform-origin: 100% 100%; }
-    .scr.is-active .bubble { animation: bubble-in 0.5s 0.2s cubic-bezier(0.2, 1, 0.3, 1) both; }
-    .msg-state { text-align: right; margin-top: 6px; font-size: 10px; color: #7A8AA3; opacity: 0; }
-    .scr.is-active .msg-state { animation: fade-in 0.4s 0.9s ease both; }
-    .msg-bar { position: absolute; left: 0; right: 0; bottom: 6px; display: flex; gap: 8px; align-items: center; }
-    .msg-field { flex: 1; height: 34px; border-radius: 17px; background: #121A2B; border: 1px solid #222B3A; }
-    .msg-send { width: 34px; height: 34px; border-radius: 50%; background: #EF3333; display: grid; place-items: center; font-weight: 800; }
-    .notif { margin-top: 30px; display: flex; gap: 10px; align-items: center; padding: 11px 12px; border-radius: 16px; background: rgba(38,50,74,0.7); border: 1px solid #2A3550; opacity: 0; transform: translateY(-10px); }
-    .scr.is-active .notif { animation: notif-in 0.5s 1.4s cubic-bezier(0.2, 1, 0.3, 1) both; }
-    .notif .ico { flex: none; width: 30px; height: 30px; border-radius: 8px; background: #EF3333; display: grid; place-items: center; font-weight: 900; font-size: 15px; }
-    .notif b { display: block; font-size: 11px; letter-spacing: 0.02em; }
-    .notif span { display: block; font-size: 11px; color: #B9C6D8; margin-top: 1px; line-height: 1.3; }
-    .msg-who { display: flex; align-items: center; margin-top: 26px; }
-    .msg-who .av { margin-left: -6px; border: 2px solid #080C16; }
-    .msg-who .av:first-child { margin-left: 0; }
-    .msg-who .cnt { margin-left: 10px; font-size: 26px; font-weight: 900; letter-spacing: -0.02em; }
-    @keyframes notif-in { to { opacity: 1; transform: none; } }
-    @keyframes bubble-in { to { opacity: 1; transform: none; } }
-    @keyframes fade-in { to { opacity: 1; } }
+    .ct { position: absolute; left: 0; right: 0; top: 0; bottom: 98px; padding: 8px 20px 0; overflow: hidden; }
+    .card { display: flex; align-items: center; background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 16px; margin-bottom: 12px; }
+    .card.gold { border-color: rgba(238,199,72,0.45); }
+    .card .tx { flex: 1; margin-left: 12px; min-width: 0; }
+    .card .tt { font-weight: 700; font-size: 16px; line-height: 24px; }
+    .card .hn { font-size: 12px; line-height: 16px; color: var(--mut); margin-top: 2px; }
+    .card .hn.amber { color: #F59E0B; }
+    .gr { padding: 8px 0 16px; }
+    .gr-h { font-size: 24px; line-height: 32px; font-weight: 700; }
+    .gr-d { font-size: 14px; line-height: 20px; color: var(--mut); margin-top: 2px; }
+    .pill-ann { display: flex; align-items: center; justify-content: center; gap: 8px; background: var(--sec); border: 1px solid var(--border); border-radius: 999px; padding: 12px; margin-bottom: 4px; font-size: 14px; line-height: 20px; font-weight: 600; }
+    .h-today { font-size: 18px; line-height: 28px; font-weight: 700; margin: 12px 0; }
+    .h-tom { font-size: 18px; line-height: 28px; font-weight: 700; margin: 20px 0 12px; }
+    .sess { background: var(--card); border: 1px solid var(--border); border-left: 3px solid #FF0000; border-radius: 16px; padding: 16px; margin-bottom: 12px; }
+    .s-top { display: flex; align-items: center; gap: 6px; }
+    .s-time { color: #EEC748; font-size: 14px; line-height: 20px; font-weight: 600; font-variant-numeric: tabular-nums; }
+    .s-name { font-size: 16px; line-height: 24px; font-weight: 700; margin-top: 6px; }
+    .s-meta { display: flex; align-items: center; margin-top: 4px; font-size: 12px; line-height: 16px; color: var(--mut); }
+    .s-meta svg { margin-right: 4px; } .s-meta span:first-of-type { margin-right: 12px; }
+    .s-btns { display: flex; gap: 8px; margin-top: 12px; }
+    .b-pri, .b-sec { flex: 1; display: flex; align-items: center; justify-content: center; gap: 6px; border-radius: 999px; padding: 10px 0; font-size: 14px; line-height: 20px; font-weight: 600; }
+    .b-pri { background: var(--pri); color: #fff; } .b-sec { background: var(--sec); }
+    .tom-row { display: flex; align-items: center; background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 12px; margin-bottom: 8px; font-size: 14px; line-height: 20px; }
+    .tom-row .tm { width: 96px; color: #EEC748; font-weight: 600; font-variant-numeric: tabular-nums; }
+    .tom-row .nm { flex: 1; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .tom-row .mb { color: var(--mut); font-size: 12px; margin-left: 8px; }
+    .tb { position: absolute; left: 0; right: 0; bottom: 0; height: 98px; background: var(--card); border-top: 1px solid var(--border); display: flex; padding-top: 9px; }
+    .tb::after { content: ""; position: absolute; left: 50%; bottom: 8px; width: 134px; height: 5px; margin-left: -67px; border-radius: 3px; background: #F1F5F9; opacity: 0.9; }
+    .tb-i { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 3px; font-size: 10px; line-height: 14px; font-weight: 500; color: #6B7280; }
+    .tb-i.on { color: #FF0000; }
+    /* attendance (roster) */
+    .rh { display: flex; align-items: center; padding: 12px 16px; border-bottom: 1px solid var(--border); }
+    .rh-b { width: 40px; height: 40px; display: grid; place-items: center; margin-right: 12px; }
+    .rh-t { font-size: 18px; line-height: 28px; font-weight: 700; }
+    .rchips { display: flex; gap: 8px; padding: 12px 16px; }
+    .chip { border: 1px solid var(--border); background: var(--sec); border-radius: 999px; padding: 10px 16px; font-size: 14px; line-height: 20px; font-weight: 600; }
+    .chip.on { background: var(--pri); border-color: var(--pri); color: #fff; }
+    .rbody { padding: 0 16px; }
+    .card.col { display: block; margin-bottom: 16px; }
+    .rr { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; font-size: 14px; line-height: 20px; }
+    .rr b { font-size: 16px; line-height: 24px; } .rr.m { color: var(--mut); } .rr.m:nth-of-type(3) { margin-bottom: 0; }
+    .rr.end { justify-content: flex-end; margin: 12px 0 0; } .rr .cancel { color: hsl(0 72% 51%); font-size: 12px; line-height: 16px; font-weight: 600; }
+    .r-h { font-size: 14px; line-height: 20px; font-weight: 600; margin-bottom: 8px; }
+    .r-s { font-size: 12px; line-height: 16px; color: var(--mut); margin-bottom: 12px; }
+    .att-row { width: 100%; display: flex; align-items: center; background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 16px; margin-bottom: 8px; color: inherit; font: inherit; text-align: left; cursor: pointer; }
+    .att-row .nm { flex: 1; font-size: 14px; line-height: 20px; font-weight: 600; }
+    .att-row .st { display: flex; align-items: center; }
+    .att-row .ck { width: 28px; height: 28px; border-radius: 14px; display: grid; place-items: center; margin-right: 8px; background: rgba(255,255,255,0.12); transition: background 0.2s; }
+    .app .att-row .c-ok { display: none; } .app .att-row.is-on .c-ok { display: block; } .app .att-row.is-on .c-no { display: none; }
+    .att-row.is-on .ck { background: #22C55E; }
+    .att-row .lb { width: 58px; font-size: 13px; line-height: 20px; font-weight: 600; color: #9CA3AF; }
+    .att-row.is-on .lb { color: #22C55E; }
+    /* classes tab (class code and link) */
+    .cl-h { font-size: 20px; line-height: 28px; font-weight: 700; } .cl-s { font-size: 12px; line-height: 16px; color: var(--mut); margin-top: 2px; }
+    .cl-btns { display: flex; gap: 8px; margin: 16px 0; }
+    .b-red, .b-out { flex: 1; text-align: center; border-radius: 999px; padding: 16px 0; font-size: 16px; line-height: 24px; font-weight: 700; }
+    .b-red { background: var(--pri); color: #fff; } .b-out { background: var(--card); border: 1px solid var(--pri); color: var(--pri); padding: 15px 0; }
+    .ccard { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 16px; margin-bottom: 12px; }
+    .cc-top { display: flex; align-items: center; } .cc-n { flex: 1; font-weight: 700; font-size: 16px; line-height: 24px; }
+    .st-chip, .gchip { border: 1px solid #22C55E; color: #22C55E; border-radius: 20px; padding: 4px 12px; font-size: 12px; line-height: 16px; }
+    .gchip { border-color: #EEC748; color: #EEC748; }
+    .cc-chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 6px; }
+    .cc-loc { font-size: 12px; line-height: 16px; color: var(--mut); margin-top: 6px; }
+    .cc-code { display: flex; align-items: center; margin-top: 8px; }
+    .cc-ct { flex: 1; font-size: 12px; line-height: 16px; font-variant-numeric: tabular-nums; }
+    .cp { background: var(--sec); color: var(--fg); border: 0; border-radius: 999px; padding: 6px 12px; font: inherit; font-size: 12px; line-height: 16px; font-weight: 600; margin-left: 8px; cursor: pointer; }
+    .cc-foot { display: flex; gap: 8px; margin-top: 12px; padding-top: 12px; border-top: 1px solid var(--border); }
+    .fb { flex: 1; display: flex; align-items: center; justify-content: center; gap: 6px; background: var(--sec); border-radius: 999px; padding: 10px 0; font-size: 12px; line-height: 16px; font-weight: 600; }
+    .fb.del { background: hsl(0 72% 51% / 0.1); color: hsl(0 72% 51%); }
+    /* announcement to the whole club (modal over Today) */
+    .scr.ov { z-index: 8; transform: none; background: rgba(0,0,0,0.6); display: flex; align-items: center; justify-content: center; padding: 0 24px; }
+    .mc { width: 100%; background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 20px; }
+    .mc-t { font-size: 18px; line-height: 28px; font-weight: 700; margin-bottom: 4px; } .mc-h { font-size: 12px; line-height: 16px; color: var(--mut); margin-bottom: 16px; }
+    .mc-ta { background: var(--sec); border-radius: 12px; padding: 14px 16px; min-height: 100px; font-size: 16px; line-height: 24px; }
+    .caret { display: inline-block; width: 2px; height: 18px; margin-left: 1px; vertical-align: -3px; background: var(--fg); animation: blink 1s steps(1) infinite; }
+    @keyframes blink { 50% { opacity: 0; } }
+    .mc-send { margin-top: 16px; text-align: center; border-radius: 999px; padding: 16px 0; font-size: 16px; line-height: 24px; font-weight: 700; background: hsl(222 30% 14%); color: var(--fg); transition: background 0.3s; }
+    .mc-send.ready { background: var(--pri); color: #fff; }
+    .mc-cancel { text-align: center; color: var(--mut); font-size: 14px; line-height: 20px; font-weight: 600; padding: 12px 0 0; }
 
     /* ─── FEATURES ─── */
     .features-section { padding: 96px 48px 88px; }
@@ -510,9 +541,8 @@
       .js .reveal { opacity: 1; transform: none; transition: none; }
       .poster-bg::before, .poster-bg::after { animation: none; }
       .js .pin { animation: none; }
-      .scr, .dtab, .dtab::before, .att-row, .phone, .dcard { transition: none; animation: none; }
-      .scr.is-active .notif { animation: none; opacity: 1; transform: none; }
-      .scr.is-active .join-who .av, .scr.is-active .bubble, .scr.is-active .msg-state { animation: none; opacity: 1; transform: none; }
+      .scr, .dtab, .dtab::before, .att-row .ck, .mc-send, .phone, .dcard { transition: none; animation: none; }
+      .caret { animation: none; }
       .btn-primary, nav, body { transition: none; }
       .btn-primary:hover { transform: none; }
       @view-transition { navigation: none; }
@@ -590,62 +620,82 @@
           <div class="demo-glow" aria-hidden="true"></div>
           <div class="phone" role="group" aria-label="Экран тренера «Сегодня» в FightBase: тренировки на сегодня, посещаемость и объявление для всего клуба.">
             <div class="phone-screen">
-              <div class="ps-status"><span>9:41</span><span class="ps-island"></span><span class="ps-icons" aria-hidden="true">
-                <svg viewBox="0 0 18 12"><rect x="0" y="8" width="3" height="4" rx="0.8"/><rect x="5" y="5.5" width="3" height="6.5" rx="0.8"/><rect x="10" y="3" width="3" height="9" rx="0.8"/><rect x="15" y="0" width="3" height="12" rx="0.8"/></svg>
-                <svg viewBox="0 0 16 12" style="fill:none;stroke:#F1F5F9;stroke-width:1.7;stroke-linecap:round"><path d="M1.5 4.2a9.4 9.4 0 0 1 13 0"/><path d="M4 6.9a5.8 5.8 0 0 1 8 0"/><circle cx="8" cy="10" r="1.1" style="fill:#F1F5F9;stroke:none"/></svg>
-                <svg viewBox="0 0 27 12"><rect x="0.6" y="0.6" width="22.8" height="10.8" rx="3.4" fill="none" stroke="#F1F5F9" stroke-opacity="0.45" stroke-width="1.2"/><rect x="2.3" y="2.3" width="19.4" height="7.4" rx="2"/><path d="M25 4v4c.9-.3 1.500-1.100 1.500-2S25.900 4.300 25 4z" fill-opacity="0.5"/></svg>
-              </span></div>
-              <div class="scr-wrap">
+              <div class="app">
+                <div class="sb" aria-hidden="true"><span class="sb-t">9:41</span><span class="sb-island"></span><span class="sb-ic">
+              <svg viewBox="0 0 18 12" style="width:19px;height:12px;fill:#F1F5F9"><rect x="0" y="8" width="3" height="4" rx="0.8"/><rect x="5" y="5.5" width="3" height="6.5" rx="0.8"/><rect x="10" y="3" width="3" height="9" rx="0.8"/><rect x="15" y="0" width="3" height="12" rx="0.8"/></svg>
+              <svg viewBox="0 0 16 12" style="width:17px;height:12px;fill:none;stroke:#F1F5F9;stroke-width:1.7;stroke-linecap:round"><path d="M1.5 4.2a9.4 9.4 0 0 1 13 0"/><path d="M4 6.9a5.8 5.8 0 0 1 8 0"/><circle cx="8" cy="10" r="1.1" style="fill:#F1F5F9;stroke:none"/></svg>
+              <svg viewBox="0 0 27 12" style="width:27px;height:13px"><rect x="0.6" y="0.6" width="22.8" height="10.8" rx="3.4" fill="none" stroke="#F1F5F9" stroke-opacity="0.45" stroke-width="1.2"/><rect x="2.3" y="2.3" width="19.4" height="7.4" rx="2" fill="#F1F5F9"/><path d="M25 4v4c.9-.3 1.5-1.1 1.5-2S25.9 4.3 25 4z" fill="#F1F5F9" fill-opacity="0.5"/></svg>
+            </span></div>
+                <div class="scw">
                 <div class="scr is-active" id="scr-today" role="tabpanel" aria-labelledby="tab-today">
-                  <div class="ps-greeting">Привет, Марко</div>
-                  <div class="ps-date">Четверг, 12 ноября</div>
-                  <div class="ps-announce">Объявление для всего клуба</div>
-                  <div class="ps-h">Сегодня</div>
-                  <div class="ps-card">
-                    <div class="ps-time">17:30–18:30</div>
-                    <div class="ps-class">Бокс · начинающие</div>
-                    <div class="ps-meta">Зал 1 · 12 участников</div>
-                    <div class="ps-actions"><span class="ps-btn primary">Посещаемость</span><span class="ps-btn">Объявление</span></div>
+                  <div class="ct">
+                    <div class="gr"><div class="gr-h">Привет, Марко</div><div class="gr-d">Четверг, 12 ноября</div></div>
+                    <div class="card gold"><svg class="i " viewBox="0 0 24 24" style="width:20px;height:20px;color:#EEC748" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="19" x2="19" y1="8" y2="14"/><line x1="22" x2="16" y1="11" y2="11"/></svg><div class="tx"><div class="tt">1 заявка</div><div class="hn">Нажмите, чтобы посмотреть и подтвердить.</div></div></div>
+                    <div class="card"><svg class="i " viewBox="0 0 24 24" style="width:20px;height:20px;color:#9CA3AF" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><path d="M16 3.128a4 4 0 0 1 0 7.744"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><circle cx="9" cy="7" r="4"/></svg><div class="tx"><div class="tt">Участники · 24</div><div class="hn amber">не оплачено: 3</div></div><svg class="i " viewBox="0 0 24 24" style="width:18px;height:18px;color:#6B7280" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></div>
+                    <div class="pill-ann"><svg class="i " viewBox="0 0 24 24" style="width:16px;height:16px;color:#EEC748" aria-hidden="true"><path d="M11 6a13 13 0 0 0 8.4-2.8A1 1 0 0 1 21 4v12a1 1 0 0 1-1.6.8A13 13 0 0 0 11 14H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2z"/><path d="M6 14a12 12 0 0 0 2.4 7.2 2 2 0 0 0 3.2-2.4A8 8 0 0 1 10 14"/><path d="M8 6v8"/></svg><span>Объявление для всего клуба</span></div>
+                    <div class="h-today">Сегодня</div>
+                    <div class="sess">
+                      <div class="s-top"><svg class="i " viewBox="0 0 24 24" style="width:14px;height:14px;color:#EEC748" aria-hidden="true"><path d="M12 6v6l4 2"/><circle cx="12" cy="12" r="10"/></svg><span class="s-time">17:30–18:30</span></div>
+                      <div class="s-name">Бокс · начинающие</div>
+                      <div class="s-meta"><svg class="i " viewBox="0 0 24 24" style="width:12px;height:12px;color:#9CA3AF" aria-hidden="true"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg><span>Зал 1</span><svg class="i " viewBox="0 0 24 24" style="width:12px;height:12px;color:#9CA3AF" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><path d="M16 3.128a4 4 0 0 1 0 7.744"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><circle cx="9" cy="7" r="4"/></svg><span>12 участников</span></div>
+                      <div class="s-btns"><span class="b-pri">Посещаемость</span><span class="b-sec"><svg class="i " viewBox="0 0 24 24" style="width:14px;height:14px;color:#EEC748" aria-hidden="true"><path d="M11 6a13 13 0 0 0 8.4-2.8A1 1 0 0 1 21 4v12a1 1 0 0 1-1.6.8A13 13 0 0 0 11 14H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2z"/><path d="M6 14a12 12 0 0 0 2.4 7.2 2 2 0 0 0 3.2-2.4A8 8 0 0 1 10 14"/><path d="M8 6v8"/></svg>Объявление</span></div>
+                    </div>
+                    <div class="h-tom">Завтра</div>
+                    <div class="tom-row"><span class="tm">19:00–20:30</span><span class="nm">Бокс · продвинутые</span><span class="mb">9 участников</span></div>
                   </div>
-                  <div class="ps-card">
-                    <div class="ps-time">19:00–20:30</div>
-                    <div class="ps-class">Бокс · продвинутые</div>
-                    <div class="ps-meta">Зал 1 · 9 участников</div>
-                    <div class="ps-actions"><span class="ps-btn primary">Посещаемость</span><span class="ps-btn">Объявление</span></div>
-                  </div>
+                  <div class="tb" aria-hidden="true"><span class="tb-i on"><svg class="i " viewBox="0 0 24 24" style="width:22px;height:22px" aria-hidden="true"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"/><path d="M3 10a2 2 0 0 1 .709-1.528l7-6a2 2 0 0 1 2.582 0l7 6A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg><span>Сегодня</span></span><span class="tb-i"><svg class="i " viewBox="0 0 24 24" style="width:22px;height:22px" aria-hidden="true"><path d="M17.596 12.768a2 2 0 1 0 2.829-2.829l-1.768-1.767a2 2 0 0 0 2.828-2.829l-2.828-2.828a2 2 0 0 0-2.829 2.828l-1.767-1.768a2 2 0 1 0-2.829 2.829z"/><path d="m2.5 21.5 1.4-1.4"/><path d="m20.1 3.9 1.4-1.4"/><path d="M5.343 21.485a2 2 0 1 0 2.829-2.828l1.767 1.768a2 2 0 1 0 2.829-2.829l-6.364-6.364a2 2 0 1 0-2.829 2.829l1.768 1.767a2 2 0 0 0-2.828 2.829z"/><path d="m9.6 14.4 4.8-4.8"/></svg><span>Тренировки</span></span><span class="tb-i"><svg class="i " viewBox="0 0 24 24" style="width:22px;height:22px" aria-hidden="true"><path d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719"/></svg><span>Сообщения</span></span><span class="tb-i"><svg class="i " viewBox="0 0 24 24" style="width:22px;height:22px" aria-hidden="true"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg><span>Профиль</span></span></div>
                 </div>
                 <div class="scr" id="scr-attendance" role="tabpanel" aria-labelledby="tab-attendance">
-                  <div class="ps-h" style="margin-top:0">Посещаемость</div>
-                  <div class="ps-card">
-                    <div class="ps-time">17:30–18:30</div>
-                    <div class="ps-class">Бокс · начинающие</div>
-                    <div class="ps-meta"><span id="att-count">3</span> / 12</div>
+                  <div class="rh"><span class="rh-b"><svg class="i " viewBox="0 0 24 24" style="width:22px;height:22px;color:#9CA3AF" aria-hidden="true"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg></span><span class="rh-t">Бокс · начинающие</span></div>
+                  <div class="rchips"><span class="chip on">Сегодня</span><span class="chip">Заявки</span><span class="chip">Участники</span></div>
+                  <div class="rbody">
+                    <div class="card col">
+                      <div class="rr"><svg class="i " viewBox="0 0 24 24" style="width:14px;height:14px;color:#EEC748" aria-hidden="true"><path d="M8 2v4"/><path d="M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/></svg><b>Четверг, 12 ноября</b></div>
+                      <div class="rr m"><svg class="i " viewBox="0 0 24 24" style="width:14px;height:14px;color:#9CA3AF" aria-hidden="true"><path d="M12 6v6l4 2"/><circle cx="12" cy="12" r="10"/></svg><span>17:30–18:30</span></div>
+                      <div class="rr m"><svg class="i " viewBox="0 0 24 24" style="width:14px;height:14px;color:#9CA3AF" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><path d="M16 3.128a4 4 0 0 1 0 7.744"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><circle cx="9" cy="7" r="4"/></svg><span>12 участников</span></div>
+                      <div class="rr end"><span class="cancel">Отменить это занятие</span></div>
+                    </div>
+                    <div class="r-h">Посещаемость</div>
+                    <div class="r-s" id="att-sentence" data-tpl="[n] из 12 присутствуют · нажмите на тех, кто не пришёл">11 из 12 присутствуют · нажмите на тех, кто не пришёл</div>
+                    <button type="button" class="att-row is-on" aria-pressed="true"><span class="nm">Marko S.</span><span class="st"><span class="ck"><svg class="i c-ok" viewBox="0 0 24 24" style="width:15px;height:15px;color:#fff" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><svg class="i c-no" viewBox="0 0 24 24" style="width:15px;height:15px;color:#9CA3AF" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></span><span class="lb" data-p="Был" data-a="Не был">Был</span></span></button>
+                    <button type="button" class="att-row is-on" aria-pressed="true"><span class="nm">Liis K.</span><span class="st"><span class="ck"><svg class="i c-ok" viewBox="0 0 24 24" style="width:15px;height:15px;color:#fff" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><svg class="i c-no" viewBox="0 0 24 24" style="width:15px;height:15px;color:#9CA3AF" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></span><span class="lb" data-p="Был" data-a="Не был">Был</span></span></button>
+                    <button type="button" class="att-row is-on" aria-pressed="true"><span class="nm">Artem V.</span><span class="st"><span class="ck"><svg class="i c-ok" viewBox="0 0 24 24" style="width:15px;height:15px;color:#fff" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><svg class="i c-no" viewBox="0 0 24 24" style="width:15px;height:15px;color:#9CA3AF" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></span><span class="lb" data-p="Был" data-a="Не был">Был</span></span></button>
+                    <button type="button" class="att-row is-on" aria-pressed="true"><span class="nm">Kati M.</span><span class="st"><span class="ck"><svg class="i c-ok" viewBox="0 0 24 24" style="width:15px;height:15px;color:#fff" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><svg class="i c-no" viewBox="0 0 24 24" style="width:15px;height:15px;color:#9CA3AF" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></span><span class="lb" data-p="Был" data-a="Не был">Был</span></span></button>
+                    <button type="button" class="att-row" aria-pressed="false"><span class="nm">Dmitri P.</span><span class="st"><span class="ck"><svg class="i c-ok" viewBox="0 0 24 24" style="width:15px;height:15px;color:#fff" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><svg class="i c-no" viewBox="0 0 24 24" style="width:15px;height:15px;color:#9CA3AF" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></span><span class="lb" data-p="Был" data-a="Не был">Не был</span></span></button>
+                    
                   </div>
-                  <ul class="att-list" id="att-list">
-              <li><button type="button" class="att-row is-on" aria-pressed="true"><span class="av">M</span><span>Marko S.</span><span class="ck" aria-hidden="true"></span></button></li>
-              <li><button type="button" class="att-row is-on" aria-pressed="true"><span class="av">L</span><span>Liis K.</span><span class="ck" aria-hidden="true"></span></button></li>
-              <li><button type="button" class="att-row is-on" aria-pressed="true"><span class="av">A</span><span>Artem V.</span><span class="ck" aria-hidden="true"></span></button></li>
-              <li><button type="button" class="att-row" aria-pressed="false"><span class="av">K</span><span>Kati M.</span><span class="ck" aria-hidden="true"></span></button></li>
-              <li><button type="button" class="att-row" aria-pressed="false"><span class="av">J</span><span>Jaan T.</span><span class="ck" aria-hidden="true"></span></button></li>
-              <li><button type="button" class="att-row" aria-pressed="false"><span class="av">D</span><span>Dmitri P.</span><span class="ck" aria-hidden="true"></span></button></li>
-                  </ul>
                 </div>
                 <div class="scr" id="scr-join" role="tabpanel" aria-labelledby="tab-join">
-                  <div class="ps-h" style="margin-top:0">Бокс · начинающие</div>
-                  <div class="join-qr"><svg viewBox="-1 -1 15 15" aria-hidden="true"><rect x="-1" y="-1" width="15" height="15" rx="1.2" fill="#fff"/><path d="M0 0h1v1h-1zM0 1h1v1h-1zM0 2h1v1h-1zM0 3h1v1h-1zM0 4h1v1h-1zM0 6h1v1h-1zM0 8h1v1h-1zM0 9h1v1h-1zM0 10h1v1h-1zM0 11h1v1h-1zM0 12h1v1h-1zM1 0h1v1h-1zM1 4h1v1h-1zM1 6h1v1h-1zM1 8h1v1h-1zM1 12h1v1h-1zM2 0h1v1h-1zM2 2h1v1h-1zM2 4h1v1h-1zM2 8h1v1h-1zM2 10h1v1h-1zM2 12h1v1h-1zM3 0h1v1h-1zM3 4h1v1h-1zM3 6h1v1h-1zM3 8h1v1h-1zM3 12h1v1h-1zM4 0h1v1h-1zM4 1h1v1h-1zM4 2h1v1h-1zM4 3h1v1h-1zM4 4h1v1h-1zM4 8h1v1h-1zM4 9h1v1h-1zM4 10h1v1h-1zM4 11h1v1h-1zM4 12h1v1h-1zM5 6h1v1h-1zM6 0h1v1h-1zM6 2h1v1h-1zM6 3h1v1h-1zM6 4h1v1h-1zM6 5h1v1h-1zM6 6h1v1h-1zM6 8h1v1h-1zM6 9h1v1h-1zM7 6h1v1h-1zM7 8h1v1h-1zM7 10h1v1h-1zM7 11h1v1h-1zM7 12h1v1h-1zM8 0h1v1h-1zM8 1h1v1h-1zM8 2h1v1h-1zM8 3h1v1h-1zM8 4h1v1h-1zM8 6h1v1h-1zM8 8h1v1h-1zM8 11h1v1h-1zM9 0h1v1h-1zM9 4h1v1h-1zM9 6h1v1h-1zM9 7h1v1h-1zM9 8h1v1h-1zM9 10h1v1h-1zM9 11h1v1h-1zM10 0h1v1h-1zM10 2h1v1h-1zM10 4h1v1h-1zM10 6h1v1h-1zM10 7h1v1h-1zM10 10h1v1h-1zM11 0h1v1h-1zM11 4h1v1h-1zM11 8h1v1h-1zM11 10h1v1h-1zM11 11h1v1h-1zM12 0h1v1h-1zM12 1h1v1h-1zM12 2h1v1h-1zM12 3h1v1h-1zM12 4h1v1h-1zM12 6h1v1h-1zM12 8h1v1h-1z" fill="#0B1220"/></svg></div>
-                  <div class="join-link">app.fightbaseapp.com</div>
-                  <div class="join-cap">Участники присоединяются по одной ссылке</div>
-                  <div class="join-who"><span class="av">L</span><span class="av">A</span><span class="av">K</span><span class="av">J</span><span class="more">12 участников</span></div>
+                  <div class="ct">
+                    <div class="cl-h">Мои тренировки</div><div class="cl-s">Всё, что вы ведёте.</div>
+                    <div class="cl-btns"><span class="b-red">+ Добавить тренировку</span><span class="b-out">+ Добавить сборы</span></div>
+                    <div class="ccard">
+                      <div class="cc-top"><span class="cc-n">Бокс · начинающие</span><span class="st-chip">Активна</span></div>
+                      <div class="cc-chips"><span class="gchip">Закрытая</span><span class="gchip">Группа · макс. 20</span><span class="gchip">2× в неделю</span></div>
+                      <div class="cc-loc">Зал 1</div>
+                      <div class="cc-code"><span class="cc-ct">Код тренировки: 3f9a2c1b7d4e</span><button type="button" class="cp" data-l="Копировать код" data-c="Скопировано">Копировать код</button><button type="button" class="cp" data-l="Копировать ссылку" data-c="Скопировано">Копировать ссылку</button></div>
+                      <div class="cc-foot"><span class="fb"><svg class="i " viewBox="0 0 24 24" style="width:14px;height:14px;color:#9CA3AF" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><path d="M16 3.128a4 4 0 0 1 0 7.744"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><circle cx="9" cy="7" r="4"/></svg>Состав</span><span class="fb"><svg class="i " viewBox="0 0 24 24" style="width:14px;height:14px;color:#9CA3AF" aria-hidden="true"><path d="M12 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.375 2.625a1 1 0 0 1 3 3l-9.013 9.014a2 2 0 0 1-.853.505l-2.873.84a.5.5 0 0 1-.62-.62l.84-2.873a2 2 0 0 1 .506-.852z"/></svg>Изменить</span><span class="fb del"><svg class="i " viewBox="0 0 24 24" style="width:14px;height:14px;color:#FF0000" aria-hidden="true"><path d="M10 11v6"/><path d="M14 11v6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/><path d="M3 6h18"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>Удалить</span></div>
+                    </div>
+                    <div class="ccard">
+                      <div class="cc-top"><span class="cc-n">Бокс · продвинутые</span><span class="st-chip">Активна</span></div>
+                      <div class="cc-chips"><span class="gchip">Закрытая</span><span class="gchip">Группа · макс. 20</span><span class="gchip">2× в неделю</span></div>
+                      <div class="cc-loc">Зал 1</div>
+                      <div class="cc-code"><span class="cc-ct">Код тренировки: 7b1e94a0c2d8</span><button type="button" class="cp" data-l="Копировать код" data-c="Скопировано">Копировать код</button><button type="button" class="cp" data-l="Копировать ссылку" data-c="Скопировано">Копировать ссылку</button></div>
+                      <div class="cc-foot"><span class="fb"><svg class="i " viewBox="0 0 24 24" style="width:14px;height:14px;color:#9CA3AF" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><path d="M16 3.128a4 4 0 0 1 0 7.744"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><circle cx="9" cy="7" r="4"/></svg>Состав</span><span class="fb"><svg class="i " viewBox="0 0 24 24" style="width:14px;height:14px;color:#9CA3AF" aria-hidden="true"><path d="M12 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.375 2.625a1 1 0 0 1 3 3l-9.013 9.014a2 2 0 0 1-.853.505l-2.873.84a.5.5 0 0 1-.62-.62l.84-2.873a2 2 0 0 1 .506-.852z"/></svg>Изменить</span><span class="fb del"><svg class="i " viewBox="0 0 24 24" style="width:14px;height:14px;color:#FF0000" aria-hidden="true"><path d="M10 11v6"/><path d="M14 11v6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/><path d="M3 6h18"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>Удалить</span></div>
+                    </div>
+                  </div>
+                  <div class="tb" aria-hidden="true"><span class="tb-i"><svg class="i " viewBox="0 0 24 24" style="width:22px;height:22px" aria-hidden="true"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"/><path d="M3 10a2 2 0 0 1 .709-1.528l7-6a2 2 0 0 1 2.582 0l7 6A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg><span>Сегодня</span></span><span class="tb-i on"><svg class="i " viewBox="0 0 24 24" style="width:22px;height:22px" aria-hidden="true"><path d="M17.596 12.768a2 2 0 1 0 2.829-2.829l-1.768-1.767a2 2 0 0 0 2.828-2.829l-2.828-2.828a2 2 0 0 0-2.829 2.828l-1.767-1.768a2 2 0 1 0-2.829 2.829z"/><path d="m2.5 21.5 1.4-1.4"/><path d="m20.1 3.9 1.4-1.4"/><path d="M5.343 21.485a2 2 0 1 0 2.829-2.828l1.767 1.768a2 2 0 1 0 2.829-2.829l-6.364-6.364a2 2 0 1 0-2.829 2.829l1.768 1.767a2 2 0 0 0-2.828 2.829z"/><path d="m9.6 14.4 4.8-4.8"/></svg><span>Тренировки</span></span><span class="tb-i"><svg class="i " viewBox="0 0 24 24" style="width:22px;height:22px" aria-hidden="true"><path d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719"/></svg><span>Сообщения</span></span><span class="tb-i"><svg class="i " viewBox="0 0 24 24" style="width:22px;height:22px" aria-hidden="true"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg><span>Профиль</span></span></div>
                 </div>
-                <div class="scr" id="scr-message" role="tabpanel" aria-labelledby="tab-message">
-                  <div class="ps-h" style="margin-top:0">Объявление</div>
-                  <div class="msg-meta">Бокс · начинающие · Бокс · продвинутые</div>
-                  <div class="bubble">Объявление для всего клуба</div>
-                  <div class="msg-state">✓✓ 21</div>
-                  <div class="msg-who"><span class="av">L</span><span class="av">A</span><span class="av">K</span><span class="av">J</span><span class="cnt">21</span></div>
-                  <div class="notif"><span class="ico" aria-hidden="true">F</span><div><b>FightBase</b><span>Объявление для всего клуба</span></div></div>
-                  <div class="msg-bar" aria-hidden="true"><span class="msg-field"></span><span class="msg-send">↑</span></div>
                 </div>
+                <div class="scr ov" id="scr-message" role="tabpanel" aria-labelledby="tab-message">
+                <div class="mc">
+                  <div class="mc-t">Объявление для всего клуба</div>
+                  <div class="mc-h">Его увидят все участники вашего клуба.</div>
+                  <div class="mc-ta"><span id="typed" data-text="Занятие в среду переносится на 19:00"></span><i class="caret"></i></div>
+                  <div class="mc-send" id="mc-send">Отправить объявление</div>
+                  <div class="mc-cancel">Отмена</div>
+                </div>
+              </div>
               </div>
             </div>
           </div>
@@ -835,7 +885,25 @@
           t.classList.toggle('is-active', on);
           t.setAttribute('aria-selected', on ? 'true' : 'false');
         });
-        screens.forEach(function (s) { s.classList.toggle('is-active', s.id === 'scr-' + name); });
+        screens.forEach(function (s) { s.classList.toggle('is-active', s.id === 'scr-' + name || (name === 'message' && s.id === 'scr-today')); });
+        typeMsg(name === 'message');
+      }
+      // The announcement screen types its message like a real person would, then the Send button turns red.
+      var typedEl = document.getElementById('typed'), sendEl = document.getElementById('mc-send'), typeTimer = null, typeStart = null;
+      function typeMsg(on) {
+        clearInterval(typeTimer); clearTimeout(typeStart);
+        if (!typedEl) return;
+        var full = typedEl.getAttribute('data-text') || '';
+        typedEl.textContent = ''; if (sendEl) sendEl.classList.remove('ready');
+        if (!on) return;
+        if (reduce) { typedEl.textContent = full; if (sendEl) sendEl.classList.add('ready'); return; }
+        typeStart = setTimeout(function () {
+          var i = 0;
+          typeTimer = setInterval(function () {
+            i += 1; typedEl.textContent = full.slice(0, i);
+            if (i >= full.length) { clearInterval(typeTimer); if (sendEl) sendEl.classList.add('ready'); }
+          }, 38);
+        }, 450);
       }
       function stop() { clearInterval(timer); timer = null; }
       function start() {
@@ -860,15 +928,30 @@
         }, { threshold: 0.45 }).observe(demo.querySelector('.demo-stage'));
       }
 
-      // --- Attendance: tap a member to mark present. ---
-      var count = document.getElementById('att-count');
+      // --- Attendance: tap a member to mark them present or absent, like the real roster. ---
+      var sentence = document.getElementById('att-sentence');
+      function updatePresent() {
+        if (!sentence) return;
+        var n = 7 + document.querySelectorAll('.att-row.is-on').length; // 7 more members are scrolled out of view, all present
+        sentence.textContent = (sentence.getAttribute('data-tpl') || '').replace('[n]', n);
+      }
       [].slice.call(document.querySelectorAll('.att-row')).forEach(function (row) {
         row.addEventListener('click', function () {
           touched = true; stop();
           var on = !row.classList.contains('is-on');
           row.classList.toggle('is-on', on);
           row.setAttribute('aria-pressed', on ? 'true' : 'false');
-          if (count) count.textContent = document.querySelectorAll('.att-row.is-on').length;
+          var lb = row.querySelector('.lb');
+          if (lb) lb.textContent = lb.getAttribute(on ? 'data-p' : 'data-a');
+          updatePresent();
+        });
+      });
+      // --- Class code: Copy code / Copy link show "Copied" for 2 seconds, like the real app. ---
+      [].slice.call(document.querySelectorAll('.cp')).forEach(function (b) {
+        b.addEventListener('click', function () {
+          touched = true; stop();
+          b.textContent = b.getAttribute('data-c');
+          setTimeout(function () { b.textContent = b.getAttribute('data-l'); }, 2000);
         });
       });
 

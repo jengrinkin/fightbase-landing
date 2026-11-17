@@ -3,6 +3,16 @@
 _Last updated: 2026-11-17_
 
 ## Done
+- 2026-11-17 — Branch `app-look` (preview only, NOT merged): the phone demo screens are rebuilt from the REAL app
+  (repo `fightbaseapp`: CoachToday, class-roster, CoachClassesTab, tab bar, theme in app/global.css), because
+  the old mock-up looked like a different app. Drawn at a real 390px phone width with the app's own colours
+  (dark theme), Lucide icons, pill buttons, gold class chips, green Present/Absent, bottom tab bar, and then
+  scaled into the phone frame. Screens: Today (join request, members, announcement pill, session card, Tomorrow),
+  Attendance (roster: tap a member to toggle Present/Absent, live count), Classes (class code + Copy code / Copy
+  link, which show "Copied"), Announcement (modal over Today, types a message, Send turns red). All text is the app's
+  own ET/RU/EN wording (new `app.*` keys in locales), member names are invented. Hover switching unchanged.
+  I could not log in to the live app (no credentials), so screens come from the app's source code; the public
+  welcome screen of app.fightbaseapp.com was compared visually. New wording to check: TRANSLATION_REVIEW.md #11.
 - 2026-11-17 — Branch `smaller-boxes`: the four boxes around the phone made 30% smaller (200px -> 140px wide,
   105px at 861-1279px, 118px on phones) so the phone stays the focus; still tucked ~22px over the phone corners
   (left/right 119px in the 760px column; 84px at 861-1279px), covering no words. Body text has a 9.5px floor;
