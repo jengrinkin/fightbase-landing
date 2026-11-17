@@ -7,6 +7,10 @@ _Last updated: 2026-11-17_
   105px at 861-1279px, 118px on phones) so the phone stays the focus; still tucked ~22px over the phone corners
   (left/right 119px in the 760px column; 84px at 861-1279px), covering no words. Body text has a 9.5px floor;
   at 861-1279px the white boxes show only the title.
+- 2026-11-17 — Same branch: the Nike swoosh and the VENUM lettering (glove side + cuff) were removed from the hero photo at
+  Jen's request. Method: a minimum filter thins out narrow bright strokes on dark material (all on this Mac, no
+  upload), feathered into the photo. New file `assets/boxer-clean.jpg` (270 KB) replaces `boxer-hq.jpg`; same
+  outline `boxer-matte.png`. NOT removed: the large red viper graphic on the gloves (glove design, no text).
 - 2026-11-17 — MERGED to main via PR #4 (6d9cbf0), LIVE and checked on www.fightbaseapp.com (ET/RU/EN): four floating
   boxes tucked over the phone's corners in the phone demo area (see the `phone-cards` entry below for details).
   Branches `phone-cards` and `docs-live-poster` are fully merged and can be deleted.
