@@ -6,8 +6,9 @@ _Last updated: 2026-11-17_
 - 2026-11-17 — Branch `phone-cards` (preview only, NOT merged): FINAL: Jen disliked the grey panel, so the grey
   background, the hand and the -9 degree tilt were removed; the phone is upright on the black page again with
   just the four floating cards around it (white: Memberships, Messages; dark: Attendance 3/12, Today 17:30).
-  Then Jen asked for the cards NOT to touch the phone: they now sit in the outer columns (stage column 760px;
-  150px cards between 861-1279px). On phones the two dark cards sit in a row under the phone.
+  Jen then asked for the cards not to touch the phone, found that too disconnected, and settled on:
+  cards overlap only the phone's outer CORNERS by ~22px (left/right 59px in the 760px column; 39px at
+  861-1279px), covering no words. On phones the two dark cards sit in a row under the phone.
   (Earlier in the day this was tried as a grey panel, restyled after Jen's
   "Padel Point" reference: light grey panel, phone tilted -9 degrees, black hand silhouette (inline SVG)
   holding it, four floating cards (white: Memberships, Messages; dark: Attendance 3/12, Today 17:30).
