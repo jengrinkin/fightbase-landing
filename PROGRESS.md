@@ -1,6 +1,6 @@
 # FightBase landing — progress
 
-_Last updated: 2026-11-17_
+_Last updated: 2026-11-18_
 
 ## Done
 - 2026-11-17 — Branch `app-look` (preview only, NOT merged): the phone demo screens are rebuilt from the REAL app
@@ -135,6 +135,13 @@ _Last updated: 2026-11-17_
   screen (invented names) and a giant FIGHTBASE wordmark. Empty photo frame removed
   2026-10-26 so it can go live without the photo. Phone: hero fills the first screen, stage starts below the fold.
   On main (3051da7, cdc1a16), live.
+
+- 2026-11-18 — Phone demo rebuilt from the real app (Today, attendance, classes, announcement; ET/RU/EN),
+  PR #9 merged to main (abb5cad), live. Jen confirmed the live app's Classes tab is already neutral grey.
+  Branch `app-look` is merged and can be deleted (ask Jen first).
+- 2026-11-18 — Branch `hero-still` (preview only): the giant FIGHTBASE word and the boxer photo no longer
+  move with the cursor or the scroll. Only the faint background smoke/grain still drifts. Checked: transforms stay `none`
+  after mouse move and scroll at 1440px.
 
 ## Next
 - Rewrite Terms and Privacy for the coach tool: coaches enter members' personal data, so
