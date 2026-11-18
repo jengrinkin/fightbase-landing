@@ -162,6 +162,12 @@ _Last updated: 2026-11-18_
   rising from the bottom edge: Members (memberships + who hasn't paid), Monthly overview, Camps, Announcement. Screens are rebuilt from the app's source
   and strings (ET/RU/EN, sample data invented). The 3-step "How it works" list was replaced by a closing headline + CTA (same text as the hero).
   New sample wording is in TRANSLATION_REVIEW.md item 12. Remaining: 5 FAQ (Jen checks answers), 6 big footer wordmark.
+- 2026-11-18 — Branch `faq` (preview only), step 5 of 6: new light FAQ section (6 questions, ET/RU/EN, accordion) between features and the
+  closing call-to-action. Answers are only things the Terms, Privacy Policy and app support (see TRANSLATION_REVIEW.md item 13). The closing
+  CTA + member box are dark again (so the rhythm is dark hero / light demo / dark features / light FAQ / dark closing). NOT included on purpose:
+  price or free-trial question (no price known to me; the Terms only say there are paid tiers billed monthly via Stripe, cancel any time).
+  Contact in the FAQ uses support@fightbaseapp.com (as the footer does); the legal pages say hello@fightbaseapp.com - one address should be chosen.
+  Remaining: step 6 big footer wordmark.
 
 ## Next
 - Rewrite Terms and Privacy for the coach tool: coaches enter members' personal data, so
