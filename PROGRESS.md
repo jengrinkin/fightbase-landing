@@ -158,6 +158,10 @@ _Last updated: 2026-11-18_
   Phone demo and "How it works" + member block are now light grey/white with dark text, with rounded tops overlapping the section above;
   hero, features and footer stay dark. Phone mock-up unchanged. Checked 375/1440, ET/RU/EN, demo hover still switches screens.
   Remaining steps: 4 bigger feature sections, 5 FAQ (Jen checks answers), 6 big footer wordmark.
+- 2026-11-18 — Branch `big-features` (preview only), step 4 of 6: the four features are now big cards, each with a real screen of the app
+  rising from the bottom edge: Members (memberships + who hasn't paid), Monthly overview, Camps, Announcement. Screens are rebuilt from the app's source
+  and strings (ET/RU/EN, sample data invented). The 3-step "How it works" list was replaced by a closing headline + CTA (same text as the hero).
+  New sample wording is in TRANSLATION_REVIEW.md item 12. Remaining: 5 FAQ (Jen checks answers), 6 big footer wordmark.
 
 ## Next
 - Rewrite Terms and Privacy for the coach tool: coaches enter members' personal data, so
