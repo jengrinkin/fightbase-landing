@@ -3,7 +3,7 @@
 _Last updated: 2026-11-18_
 
 ## Done
-- 2026-11-18 — Branch `launch-quick-fixes` (preview only, NOT merged): launch QA quick fixes. RU typo "видьте" -> "видите"
+- 2026-11-18 — Branch `launch-quick-fixes` (preview only, NOT merged): launch QA quick fixes. RU wording "видьте" (rare imperative) -> "смотрите"
   (2x, `features.f1Body`, `memberBlock.body`); share preview image `assets/og-image.jpg` (1200x630, logo + hero boxer) with
   og:image and twitter:card tags; real `robots.txt` and `sitemap.xml` (before, both returned the homepage via the catch-all
   rewrite); one contact email everywhere: Terms and Privacy now say support@fightbaseapp.com (was hello@). STILL OPEN:
