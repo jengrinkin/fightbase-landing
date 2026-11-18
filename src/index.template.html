@@ -488,6 +488,24 @@
       .btn-primary:hover { transform: none; }
       @view-transition { navigation: none; }
     }
+
+    /* ─── LIGHT SECTIONS: the phone demo and the "how it works" block are white; hero, features and footer stay dark. ─── */
+    :root { --paper: #F3F3F4; --ink: #0B0B0D; --ink-muted: #565C63; --line: rgba(11,11,13,0.14); }
+    .demo, .how-section { position: relative; z-index: 2; margin-top: -28px; border-radius: 28px 28px 0 0; background: var(--paper); color: var(--ink); border-top: 0; }
+    .demo .dtab { color: #9AA0A6; border-top-color: var(--line); }
+    .demo .dtab:last-child { border-bottom-color: var(--line); }
+    .demo .dtab.is-active, .demo .dtab:hover { color: var(--ink); }
+    .demo .dtab .dn { color: #7C838A; }
+    .demo-glow { background: radial-gradient(34% 40% at 50% 46%, rgba(11,11,13,0.07), transparent 70%), radial-gradient(28% 24% at 50% 86%, rgba(220,38,38,0.16), transparent 72%); }
+    .demo .dcard-light { background: #fff; box-shadow: 0 14px 30px rgba(20,28,40,0.14), 0 0 0 1px rgba(11,11,13,0.06); }
+    .how-section .section-title, .how-section .step h3 { color: var(--ink); }
+    .how-section .disc-line { color: #6B7178; }
+    .how-section .member-note, .member-section .member-card p { color: var(--ink-muted); }
+    .member-section { background: var(--paper); }
+    .member-card { background: #fff; border-color: var(--line); box-shadow: 0 10px 30px rgba(20,28,40,0.06); }
+    .member-card h2 { color: var(--ink); }
+    .member-section .btn-outline { border-color: rgba(11,11,13,0.3); color: var(--ink); }
+    @media (hover: hover) { .member-section .btn-outline:hover { border-color: var(--ink); background: rgba(11,11,13,0.05); } }
   </style>
 </head>
 <body>

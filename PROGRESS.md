@@ -154,6 +154,10 @@ _Last updated: 2026-11-18_
   sparring; Pexels licence needs no credit) full width under a dark veil, headline in the gap between them. Giant FIGHTBASE word and
   the old boxer cut-out are no longer used in the hero (files `boxer-clean.jpg`, `boxer-matte*.png` stay in assets, unused). Phone crop shows the left boxer.
   The 5265px original is NOT committed (stays untracked in the project folder); web copies are `assets/hero-sparring.jpg` (2400px) and `-m.jpg` (1000px).
+- 2026-11-18 — Branch `light-sections` (preview only), step 3 of 6 (maatapp.com-inspired, not copied): light/dark rhythm.
+  Phone demo and "How it works" + member block are now light grey/white with dark text, with rounded tops overlapping the section above;
+  hero, features and footer stay dark. Phone mock-up unchanged. Checked 375/1440, ET/RU/EN, demo hover still switches screens.
+  Remaining steps: 4 bigger feature sections, 5 FAQ (Jen checks answers), 6 big footer wordmark.
 
 ## Next
 - Rewrite Terms and Privacy for the coach tool: coaches enter members' personal data, so
