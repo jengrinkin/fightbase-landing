@@ -142,6 +142,8 @@ _Last updated: 2026-11-18_
 - 2026-11-18 — Branch `hero-still` (preview only): the giant FIGHTBASE word and the boxer photo no longer
   move with the cursor or the scroll. Only the faint background smoke/grain still drifts. Checked: transforms stay `none`
   after mouse move and scroll at 1440px.
+- 2026-11-18 — Same branch: cleaner boxer outline. New matte `assets/boxer-matte-b.png` (edge pulled in 3px, softened 1px) removes the
+  light fringe from the old gym wall; soft dark shadow around him so he sits in the scene. Old `boxer-matte.png` is now unused.
 
 ## Next
 - Rewrite Terms and Privacy for the coach tool: coaches enter members' personal data, so
