@@ -130,75 +130,23 @@
     .member-note { font-size: 14px; color: var(--text-muted); }
 
 
-    /* ─── HERO: black-and-white poster. Giant plain name, boxer in the middle, grid + smoke. ─── */
-    .poster { --wm: min(21.5vw, 50svh); position: relative; overflow: hidden; isolation: isolate; background: var(--navy); min-height: max(700px, calc(100svh - 68px)); }
-    .poster-bg {
-      position: absolute; inset: -4%; z-index: 0;
-      background:
-        url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.09 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>"),
-        radial-gradient(60% 50% at 50% 55%, #1b1b1e, var(--navy) 75%);
-      transform: translate3d(calc(var(--mx, 0) * -12px), calc(var(--my, 0) * -8px), 0);
-    }
-    /* slow drifting smoke */
-    .poster-bg::before, .poster-bg::after {
-      content: ""; position: absolute; inset: 0; filter: blur(40px); opacity: 0.55;
-      background: radial-gradient(28% 22% at 30% 38%, rgba(200,200,200,0.22), transparent 70%), radial-gradient(34% 26% at 72% 46%, rgba(180,180,180,0.18), transparent 70%), radial-gradient(40% 20% at 50% 70%, rgba(160,160,160,0.14), transparent 70%);
-      animation: smoke 26s ease-in-out infinite alternate;
-    }
-    .poster-bg::after { animation-duration: 34s; animation-direction: alternate-reverse; transform: scaleX(-1); opacity: 0.4; }
-    @keyframes smoke { from { translate: -3% 1%; } to { translate: 4% -3%; } }
-    .poster-word {
-      position: absolute; left: 0; right: 0; top: 14px; z-index: 1;
-      text-align: center; white-space: nowrap; user-select: none;
-      font-family: 'Anton', 'Impact', 'Inter', sans-serif; font-weight: 400; font-size: var(--wm); line-height: 0.92; letter-spacing: 0.005em;
-      color: #EDEDED;
-    }
-    /* Boxer in his original colours. Behind the lettering sits his own gym background, dimmed and faded out,
-       so the cut-out boxer shares its light and colour instead of floating on a plain black page. */
-    .poster-env { position: absolute; z-index: 0; left: 50%; bottom: -6px; height: 88%; aspect-ratio: 1200 / 1569; transform: translateX(-50%);
-      filter: brightness(0.5) saturate(0.85) contrast(1.05); }
-    .poster-env picture { display: block; height: 100%; }
-    .poster-env img { display: block; width: 100%; height: 100%;
-      -webkit-mask-image: radial-gradient(ellipse 48% 50% at 50% 52%, #000 38%, transparent 100%);
-      mask-image: radial-gradient(ellipse 48% 50% at 50% 52%, #000 38%, transparent 100%); }
-    .poster-boxer { position: absolute; z-index: 2; left: 50%; bottom: -6px; height: 88%; aspect-ratio: 1200 / 1569; transform: translateX(-50%);
-      filter: contrast(1.07) saturate(0.88) brightness(0.96) drop-shadow(0 0 14px rgba(0,0,0,0.6)); }
-    .poster-boxer picture { position: relative; display: block; height: 100%; }
-    .poster-boxer img { display: block; width: 100%; height: 100%;
-      -webkit-mask: url(/assets/boxer-matte-b.png) center / 100% 100% no-repeat;
-      mask: url(/assets/boxer-matte-b.png) center / 100% 100% no-repeat; }
-    /* Film grain on the boxer only (same grain as the background), so he matches the scene.
-       Kept to his own box: a full-width layer above him stopped the hero drawing on very large screens. */
-    .poster-boxer picture::after { content: ""; position: absolute; inset: 0; pointer-events: none; opacity: 0.7;
-      background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.09 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
-      -webkit-mask: url(/assets/boxer-matte-b.png) center / 100% 100% no-repeat;
-      mask: url(/assets/boxer-matte-b.png) center / 100% 100% no-repeat; }
+    /* ─── HERO: full-width photo (two boxers sparring) under a dark veil, headline centred in the gap between them. ─── */
+    .poster { position: relative; overflow: hidden; isolation: isolate; background: var(--navy); min-height: max(700px, calc(100svh - 68px)); }
+    .poster-photo { position: absolute; inset: 0; z-index: 0; }
+    .poster-photo img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: 50% 35%; }
+    .poster-photo::after { content: ""; position: absolute; inset: 0;
+      background: radial-gradient(60% 55% at 50% 52%, rgba(5,5,6,0.62), rgba(5,5,6,0.2) 80%), linear-gradient(180deg, rgba(5,5,6,0.35), rgba(5,5,6,0.1) 40%, rgba(5,5,6,0.55)); }
     .poster::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 34%; z-index: 3; pointer-events: none; background: linear-gradient(180deg, rgba(7,7,10,0), rgba(7,7,10,0.85) 70%, var(--bg)); }
 
     .poster-ui { position: absolute; inset: 0; z-index: 4; pointer-events: none;
       opacity: calc(1 - var(--p, 0) * 1.5); transform: translate3d(0, calc(var(--p, 0) * -24px), 0); }
     .poster-ui > * { pointer-events: auto; }
-    /* small label row under the name */
-    .p-labels { position: absolute; left: 4.5vw; right: 4.5vw; top: calc(var(--wm) * 0.94 + 26px); display: grid; grid-template-columns: 68% 1fr auto; gap: 0; }
-    .p-label { font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; line-height: 1.6; color: #CFCFCF; }
-    .p-label b { display: block; color: var(--red); font-weight: 800; }
-    .p-label:nth-child(3) { text-align: right; }
-    /* left and right text blocks */
-    .p-about, .p-goals { position: absolute; top: 55%; width: min(330px, 24vw); }
-    .p-about { left: 4.5vw; }
-    .p-goals { right: 4.5vw; }
-    .p-head, .p-goals h2 { font-family: 'Inter', sans-serif; font-size: clamp(18px, 1.7vw, 24px); font-weight: 900; line-height: 1.12; letter-spacing: -0.01em; text-transform: uppercase; margin-bottom: 18px; }
+    /* one calm block: headline, one line, one button, centred in the gap between the two boxers */
+    .p-about { position: absolute; left: 0; right: 0; margin: 0 auto; top: 50%; translate: 0 -50%; width: min(720px, 90vw); text-align: center; }
+    .p-head { font-family: 'Inter', sans-serif; font-size: clamp(30px, 4.6vw, 68px); font-weight: 900; line-height: 1.02; letter-spacing: -0.02em; text-transform: uppercase; margin-bottom: 16px; text-wrap: balance; text-shadow: 0 2px 26px rgba(0,0,0,0.7); }
     .p-head .accent { color: var(--red); }
-    .p-list { list-style: none; margin-bottom: 26px; }
-    .p-list li { font-size: 13px; line-height: 1.5; color: #BDBDBD; padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.12); transition: border-color 0.25s; }
-    .p-list li:first-child { border-top: 1px solid rgba(255,255,255,0.12); }
-    .p-list a { display: block; color: inherit; transition: color 0.25s, transform 0.25s; }
-    @media (hover: hover) { .p-list li:hover { border-bottom-color: var(--red); } .p-list a:hover { color: #fff; transform: translateX(6px); } }
-    .p-steps { list-style: none; counter-reset: st; }
-    .p-steps li { counter-increment: st; display: flex; gap: 14px; align-items: baseline; font-size: 13px; line-height: 1.5; color: #BDBDBD; padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.12); }
-    .p-steps li:first-child { border-top: 1px solid rgba(255,255,255,0.12); }
-    .p-steps li::before { content: "0" counter(st); font-size: 11px; font-weight: 800; letter-spacing: 0.1em; color: var(--red); }
-    .p-cta .cta-block { align-items: flex-start; gap: 12px; }
+    .p-sub { font-size: clamp(15px, 1.3vw, 19px); font-weight: 500; line-height: 1.5; color: #E4E4E4; margin-bottom: 26px; text-shadow: 0 1px 16px rgba(0,0,0,0.85); }
+    .p-cta .cta-block { align-items: center; gap: 12px; }
     .p-cta .member-note { color: #A8A8A8; font-size: 13px; }
     .p-cta .btn-primary { border-radius: 14px; transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease, translate 0.18s ease-out; }
     /* Above the fold, so it fades in at once instead of waiting for the scroll-reveal script. */
@@ -395,7 +343,7 @@
       border-radius: 18px;
       padding: 28px;
     }
-    .feature svg { width: 30px; height: 30px; stroke: var(--gold); fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+    .feature svg { width: 30px; height: 30px; stroke: var(--red); fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
     .feature h3 { font-size: 19px; font-weight: 700; line-height: 1.3; margin: 16px 0 8px; }
     .feature p { font-size: 15px; line-height: 1.55; color: var(--text-muted); }
 
@@ -413,7 +361,7 @@
       border: 1px solid var(--border);
       background: #101016;
     }
-    .member-label { display: block; font-size: 12px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); margin-bottom: 10px; }
+    .member-label { display: block; font-size: 12px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--red); margin-bottom: 10px; }
     .member-card h2 { font-size: 28px; font-weight: 900; line-height: 1.15; margin-bottom: 10px; }
     .member-card p { font-size: 16px; line-height: 1.5; color: var(--text-muted); max-width: 460px; }
     .btn-outline {
@@ -476,15 +424,11 @@
       nav { padding: 0 16px; gap: 12px; }
       .nav-logo img { height: 26px; }
       .nav-signin { padding: 7px 12px; font-size: 13px; }
-      .poster { --wm: 23.5vw; min-height: max(700px, calc(100svh - 68px)); }
-      .poster-word { top: 52px; }
-      .poster-boxer, .poster-env { height: 90%; left: 50%; }
-      .p-labels { left: 20px; right: 20px; top: 18px; grid-template-columns: 1fr; }
-      .p-label:nth-child(n+2), .p-goals, .p-list { display: none; }
-      .p-label b { display: none; }
-      .p-label { color: var(--red); font-weight: 800; }
-      .p-about { left: 20px; right: 20px; width: auto; top: auto; bottom: 22px; }
-      .p-head { font-size: clamp(28px, 8.6vw, 40px); line-height: 1; margin-bottom: 18px; max-width: 80%; text-shadow: 0 2px 18px rgba(0,0,0,0.8); }
+      .poster { min-height: max(700px, calc(100svh - 68px)); }
+      .poster-photo img { object-position: 10% 30%; }
+      .p-about { left: 20px; right: 20px; width: auto; margin: 0; top: auto; bottom: 28px; translate: none; text-align: left; }
+      .p-head { font-size: clamp(30px, 9vw, 42px); line-height: 1; margin-bottom: 10px; max-width: 92%; }
+      .p-sub { font-size: 14px; margin-bottom: 16px; }
       .p-cta .cta-block { align-items: stretch; }
       .poster::after { height: 46%; }
       .btn-primary { width: 100%; max-width: 340px; text-align: center; }
@@ -537,7 +481,6 @@
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
       .js .reveal { opacity: 1; transform: none; transition: none; }
-      .poster-bg::before, .poster-bg::after { animation: none; }
       .js .pin { animation: none; }
       .scr, .dtab, .dtab::before, .att-row .ck, .mc-send, .phone, .dcard { transition: none; animation: none; }
       .caret { animation: none; }
@@ -565,42 +508,22 @@
   <!-- HERO: everything that must fit above the fold on a phone -->
   <main>
     <section class="poster">
-      <div class="poster-bg" aria-hidden="true"></div>
-      <div class="poster-env" aria-hidden="true"><picture><img src="/assets/boxer-clean.jpg" width="1200" height="1569" alt="" decoding="async"></picture></div>
-      <div class="poster-word" aria-hidden="true">FIGHTBASE</div>
-      <div class="poster-boxer" aria-hidden="true">
+      <div class="poster-photo" aria-hidden="true">
         <picture>
-          <img src="/assets/boxer-clean.jpg" width="1200" height="1569" alt="" fetchpriority="high" decoding="async">
+          <source media="(max-width: 700px)" srcset="/assets/hero-sparring-m.jpg">
+          <img src="/assets/hero-sparring.jpg" width="2400" height="1602" alt="" fetchpriority="high" decoding="async">
         </picture>
       </div>
       <div class="poster-ui">
-        <div class="p-labels pin">
-          <div class="p-label"><b>FightBase</b><span>Poksi- ja võitlusspordiklubidele</span></div>
-          <div class="p-label"><b>Täna</b><span>17:30 · Poks · algajad</span></div>
-          <div class="p-label"><b>Kohalolek</b><span>12 liiget</span></div>
-        </div>
         <div class="p-about pin" style="--d:80ms">
           <h1 class="p-head">Halda oma <span class="accent">klubi</span> telefonist.</h1>
-          <ul class="p-list">
-            <li><a href="#demo" data-screen="today">Tänased trennid ühe pilguga</a></li>
-            <li><a href="#demo" data-screen="attendance">Kohalolu märkimine sekunditega</a></li>
-            <li><a href="#demo" data-screen="join">Liikmed liituvad ühe lingiga</a></li>
-            <li><a href="#demo" data-screen="message">Teade kogu klubile korraga</a></li>
-          </ul>
+          <p class="p-sub">Poksi- ja võitlusspordiklubidele</p>
           <div class="p-cta">
             <div class="cta-block">
               <a class="btn-primary" href="https://app.fightbaseapp.com/?lang=et">Loo oma klubi<span class="arr" aria-hidden="true">→</span></a>
               <p class="member-note">Liige? Küsi treenerilt trenni linki.</p>
             </div>
           </div>
-        </div>
-        <div class="p-goals pin" style="--d:160ms">
-          <h2>Kuidas see töötab</h2>
-          <ol class="p-steps">
-            <li>Loo klubi ja trennid</li>
-            <li>Jaga liikmetele linki</li>
-            <li>Märgi kohalolu ja saada teateid</li>
-          </ol>
         </div>
       </div>
     </section>
