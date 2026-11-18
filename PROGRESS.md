@@ -3,6 +3,12 @@
 _Last updated: 2026-11-18_
 
 ## Done
+- 2026-11-18 — Branch `launch-quick-fixes` (preview only, NOT merged): launch QA quick fixes. RU typo "видьте" -> "видите"
+  (2x, `features.f1Body`, `memberBlock.body`); share preview image `assets/og-image.jpg` (1200x630, logo + hero boxer) with
+  og:image and twitter:card tags; real `robots.txt` and `sitemap.xml` (before, both returned the homepage via the catch-all
+  rewrite); one contact email everywhere: Terms and Privacy now say support@fightbaseapp.com (was hello@). STILL OPEN:
+  registry code and street address of Poksiklubi Kalev MTÜ are missing from Terms/Privacy (not in any project file);
+  logo and favicon still load from i.ibb.co; Privacy Policy still lists Apple/App Store.
 - 2026-11-17 — Branch `app-look` (preview only, NOT merged): the phone demo screens are rebuilt from the REAL app
   (repo `fightbaseapp`: CoachToday, class-roster, CoachClassesTab, tab bar, theme in app/global.css), because
   the old mock-up looked like a different app. Drawn at a real 390px phone width with the app's own colours
