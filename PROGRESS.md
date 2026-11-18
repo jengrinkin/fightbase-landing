@@ -150,6 +150,10 @@ _Last updated: 2026-11-18_
   Gold accent replaced by red outside the phone mock-up (the phone keeps the real app's colours). Checked 375/1100/1440/2400, ET/RU/EN.
   Next steps agreed: 3 light/dark section rhythm, 4 bigger feature sections, 5 FAQ (Jen checks answers), 6 big footer wordmark.
   No invented testimonials, logos, ratings or prices.
+- 2026-11-18 — Same branch, change after Jen's feedback: hero now uses Jen's saved Pexels photo (pexels-pavel-danilyuk-6295820, two boxers
+  sparring; Pexels licence needs no credit) full width under a dark veil, headline in the gap between them. Giant FIGHTBASE word and
+  the old boxer cut-out are no longer used in the hero (files `boxer-clean.jpg`, `boxer-matte*.png` stay in assets, unused). Phone crop shows the left boxer.
+  The 5265px original is NOT committed (stays untracked in the project folder); web copies are `assets/hero-sparring.jpg` (2400px) and `-m.jpg` (1000px).
 
 ## Next
 - Rewrite Terms and Privacy for the coach tool: coaches enter members' personal data, so
