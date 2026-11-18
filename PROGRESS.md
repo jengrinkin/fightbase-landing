@@ -144,6 +144,12 @@ _Last updated: 2026-11-18_
   after mouse move and scroll at 1440px.
 - 2026-11-18 — Same branch: cleaner boxer outline. New matte `assets/boxer-matte-b.png` (edge pulled in 3px, softened 1px) removes the
   light fringe from the old gym wall; soft dark shadow around him so he sits in the scene. Old `boxer-matte.png` is now unused.
+- 2026-11-18 — Branch `calm-hero` (preview only), inspired by maatapp.com (calm, professional look; not copied).
+  Steps 1+2 of 6: hero is now one centred block (headline, one line, one red button) instead of three text areas;
+  the hero's small labels, 4-line list and "How it works" steps were removed (the phone demo below keeps the 4 lines and hover).
+  Gold accent replaced by red outside the phone mock-up (the phone keeps the real app's colours). Checked 375/1100/1440/2400, ET/RU/EN.
+  Next steps agreed: 3 light/dark section rhythm, 4 bigger feature sections, 5 FAQ (Jen checks answers), 6 big footer wordmark.
+  No invented testimonials, logos, ratings or prices.
 
 ## Next
 - Rewrite Terms and Privacy for the coach tool: coaches enter members' personal data, so
