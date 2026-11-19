@@ -148,12 +148,12 @@
     "a2": "Jagad linki või trenni koodi. Liikmed avavad lingi või sisestavad koodi, liituvad ning näevad seejärel sinu trenne, teateid ja oma liikmesust.",
     "q3": "Kas FightBase võtab minu liikmetelt makseid?",
     "a3": "Ei. Liikmed maksavad sulle otse, näiteks sularahas, ülekandega või sinu enda makseterminalis. FightBase'is märgid, kes on maksnud, ning näed, kes pole maksnud ja kelle kaart peagi lõpeb. FightBase ei hoia seda raha ega võta sellest mingit osa.",
-    "q4": "Kas mu liikmete andmed on turvalised?",
-    "a4": "Andmeid hoitakse ELi serverites ja need liiguvad krüpteeritud ühendusega. Liikmete andmed jäävad sinu hallata: FightBase töötleb neid ainult selleks, et sulle teenust osutada.",
+    "q4": "Kuidas treenerina alustada?",
+    "a4": "Registreeru, loo oma klubi, lisa trennid ja hinnakiri ning jaga liikmetega oma linki või trenni koodi. Kõike saab hallata telefonist.",
     "q5": "Millised spordialad ja keeled on toetatud?",
     "a5": "Poks, MMA, Muay Thai, BJJ, kikkpoks, maadlus, judo, karate ja sambo. FightBase töötab eesti, vene ja inglise keeles.",
-    "q6": "Mis saab minu andmetest, kui lõpetan FightBase'i kasutamise?",
-    "a6": "Saad oma konto kustutada ja me kustutame sinu isikuandmed 30 päeva jooksul, välja arvatud need, mille säilitamist nõuab seadus, näiteks arvelduskirjed.",
+    "q6": "Mida mu liikmed rakenduses teha saavad?",
+    "a6": "Nad näevad sinu trennide ajakava, loevad teateid, kirjutavad sulle, registreeruvad laagritesse ja vaatavad oma liikmesust, kõik telefonist.",
     "more": "Ei leidnud oma küsimust?"
   }
 }
