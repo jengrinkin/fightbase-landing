@@ -137,75 +137,23 @@
     .member-note { font-size: 14px; color: var(--text-muted); }
 
 
-    /* ─── HERO: black-and-white poster. Giant plain name, boxer in the middle, grid + smoke. ─── */
-    .poster { --wm: min(21.5vw, 50svh); position: relative; overflow: hidden; isolation: isolate; background: var(--navy); min-height: max(700px, calc(100svh - 68px)); }
-    .poster-bg {
-      position: absolute; inset: -4%; z-index: 0;
-      background:
-        url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.09 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>"),
-        radial-gradient(60% 50% at 50% 55%, #1b1b1e, var(--navy) 75%);
-      transform: translate3d(calc(var(--mx, 0) * -12px), calc(var(--my, 0) * -8px), 0);
-    }
-    /* slow drifting smoke */
-    .poster-bg::before, .poster-bg::after {
-      content: ""; position: absolute; inset: 0; filter: blur(40px); opacity: 0.55;
-      background: radial-gradient(28% 22% at 30% 38%, rgba(200,200,200,0.22), transparent 70%), radial-gradient(34% 26% at 72% 46%, rgba(180,180,180,0.18), transparent 70%), radial-gradient(40% 20% at 50% 70%, rgba(160,160,160,0.14), transparent 70%);
-      animation: smoke 26s ease-in-out infinite alternate;
-    }
-    .poster-bg::after { animation-duration: 34s; animation-direction: alternate-reverse; transform: scaleX(-1); opacity: 0.4; }
-    @keyframes smoke { from { translate: -3% 1%; } to { translate: 4% -3%; } }
-    .poster-word {
-      position: absolute; left: 0; right: 0; top: 14px; z-index: 1;
-      text-align: center; white-space: nowrap; user-select: none;
-      font-family: 'Anton', 'Impact', 'Inter', sans-serif; font-weight: 400; font-size: var(--wm); line-height: 0.92; letter-spacing: 0.005em;
-      color: #EDEDED;
-    }
-    /* Boxer in his original colours. Behind the lettering sits his own gym background, dimmed and faded out,
-       so the cut-out boxer shares its light and colour instead of floating on a plain black page. */
-    .poster-env { position: absolute; z-index: 0; left: 50%; bottom: -6px; height: 88%; aspect-ratio: 1200 / 1569; transform: translateX(-50%);
-      filter: brightness(0.5) saturate(0.85) contrast(1.05); }
-    .poster-env picture { display: block; height: 100%; }
-    .poster-env img { display: block; width: 100%; height: 100%;
-      -webkit-mask-image: radial-gradient(ellipse 48% 50% at 50% 52%, #000 38%, transparent 100%);
-      mask-image: radial-gradient(ellipse 48% 50% at 50% 52%, #000 38%, transparent 100%); }
-    .poster-boxer { position: absolute; z-index: 2; left: 50%; bottom: -6px; height: 88%; aspect-ratio: 1200 / 1569; transform: translateX(-50%);
-      filter: contrast(1.07) saturate(0.88) brightness(0.96) drop-shadow(0 0 14px rgba(0,0,0,0.6)); }
-    .poster-boxer picture { position: relative; display: block; height: 100%; }
-    .poster-boxer img { display: block; width: 100%; height: 100%;
-      -webkit-mask: url(/assets/boxer-matte-b.png) center / 100% 100% no-repeat;
-      mask: url(/assets/boxer-matte-b.png) center / 100% 100% no-repeat; }
-    /* Film grain on the boxer only (same grain as the background), so he matches the scene.
-       Kept to his own box: a full-width layer above him stopped the hero drawing on very large screens. */
-    .poster-boxer picture::after { content: ""; position: absolute; inset: 0; pointer-events: none; opacity: 0.7;
-      background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.09 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
-      -webkit-mask: url(/assets/boxer-matte-b.png) center / 100% 100% no-repeat;
-      mask: url(/assets/boxer-matte-b.png) center / 100% 100% no-repeat; }
+    /* ─── HERO: full-width photo (two boxers sparring) under a dark veil, headline centred in the gap between them. ─── */
+    .poster { position: relative; overflow: hidden; isolation: isolate; background: var(--navy); min-height: max(700px, calc(100svh - 68px)); }
+    .poster-photo { position: absolute; inset: 0; z-index: 0; }
+    .poster-photo img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: 50% 35%; }
+    .poster-photo::after { content: ""; position: absolute; inset: 0;
+      background: radial-gradient(60% 55% at 50% 52%, rgba(5,5,6,0.62), rgba(5,5,6,0.2) 80%), linear-gradient(180deg, rgba(5,5,6,0.35), rgba(5,5,6,0.1) 40%, rgba(5,5,6,0.55)); }
     .poster::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 34%; z-index: 3; pointer-events: none; background: linear-gradient(180deg, rgba(7,7,10,0), rgba(7,7,10,0.85) 70%, var(--bg)); }
 
     .poster-ui { position: absolute; inset: 0; z-index: 4; pointer-events: none;
       opacity: calc(1 - var(--p, 0) * 1.5); transform: translate3d(0, calc(var(--p, 0) * -24px), 0); }
     .poster-ui > * { pointer-events: auto; }
-    /* small label row under the name */
-    .p-labels { position: absolute; left: 4.5vw; right: 4.5vw; top: calc(var(--wm) * 0.94 + 26px); display: grid; grid-template-columns: 68% 1fr auto; gap: 0; }
-    .p-label { font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; line-height: 1.6; color: #CFCFCF; }
-    .p-label b { display: block; color: var(--red); font-weight: 800; }
-    .p-label:nth-child(3) { text-align: right; }
-    /* left and right text blocks */
-    .p-about, .p-goals { position: absolute; top: 55%; width: min(330px, 24vw); }
-    .p-about { left: 4.5vw; }
-    .p-goals { right: 4.5vw; }
-    .p-head, .p-goals h2 { font-family: 'Inter', sans-serif; font-size: clamp(18px, 1.7vw, 24px); font-weight: 900; line-height: 1.12; letter-spacing: -0.01em; text-transform: uppercase; margin-bottom: 18px; }
+    /* one calm block: headline, one line, one button, centred in the gap between the two boxers */
+    .p-about { position: absolute; left: 0; right: 0; margin: 0 auto; top: 50%; translate: 0 -50%; width: min(720px, 90vw); text-align: center; }
+    .p-head { font-family: 'Inter', sans-serif; font-size: clamp(30px, 4.6vw, 68px); font-weight: 900; line-height: 1.02; letter-spacing: -0.02em; text-transform: uppercase; margin-bottom: 16px; text-wrap: balance; text-shadow: 0 2px 26px rgba(0,0,0,0.7); }
     .p-head .accent { color: var(--red); }
-    .p-list { list-style: none; margin-bottom: 26px; }
-    .p-list li { font-size: 13px; line-height: 1.5; color: #BDBDBD; padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.12); transition: border-color 0.25s; }
-    .p-list li:first-child { border-top: 1px solid rgba(255,255,255,0.12); }
-    .p-list a { display: block; color: inherit; transition: color 0.25s, transform 0.25s; }
-    @media (hover: hover) { .p-list li:hover { border-bottom-color: var(--red); } .p-list a:hover { color: #fff; transform: translateX(6px); } }
-    .p-steps { list-style: none; counter-reset: st; }
-    .p-steps li { counter-increment: st; display: flex; gap: 14px; align-items: baseline; font-size: 13px; line-height: 1.5; color: #BDBDBD; padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.12); }
-    .p-steps li:first-child { border-top: 1px solid rgba(255,255,255,0.12); }
-    .p-steps li::before { content: "0" counter(st); font-size: 11px; font-weight: 800; letter-spacing: 0.1em; color: var(--red); }
-    .p-cta .cta-block { align-items: flex-start; gap: 12px; }
+    .p-sub { font-size: clamp(15px, 1.3vw, 19px); font-weight: 500; line-height: 1.5; color: #E4E4E4; margin-bottom: 26px; text-shadow: 0 1px 16px rgba(0,0,0,0.85); }
+    .p-cta .cta-block { align-items: center; gap: 12px; }
     .p-cta .member-note { color: #A8A8A8; font-size: 13px; }
     .p-cta .btn-primary { border-radius: 14px; transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease, translate 0.18s ease-out; }
     /* Above the fold, so it fades in at once instead of waiting for the scroll-reveal script. */
@@ -402,7 +350,7 @@
       border-radius: 18px;
       padding: 28px;
     }
-    .feature svg { width: 30px; height: 30px; stroke: var(--gold); fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+    .feature svg { width: 30px; height: 30px; stroke: var(--red); fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
     .feature h3 { font-size: 19px; font-weight: 700; line-height: 1.3; margin: 16px 0 8px; }
     .feature p { font-size: 15px; line-height: 1.55; color: var(--text-muted); }
 
@@ -420,7 +368,7 @@
       border: 1px solid var(--border);
       background: #101016;
     }
-    .member-label { display: block; font-size: 12px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); margin-bottom: 10px; }
+    .member-label { display: block; font-size: 12px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--red); margin-bottom: 10px; }
     .member-card h2 { font-size: 28px; font-weight: 900; line-height: 1.15; margin-bottom: 10px; }
     .member-card p { font-size: 16px; line-height: 1.5; color: var(--text-muted); max-width: 460px; }
     .btn-outline {
@@ -483,15 +431,11 @@
       nav { padding: 0 16px; gap: 12px; }
       .nav-logo img { height: 26px; }
       .nav-signin { padding: 7px 12px; font-size: 13px; }
-      .poster { --wm: 23.5vw; min-height: max(700px, calc(100svh - 68px)); }
-      .poster-word { top: 52px; }
-      .poster-boxer, .poster-env { height: 90%; left: 50%; }
-      .p-labels { left: 20px; right: 20px; top: 18px; grid-template-columns: 1fr; }
-      .p-label:nth-child(n+2), .p-goals, .p-list { display: none; }
-      .p-label b { display: none; }
-      .p-label { color: var(--red); font-weight: 800; }
-      .p-about { left: 20px; right: 20px; width: auto; top: auto; bottom: 22px; }
-      .p-head { font-size: clamp(28px, 8.6vw, 40px); line-height: 1; margin-bottom: 18px; max-width: 80%; text-shadow: 0 2px 18px rgba(0,0,0,0.8); }
+      .poster { min-height: max(700px, calc(100svh - 68px)); }
+      .poster-photo img { object-position: 10% 30%; }
+      .p-about { left: 20px; right: 20px; width: auto; margin: 0; top: auto; bottom: 28px; translate: none; text-align: left; }
+      .p-head { font-size: clamp(30px, 9vw, 42px); line-height: 1; margin-bottom: 10px; max-width: 92%; }
+      .p-sub { font-size: 14px; margin-bottom: 16px; }
       .p-cta .cta-block { align-items: stretch; }
       .poster::after { height: 46%; }
       .btn-primary { width: 100%; max-width: 340px; text-align: center; }
@@ -544,13 +488,87 @@
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
       .js .reveal { opacity: 1; transform: none; transition: none; }
-      .poster-bg::before, .poster-bg::after { animation: none; }
       .js .pin { animation: none; }
       .scr, .dtab, .dtab::before, .att-row .ck, .mc-send, .phone, .dcard { transition: none; animation: none; }
       .caret { animation: none; }
       .btn-primary, nav, body { transition: none; }
       .btn-primary:hover { transform: none; }
       @view-transition { navigation: none; }
+    }
+
+    /* ─── LIGHT SECTIONS: the phone demo and the "how it works" block are white; hero, features and footer stay dark. ─── */
+    :root { --paper: #F3F3F4; --ink: #0B0B0D; --ink-muted: #565C63; --line: rgba(11,11,13,0.14); }
+    .demo, .how-section { position: relative; z-index: 2; margin-top: -28px; border-radius: 28px 28px 0 0; background: var(--paper); color: var(--ink); border-top: 0; }
+    .demo .dtab { color: #9AA0A6; border-top-color: var(--line); }
+    .demo .dtab:last-child { border-bottom-color: var(--line); }
+    .demo .dtab.is-active, .demo .dtab:hover { color: var(--ink); }
+    .demo .dtab .dn { color: #7C838A; }
+    .demo-glow { background: radial-gradient(34% 40% at 50% 46%, rgba(11,11,13,0.07), transparent 70%), radial-gradient(28% 24% at 50% 86%, rgba(220,38,38,0.16), transparent 72%); }
+    .demo .dcard-light { background: #fff; box-shadow: 0 14px 30px rgba(20,28,40,0.14), 0 0 0 1px rgba(11,11,13,0.06); }
+    .how-section .section-title, .how-section .step h3 { color: var(--ink); }
+    .how-section .disc-line { color: #6B7178; }
+    .how-section .member-note, .member-section .member-card p { color: var(--ink-muted); }
+    .member-section { position: relative; z-index: 2; margin-top: -1px; background: var(--paper); }
+    .member-card { background: #fff; border-color: var(--line); box-shadow: 0 10px 30px rgba(20,28,40,0.06); }
+    .member-card h2 { color: var(--ink); }
+    .member-section .btn-outline { border-color: rgba(11,11,13,0.3); color: var(--ink); }
+    @media (hover: hover) { .member-section .btn-outline:hover { border-color: var(--ink); background: rgba(11,11,13,0.05); } }
+
+    /* ─── FEATURE ROWS: one big card per feature, with a real screen of the app rising from the bottom edge. ─── */
+    .features-grid.frows { display: flex; flex-direction: column; gap: 24px; }
+    .frow { display: grid; grid-template-columns: minmax(0, 1fr) 300px; align-items: center; gap: 48px; min-height: 440px; padding: 48px 56px 0; overflow: hidden; border-radius: 28px; border: 1px solid var(--border); background: #0C0C10; }
+    .frow.flip { grid-template-columns: 300px minmax(0, 1fr); }
+    .frow.flip .frow-tx { order: 2; }
+    .frow-tx { padding-bottom: 48px; }
+    .frow-tx svg { width: 34px; height: 34px; stroke: var(--red); fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+    .frow-tx h3 { font-size: clamp(26px, 3.2vw, 40px); font-weight: 900; line-height: 1.08; letter-spacing: -0.02em; margin: 18px 0 12px; }
+    .frow-tx p { font-size: 18px; line-height: 1.55; color: var(--text-muted); max-width: 440px; }
+    .fp-wrap { align-self: end; height: 392px; overflow: hidden; padding-top: 36px; display: flex; justify-content: center; align-items: flex-start; }
+    .fphone { transform: none; transition: none; box-shadow: 0 0 0 1.5px #1a1a1c, 0 0 0 4px #8b8b90, 0 0 0 5px #45454a, inset 0 0 0 1.5px #2c2c2f, 0 30px 60px rgba(0,0,0,0.6); }
+    /* sub-screens of the app (Members, Overview) */
+    .ct.sub { padding: 0; }
+    .sh { display: flex; align-items: center; gap: 12px; padding: 12px 16px; border-bottom: 1px solid var(--border); }
+    .sh-t { flex: 1; font-size: 18px; line-height: 28px; font-weight: 700; }
+    .sh-n { font-size: 14px; line-height: 20px; color: var(--mut); }
+    .sub-b { padding: 16px; }
+    .srch { display: flex; align-items: center; gap: 8px; margin-bottom: 12px; padding: 12px 16px; border-radius: 999px; background: var(--sec); color: #6B7280; font-size: 16px; line-height: 24px; }
+    .rchips2 { display: flex; gap: 8px; margin-bottom: 12px; white-space: nowrap; overflow: hidden; }
+    .rchips2 .chip { flex: none; }
+    .mrow { display: flex; align-items: center; margin-bottom: 10px; padding: 16px; border-radius: 16px; border: 1px solid var(--border); background: var(--card); }
+    .mtx { flex: 1; min-width: 0; padding-right: 8px; }
+    .mn { font-size: 16px; line-height: 24px; font-weight: 600; }
+    .ml { margin-top: 2px; font-size: 12px; line-height: 16px; color: var(--mut); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .bdg { margin-right: 6px; padding: 4px 10px; border-radius: 999px; border: 1px solid; font-size: 12px; line-height: 16px; font-weight: 600; white-space: nowrap; }
+    .bd-r { color: #FF0000; background: #FF000022; border-color: #FF000066; }
+    .bd-a { color: #F59E0B; background: #F59E0B22; border-color: #F59E0B66; }
+    .bd-g { color: #22C55E; background: #22C55E22; border-color: #22C55E66; }
+    .mo { display: flex; align-items: center; justify-content: space-between; padding: 0 4px 12px; font-size: 16px; font-weight: 700; }
+    .mo-a { color: #9CA3AF; font-size: 26px; line-height: 20px; font-weight: 400; }
+    .ovc { margin-bottom: 12px; padding: 16px; border-radius: 16px; border: 1px solid var(--border); background: var(--card); }
+    .ov-l { font-size: 12px; line-height: 16px; font-weight: 600; text-transform: uppercase; color: var(--mut); }
+    .ov-big { margin-top: 4px; font-size: 30px; line-height: 36px; font-weight: 700; }
+    .ov-s { margin-top: 2px; font-size: 12px; line-height: 16px; color: var(--mut); }
+    .ov-u { display: flex; align-items: center; margin-top: 12px; padding-top: 12px; border-top: 1px solid var(--border); font-size: 14px; line-height: 20px; color: #FF0000; }
+    .ov-u span { flex: 1; }
+    .ov-row { display: flex; margin-top: 12px; }
+    .ov-st { flex: 1; text-align: center; }
+    .ov-st b { display: block; font-size: 24px; line-height: 32px; font-weight: 700; }
+    .ov-st b.g { color: #22C55E; } .ov-st b.a { color: #F59E0B; }
+    .ov-st span { font-size: 12px; line-height: 16px; color: var(--mut); }
+    .fr { margin-top: 12px; }
+    .fr-t { display: flex; justify-content: space-between; font-size: 16px; line-height: 24px; font-weight: 600; }
+    .fr-s { margin-top: 2px; font-size: 12px; line-height: 16px; color: var(--mut); }
+    .fr-bar { height: 6px; margin-top: 6px; border-radius: 999px; background: var(--sec); overflow: hidden; }
+    .fr-bar i { display: block; height: 100%; border-radius: 999px; background: #FF0000; }
+    .cc-date { margin-top: 6px; font-size: 12px; line-height: 16px; }
+    .cta-title { margin-bottom: 20px; text-wrap: balance; }
+    .cta-title .accent { color: var(--red); }
+    .scr.ov.top { align-items: flex-start; padding-top: 70px; }
+    @media (max-width: 860px) {
+      .frow, .frow.flip { grid-template-columns: minmax(0, 1fr); gap: 8px; padding: 32px 24px 0; min-height: 0; }
+      .frow.flip .frow-tx { order: 0; }
+      .frow-tx { padding-bottom: 24px; }
+      .fp-wrap { height: 340px; padding-top: 12px; }
     }
   </style>
 </head>
@@ -572,42 +590,22 @@
   <!-- HERO: everything that must fit above the fold on a phone -->
   <main>
     <section class="poster">
-      <div class="poster-bg" aria-hidden="true"></div>
-      <div class="poster-env" aria-hidden="true"><picture><img src="/assets/boxer-clean.jpg" width="1200" height="1569" alt="" decoding="async"></picture></div>
-      <div class="poster-word" aria-hidden="true">FIGHTBASE</div>
-      <div class="poster-boxer" aria-hidden="true">
+      <div class="poster-photo" aria-hidden="true">
         <picture>
-          <img src="/assets/boxer-clean.jpg" width="1200" height="1569" alt="" fetchpriority="high" decoding="async">
+          <source media="(max-width: 700px)" srcset="/assets/hero-sparring-m.jpg">
+          <img src="/assets/hero-sparring.jpg" width="2400" height="1602" alt="" fetchpriority="high" decoding="async">
         </picture>
       </div>
       <div class="poster-ui">
-        <div class="p-labels pin">
-          <div class="p-label"><b>FightBase</b><span>Для клубов бокса и единоборств</span></div>
-          <div class="p-label"><b>Сегодня</b><span>17:30 · Бокс · начинающие</span></div>
-          <div class="p-label"><b>Посещаемость</b><span>12 участников</span></div>
-        </div>
         <div class="p-about pin" style="--d:80ms">
           <h1 class="p-head">Управляйте <span class="accent">клубом</span> с телефона.</h1>
-          <ul class="p-list">
-            <li><a href="#demo" data-screen="today">Сегодняшние тренировки на одном экране</a></li>
-            <li><a href="#demo" data-screen="attendance">Отметка посещений за секунды</a></li>
-            <li><a href="#demo" data-screen="join">Участники присоединяются по одной ссылке</a></li>
-            <li><a href="#demo" data-screen="message">Сообщение всему клубу сразу</a></li>
-          </ul>
+          <p class="p-sub">Для клубов бокса и единоборств</p>
           <div class="p-cta">
             <div class="cta-block">
               <a class="btn-primary" href="https://app.fightbaseapp.com/?lang=ru">Создать свой клуб<span class="arr" aria-hidden="true">→</span></a>
               <p class="member-note">Участник? Попросите у тренера ссылку.</p>
             </div>
           </div>
-        </div>
-        <div class="p-goals pin" style="--d:160ms">
-          <h2>Как это работает</h2>
-          <ol class="p-steps">
-            <li>Создайте клуб и тренировки</li>
-            <li>Поделитесь ссылкой с участниками</li>
-            <li>Отмечайте посещения и отправляйте сообщения</li>
-          </ol>
         </div>
       </div>
     </section>
@@ -716,26 +714,55 @@
     <section class="features-section" id="features">
       <div class="section-inner">
         <h2 class="section-title reveal">Всё, что нужно клубу</h2>
-        <ul class="features-grid">
-          <li class="feature reveal">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="6" width="18" height="13" rx="3"/><path d="M3 10h18M7 15h4"/></svg>
-            <h3>Членство и прайс-лист</h3>
-            <p>Абонементы на месяц, на занятия и на период. Отмечайте оплату, смотрите неоплаченные и скоро заканчивающиеся.</p>
+        <ul class="features-grid frows">
+          <li class="frow reveal">
+            <div class="frow-tx"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="6" width="18" height="13" rx="3"/><path d="M3 10h18M7 15h4"/></svg><h3>Членство и прайс-лист</h3><p>Абонементы на месяц, на занятия и на период. Отмечайте оплату, смотрите неоплаченные и скоро заканчивающиеся.</p></div>
+            <div class="fp-wrap" aria-hidden="true"><div class="phone fphone"><div class="phone-screen"><div class="app"><div class="sb" aria-hidden="true"><span class="sb-t">9:41</span><span class="sb-island"></span><span class="sb-ic">
+              <svg viewBox="0 0 18 12" style="width:19px;height:12px;fill:#F1F5F9"><rect x="0" y="8" width="3" height="4" rx="0.8"/><rect x="5" y="5.5" width="3" height="6.5" rx="0.8"/><rect x="10" y="3" width="3" height="9" rx="0.8"/><rect x="15" y="0" width="3" height="12" rx="0.8"/></svg>
+              <svg viewBox="0 0 16 12" style="width:17px;height:12px;fill:none;stroke:#F1F5F9;stroke-width:1.7;stroke-linecap:round"><path d="M1.5 4.2a9.4 9.4 0 0 1 13 0"/><path d="M4 6.9a5.8 5.8 0 0 1 8 0"/><circle cx="8" cy="10" r="1.1" style="fill:#F1F5F9;stroke:none"/></svg>
+              <svg viewBox="0 0 27 12" style="width:27px;height:13px"><rect x="0.6" y="0.6" width="22.8" height="10.8" rx="3.4" fill="none" stroke="#F1F5F9" stroke-opacity="0.45" stroke-width="1.2"/><rect x="2.3" y="2.3" width="19.4" height="7.4" rx="2" fill="#F1F5F9"/><path d="M25 4v4c.9-.3 1.5-1.1 1.5-2S25.9 4.3 25 4z" fill="#F1F5F9" fill-opacity="0.5"/></svg>
+            </span></div><div class="scw"><div class="scr is-active"><div class="ct sub"><div class="sh"><svg class="i" viewBox="0 0 24 24" style="width:24px;height:24px;color:#9CA3AF" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg><span class="sh-t">Участники</span><span class="sh-n">24</span></div><div class="sub-b"><div class="srch"><svg class="i" viewBox="0 0 24 24" style="width:16px;height:16px;color:#6B7280" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg><span>Поиск по имени</span></div><div class="rchips2"><span class="chip on">Все 24</span><span class="chip">Не оплачено 3</span><span class="chip">Скоро закончится 2</span><span class="chip">Закончился 1</span></div><div class="mrow"><div class="mtx"><div class="mn">Dmitri P.</div><div class="ml">Месячный · до 30 нояб. 2026 г.</div></div><span class="bdg bd-r">Не оплачено</span><svg class="i" viewBox="0 0 24 24" style="width:16px;height:16px;color:#6B7280" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></div><div class="mrow"><div class="mtx"><div class="mn">Artem V.</div><div class="ml">Месячный · до 30 нояб. 2026 г.</div></div><span class="bdg bd-r">Не оплачено</span><svg class="i" viewBox="0 0 24 24" style="width:16px;height:16px;color:#6B7280" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></div><div class="mrow"><div class="mtx"><div class="mn">Kati M.</div><div class="ml">Месячный · до 21 нояб. 2026 г.</div></div><span class="bdg bd-a">Скоро закончится</span><svg class="i" viewBox="0 0 24 24" style="width:16px;height:16px;color:#6B7280" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></div><div class="mrow"><div class="mtx"><div class="mn">Marko S.</div><div class="ml">Месячный · до 31 дек. 2026 г.</div></div><span class="bdg bd-g">Действует</span><svg class="i" viewBox="0 0 24 24" style="width:16px;height:16px;color:#6B7280" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></div><div class="mrow"><div class="mtx"><div class="mn">Liis K.</div><div class="ml">Месячный · до 31 дек. 2026 г.</div></div><span class="bdg bd-g">Действует</span><svg class="i" viewBox="0 0 24 24" style="width:16px;height:16px;color:#6B7280" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></div></div></div></div><div class="tb" aria-hidden="true"><span class="tb-i on"><svg class="i " viewBox="0 0 24 24" style="width:22px;height:22px" aria-hidden="true"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"/><path d="M3 10a2 2 0 0 1 .709-1.528l7-6a2 2 0 0 1 2.582 0l7 6A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg><span>Сегодня</span></span><span class="tb-i"><svg class="i " viewBox="0 0 24 24" style="width:22px;height:22px" aria-hidden="true"><path d="M17.596 12.768a2 2 0 1 0 2.829-2.829l-1.768-1.767a2 2 0 0 0 2.828-2.829l-2.828-2.828a2 2 0 0 0-2.829 2.828l-1.767-1.768a2 2 0 1 0-2.829 2.829z"/><path d="m2.5 21.5 1.4-1.4"/><path d="m20.1 3.9 1.4-1.4"/><path d="M5.343 21.485a2 2 0 1 0 2.829-2.828l1.767 1.768a2 2 0 1 0 2.829-2.829l-6.364-6.364a2 2 0 1 0-2.829 2.829l1.768 1.767a2 2 0 0 0-2.828 2.829z"/><path d="m9.6 14.4 4.8-4.8"/></svg><span>Тренировки</span></span><span class="tb-i"><svg class="i " viewBox="0 0 24 24" style="width:22px;height:22px" aria-hidden="true"><path d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719"/></svg><span>Сообщения</span></span><span class="tb-i"><svg class="i " viewBox="0 0 24 24" style="width:22px;height:22px" aria-hidden="true"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg><span>Профиль</span></span></div></div></div></div></div></div>
           </li>
-          <li class="feature reveal" style="--d:70ms">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg>
-            <h3>Обзор месяца</h3>
-            <p>Поступления, новые и ушедшие участники, заполняемость тренировок по месяцам.</p>
+          <li class="frow reveal flip">
+            <div class="frow-tx"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg><h3>Обзор месяца</h3><p>Поступления, новые и ушедшие участники, заполняемость тренировок по месяцам.</p></div>
+            <div class="fp-wrap" aria-hidden="true"><div class="phone fphone"><div class="phone-screen"><div class="app"><div class="sb" aria-hidden="true"><span class="sb-t">9:41</span><span class="sb-island"></span><span class="sb-ic">
+              <svg viewBox="0 0 18 12" style="width:19px;height:12px;fill:#F1F5F9"><rect x="0" y="8" width="3" height="4" rx="0.8"/><rect x="5" y="5.5" width="3" height="6.5" rx="0.8"/><rect x="10" y="3" width="3" height="9" rx="0.8"/><rect x="15" y="0" width="3" height="12" rx="0.8"/></svg>
+              <svg viewBox="0 0 16 12" style="width:17px;height:12px;fill:none;stroke:#F1F5F9;stroke-width:1.7;stroke-linecap:round"><path d="M1.5 4.2a9.4 9.4 0 0 1 13 0"/><path d="M4 6.9a5.8 5.8 0 0 1 8 0"/><circle cx="8" cy="10" r="1.1" style="fill:#F1F5F9;stroke:none"/></svg>
+              <svg viewBox="0 0 27 12" style="width:27px;height:13px"><rect x="0.6" y="0.6" width="22.8" height="10.8" rx="3.4" fill="none" stroke="#F1F5F9" stroke-opacity="0.45" stroke-width="1.2"/><rect x="2.3" y="2.3" width="19.4" height="7.4" rx="2" fill="#F1F5F9"/><path d="M25 4v4c.9-.3 1.5-1.1 1.5-2S25.9 4.3 25 4z" fill="#F1F5F9" fill-opacity="0.5"/></svg>
+            </span></div><div class="scw"><div class="scr is-active"><div class="ct sub"><div class="sh"><svg class="i" viewBox="0 0 24 24" style="width:24px;height:24px;color:#9CA3AF" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg><span class="sh-t">Обзор</span></div><div class="sub-b"><div class="mo"><span class="mo-a">‹</span><span class="mo-t">Ноябрь 2026</span><span class="mo-a">›</span></div><div class="ovc"><div class="ov-l">Деньги</div><div class="ov-big">1 240 €</div><div class="ov-s">Получено в этом месяце · абонементы 1 040 € · сборы 200 €</div><div class="ov-u"><span>Ожидают 3 платежа: 105 €</span><svg class="i" viewBox="0 0 24 24" style="width:16px;height:16px;color:#6B7280" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></div></div><div class="ovc"><div class="ov-l">Участники</div><div class="ov-row"><div class="ov-st"><b class="g">+4</b><span>Новые</span></div><div class="ov-st"><b class="a">−1</b><span>Ушли</span></div><div class="ov-st"><b>24</b><span>Действующий абонемент</span></div></div></div><div class="ovc"><div class="ov-l">Заполненность тренировок</div><div class="fr"><div class="fr-t"><span class="fr-n">Бокс · начинающие</span><span class="fr-p">78%</span></div><div class="fr-s">12 тренировок · в среднем 9,4 / 12</div><div class="fr-bar"><i style="width:78%"></i></div></div><div class="fr"><div class="fr-t"><span class="fr-n">Бокс · продвинутые</span><span class="fr-p">63%</span></div><div class="fr-s">8 тренировок · в среднем 6,3 / 10</div><div class="fr-bar"><i style="width:63%"></i></div></div></div></div></div></div><div class="tb" aria-hidden="true"><span class="tb-i on"><svg class="i " viewBox="0 0 24 24" style="width:22px;height:22px" aria-hidden="true"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"/><path d="M3 10a2 2 0 0 1 .709-1.528l7-6a2 2 0 0 1 2.582 0l7 6A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg><span>Сегодня</span></span><span class="tb-i"><svg class="i " viewBox="0 0 24 24" style="width:22px;height:22px" aria-hidden="true"><path d="M17.596 12.768a2 2 0 1 0 2.829-2.829l-1.768-1.767a2 2 0 0 0 2.828-2.829l-2.828-2.828a2 2 0 0 0-2.829 2.828l-1.767-1.768a2 2 0 1 0-2.829 2.829z"/><path d="m2.5 21.5 1.4-1.4"/><path d="m20.1 3.9 1.4-1.4"/><path d="M5.343 21.485a2 2 0 1 0 2.829-2.828l1.767 1.768a2 2 0 1 0 2.829-2.829l-6.364-6.364a2 2 0 1 0-2.829 2.829l1.768 1.767a2 2 0 0 0-2.828 2.829z"/><path d="m9.6 14.4 4.8-4.8"/></svg><span>Тренировки</span></span><span class="tb-i"><svg class="i " viewBox="0 0 24 24" style="width:22px;height:22px" aria-hidden="true"><path d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719"/></svg><span>Сообщения</span></span><span class="tb-i"><svg class="i " viewBox="0 0 24 24" style="width:22px;height:22px" aria-hidden="true"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg><span>Профиль</span></span></div></div></div></div></div></div>
           </li>
-          <li class="feature reveal" style="--d:140ms">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M8 3v4M16 3v4M3 10h18"/></svg>
-            <h3>Сборы</h3>
-            <p>Организуйте сбор. Участники записываются сами, вы подтверждаете и отмечаете оплату.</p>
+          <li class="frow reveal">
+            <div class="frow-tx"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M8 3v4M16 3v4M3 10h18"/></svg><h3>Сборы</h3><p>Организуйте сбор. Участники записываются сами, вы подтверждаете и отмечаете оплату.</p></div>
+            <div class="fp-wrap" aria-hidden="true"><div class="phone fphone"><div class="phone-screen"><div class="app"><div class="sb" aria-hidden="true"><span class="sb-t">9:41</span><span class="sb-island"></span><span class="sb-ic">
+              <svg viewBox="0 0 18 12" style="width:19px;height:12px;fill:#F1F5F9"><rect x="0" y="8" width="3" height="4" rx="0.8"/><rect x="5" y="5.5" width="3" height="6.5" rx="0.8"/><rect x="10" y="3" width="3" height="9" rx="0.8"/><rect x="15" y="0" width="3" height="12" rx="0.8"/></svg>
+              <svg viewBox="0 0 16 12" style="width:17px;height:12px;fill:none;stroke:#F1F5F9;stroke-width:1.7;stroke-linecap:round"><path d="M1.5 4.2a9.4 9.4 0 0 1 13 0"/><path d="M4 6.9a5.8 5.8 0 0 1 8 0"/><circle cx="8" cy="10" r="1.1" style="fill:#F1F5F9;stroke:none"/></svg>
+              <svg viewBox="0 0 27 12" style="width:27px;height:13px"><rect x="0.6" y="0.6" width="22.8" height="10.8" rx="3.4" fill="none" stroke="#F1F5F9" stroke-opacity="0.45" stroke-width="1.2"/><rect x="2.3" y="2.3" width="19.4" height="7.4" rx="2" fill="#F1F5F9"/><path d="M25 4v4c.9-.3 1.5-1.1 1.5-2S25.9 4.3 25 4z" fill="#F1F5F9" fill-opacity="0.5"/></svg>
+            </span></div><div class="scw"><div class="scr is-active"><div class="ct"><div class="cl-h">Мои тренировки</div><div class="cl-s">Всё, что вы ведёте.</div><div class="cl-btns"><span class="b-red">+ Добавить тренировку</span><span class="b-out">+ Добавить сборы</span></div><div class="ccard"><div class="cc-top"><span class="cc-n">Зимние сборы</span><span class="st-chip">Активна</span></div><div class="cc-chips"><span class="st-chip">Сборы</span><span class="gchip">Открытая</span><span class="gchip">Группа · макс. 20</span></div><div class="cc-date">сб, 12 дек. – вс, 13 дек.</div><div class="cc-loc">Зал 1 · €60</div><div class="cc-foot"><span class="fb">Состав</span><span class="fb">Изменить</span><span class="fb del">Удалить</span></div></div><div class="ccard"><div class="cc-top"><span class="cc-n">Бокс · начинающие</span><span class="st-chip">Активна</span></div><div class="cc-chips"><span class="gchip">Закрытая</span><span class="gchip">Группа · макс. 20</span><span class="gchip">2× в неделю</span></div><div class="cc-loc">Зал 1</div></div></div><div class="tb" aria-hidden="true"><span class="tb-i"><svg class="i " viewBox="0 0 24 24" style="width:22px;height:22px" aria-hidden="true"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"/><path d="M3 10a2 2 0 0 1 .709-1.528l7-6a2 2 0 0 1 2.582 0l7 6A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg><span>Сегодня</span></span><span class="tb-i on"><svg class="i " viewBox="0 0 24 24" style="width:22px;height:22px" aria-hidden="true"><path d="M17.596 12.768a2 2 0 1 0 2.829-2.829l-1.768-1.767a2 2 0 0 0 2.828-2.829l-2.828-2.828a2 2 0 0 0-2.829 2.828l-1.767-1.768a2 2 0 1 0-2.829 2.829z"/><path d="m2.5 21.5 1.4-1.4"/><path d="m20.1 3.9 1.4-1.4"/><path d="M5.343 21.485a2 2 0 1 0 2.829-2.828l1.767 1.768a2 2 0 1 0 2.829-2.829l-6.364-6.364a2 2 0 1 0-2.829 2.829l1.768 1.767a2 2 0 0 0-2.828 2.829z"/><path d="m9.6 14.4 4.8-4.8"/></svg><span>Тренировки</span></span><span class="tb-i"><svg class="i " viewBox="0 0 24 24" style="width:22px;height:22px" aria-hidden="true"><path d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719"/></svg><span>Сообщения</span></span><span class="tb-i"><svg class="i " viewBox="0 0 24 24" style="width:22px;height:22px" aria-hidden="true"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg><span>Профиль</span></span></div></div></div></div></div></div></div>
           </li>
-          <li class="feature reveal" style="--d:210ms">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v11H9l-5 4z"/></svg>
-            <h3>Сообщения и уведомления</h3>
-            <p>Чат с участником и уведомления прямо на телефон.</p>
+          <li class="frow reveal flip">
+            <div class="frow-tx"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v11H9l-5 4z"/></svg><h3>Сообщения и уведомления</h3><p>Чат с участником и уведомления прямо на телефон.</p></div>
+            <div class="fp-wrap" aria-hidden="true"><div class="phone fphone"><div class="phone-screen"><div class="app"><div class="sb" aria-hidden="true"><span class="sb-t">9:41</span><span class="sb-island"></span><span class="sb-ic">
+              <svg viewBox="0 0 18 12" style="width:19px;height:12px;fill:#F1F5F9"><rect x="0" y="8" width="3" height="4" rx="0.8"/><rect x="5" y="5.5" width="3" height="6.5" rx="0.8"/><rect x="10" y="3" width="3" height="9" rx="0.8"/><rect x="15" y="0" width="3" height="12" rx="0.8"/></svg>
+              <svg viewBox="0 0 16 12" style="width:17px;height:12px;fill:none;stroke:#F1F5F9;stroke-width:1.7;stroke-linecap:round"><path d="M1.5 4.2a9.4 9.4 0 0 1 13 0"/><path d="M4 6.9a5.8 5.8 0 0 1 8 0"/><circle cx="8" cy="10" r="1.1" style="fill:#F1F5F9;stroke:none"/></svg>
+              <svg viewBox="0 0 27 12" style="width:27px;height:13px"><rect x="0.6" y="0.6" width="22.8" height="10.8" rx="3.4" fill="none" stroke="#F1F5F9" stroke-opacity="0.45" stroke-width="1.2"/><rect x="2.3" y="2.3" width="19.4" height="7.4" rx="2" fill="#F1F5F9"/><path d="M25 4v4c.9-.3 1.5-1.1 1.5-2S25.9 4.3 25 4z" fill="#F1F5F9" fill-opacity="0.5"/></svg>
+            </span></div><div class="scw"><div class="scr is-active">
+                  <div class="ct">
+                    <div class="gr"><div class="gr-h">Привет, Марко</div><div class="gr-d">Четверг, 12 ноября</div></div>
+                    <div class="card gold"><svg class="i " viewBox="0 0 24 24" style="width:20px;height:20px;color:#EEC748" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="19" x2="19" y1="8" y2="14"/><line x1="22" x2="16" y1="11" y2="11"/></svg><div class="tx"><div class="tt">1 заявка</div><div class="hn">Нажмите, чтобы посмотреть и подтвердить.</div></div></div>
+                    <div class="card"><svg class="i " viewBox="0 0 24 24" style="width:20px;height:20px;color:#9CA3AF" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><path d="M16 3.128a4 4 0 0 1 0 7.744"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><circle cx="9" cy="7" r="4"/></svg><div class="tx"><div class="tt">Участники · 24</div><div class="hn amber">не оплачено: 3</div></div><svg class="i " viewBox="0 0 24 24" style="width:18px;height:18px;color:#6B7280" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></div>
+                    <div class="pill-ann"><svg class="i " viewBox="0 0 24 24" style="width:16px;height:16px;color:#EEC748" aria-hidden="true"><path d="M11 6a13 13 0 0 0 8.4-2.8A1 1 0 0 1 21 4v12a1 1 0 0 1-1.6.8A13 13 0 0 0 11 14H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2z"/><path d="M6 14a12 12 0 0 0 2.4 7.2 2 2 0 0 0 3.2-2.4A8 8 0 0 1 10 14"/><path d="M8 6v8"/></svg><span>Объявление для всего клуба</span></div>
+                    <div class="h-today">Сегодня</div>
+                    <div class="sess">
+                      <div class="s-top"><svg class="i " viewBox="0 0 24 24" style="width:14px;height:14px;color:#EEC748" aria-hidden="true"><path d="M12 6v6l4 2"/><circle cx="12" cy="12" r="10"/></svg><span class="s-time">17:30–18:30</span></div>
+                      <div class="s-name">Бокс · начинающие</div>
+                      <div class="s-meta"><svg class="i " viewBox="0 0 24 24" style="width:12px;height:12px;color:#9CA3AF" aria-hidden="true"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg><span>Зал 1</span><svg class="i " viewBox="0 0 24 24" style="width:12px;height:12px;color:#9CA3AF" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><path d="M16 3.128a4 4 0 0 1 0 7.744"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><circle cx="9" cy="7" r="4"/></svg><span>12 участников</span></div>
+                      <div class="s-btns"><span class="b-pri">Посещаемость</span><span class="b-sec"><svg class="i " viewBox="0 0 24 24" style="width:14px;height:14px;color:#EEC748" aria-hidden="true"><path d="M11 6a13 13 0 0 0 8.4-2.8A1 1 0 0 1 21 4v12a1 1 0 0 1-1.6.8A13 13 0 0 0 11 14H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2z"/><path d="M6 14a12 12 0 0 0 2.4 7.2 2 2 0 0 0 3.2-2.4A8 8 0 0 1 10 14"/><path d="M8 6v8"/></svg>Объявление</span></div>
+                    </div>
+                    <div class="h-tom">Завтра</div>
+                    <div class="tom-row"><span class="tm">19:00–20:30</span><span class="nm">Бокс · продвинутые</span><span class="mb">9 участников</span></div>
+                  </div>
+                  <div class="tb" aria-hidden="true"><span class="tb-i on"><svg class="i " viewBox="0 0 24 24" style="width:22px;height:22px" aria-hidden="true"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"/><path d="M3 10a2 2 0 0 1 .709-1.528l7-6a2 2 0 0 1 2.582 0l7 6A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg><span>Сегодня</span></span><span class="tb-i"><svg class="i " viewBox="0 0 24 24" style="width:22px;height:22px" aria-hidden="true"><path d="M17.596 12.768a2 2 0 1 0 2.829-2.829l-1.768-1.767a2 2 0 0 0 2.828-2.829l-2.828-2.828a2 2 0 0 0-2.829 2.828l-1.767-1.768a2 2 0 1 0-2.829 2.829z"/><path d="m2.5 21.5 1.4-1.4"/><path d="m20.1 3.9 1.4-1.4"/><path d="M5.343 21.485a2 2 0 1 0 2.829-2.828l1.767 1.768a2 2 0 1 0 2.829-2.829l-6.364-6.364a2 2 0 1 0-2.829 2.829l1.768 1.767a2 2 0 0 0-2.828 2.829z"/><path d="m9.6 14.4 4.8-4.8"/></svg><span>Тренировки</span></span><span class="tb-i"><svg class="i " viewBox="0 0 24 24" style="width:22px;height:22px" aria-hidden="true"><path d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719"/></svg><span>Сообщения</span></span><span class="tb-i"><svg class="i " viewBox="0 0 24 24" style="width:22px;height:22px" aria-hidden="true"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg><span>Профиль</span></span></div>
+                </div><div class="scr ov top is-active"><div class="mc"><div class="mc-t">Объявление для всего клуба</div><div class="mc-h">Его увидят все участники вашего клуба.</div><div class="mc-ta"><span>Занятие в среду переносится на 19:00</span><i class="caret"></i></div><div class="mc-send ready">Отправить объявление</div><div class="mc-cancel">Отмена</div></div></div></div></div></div></div></div>
           </li>
         </ul>
       </div>
@@ -744,21 +771,7 @@
     <!-- HOW IT WORKS -->
     <section class="how-section" id="how-it-works">
       <div class="section-inner">
-        <h2 class="section-title reveal">Как это работает</h2>
-        <ol class="steps-grid">
-          <li class="step reveal">
-            <div class="step-num">01</div>
-            <h3>Создайте клуб и тренировки</h3>
-          </li>
-          <li class="step reveal" style="--d:90ms">
-            <div class="step-num">02</div>
-            <h3>Поделитесь ссылкой с участниками</h3>
-          </li>
-          <li class="step reveal" style="--d:180ms">
-            <div class="step-num">03</div>
-            <h3>Отмечайте посещения и отправляйте сообщения</h3>
-          </li>
-        </ol>
+        <h2 class="section-title reveal cta-title">Управляйте <span class="accent">клубом</span> с телефона.</h2>
         <p class="disc-line reveal">Бокс · ММА · Муай-тай · BJJ · Кикбоксинг · Борьба · Дзюдо · Карате · Самбо</p>
         <div class="cta-block reveal">
           <a class="btn-primary" href="https://app.fightbaseapp.com/?lang=ru">Создать свой клуб</a>

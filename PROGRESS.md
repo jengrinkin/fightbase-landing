@@ -150,6 +150,24 @@ _Last updated: 2026-11-18_
   after mouse move and scroll at 1440px.
 - 2026-11-18 — Same branch: cleaner boxer outline. New matte `assets/boxer-matte-b.png` (edge pulled in 3px, softened 1px) removes the
   light fringe from the old gym wall; soft dark shadow around him so he sits in the scene. Old `boxer-matte.png` is now unused.
+- 2026-11-18 — Branch `calm-hero` (preview only), inspired by maatapp.com (calm, professional look; not copied).
+  Steps 1+2 of 6: hero is now one centred block (headline, one line, one red button) instead of three text areas;
+  the hero's small labels, 4-line list and "How it works" steps were removed (the phone demo below keeps the 4 lines and hover).
+  Gold accent replaced by red outside the phone mock-up (the phone keeps the real app's colours). Checked 375/1100/1440/2400, ET/RU/EN.
+  Next steps agreed: 3 light/dark section rhythm, 4 bigger feature sections, 5 FAQ (Jen checks answers), 6 big footer wordmark.
+  No invented testimonials, logos, ratings or prices.
+- 2026-11-18 — Same branch, change after Jen's feedback: hero now uses Jen's saved Pexels photo (pexels-pavel-danilyuk-6295820, two boxers
+  sparring; Pexels licence needs no credit) full width under a dark veil, headline in the gap between them. Giant FIGHTBASE word and
+  the old boxer cut-out are no longer used in the hero (files `boxer-clean.jpg`, `boxer-matte*.png` stay in assets, unused). Phone crop shows the left boxer.
+  The 5265px original is NOT committed (stays untracked in the project folder); web copies are `assets/hero-sparring.jpg` (2400px) and `-m.jpg` (1000px).
+- 2026-11-18 — Branch `light-sections` (preview only), step 3 of 6 (maatapp.com-inspired, not copied): light/dark rhythm.
+  Phone demo and "How it works" + member block are now light grey/white with dark text, with rounded tops overlapping the section above;
+  hero, features and footer stay dark. Phone mock-up unchanged. Checked 375/1440, ET/RU/EN, demo hover still switches screens.
+  Remaining steps: 4 bigger feature sections, 5 FAQ (Jen checks answers), 6 big footer wordmark.
+- 2026-11-18 — Branch `big-features` (preview only), step 4 of 6: the four features are now big cards, each with a real screen of the app
+  rising from the bottom edge: Members (memberships + who hasn't paid), Monthly overview, Camps, Announcement. Screens are rebuilt from the app's source
+  and strings (ET/RU/EN, sample data invented). The 3-step "How it works" list was replaced by a closing headline + CTA (same text as the hero).
+  New sample wording is in TRANSLATION_REVIEW.md item 12. Remaining: 5 FAQ (Jen checks answers), 6 big footer wordmark.
 
 ## Next
 - Rewrite Terms and Privacy for the coach tool: coaches enter members' personal data, so
