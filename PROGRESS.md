@@ -170,6 +170,8 @@ _Last updated: 2026-11-18_
   2026-11-19: Jen asked to replace Q4 (data safety) and Q6 (data after leaving) with how-to questions: Q4 is now "How do I get started as a coach?",
   Q6 "What can my members do in the app?" (ET/RU/EN); the privacy link under the old Q4 was removed. Jen must confirm both answers are true.
   Remaining: step 6 big footer wordmark.
+- 2026-11-19 — Branch `footer-wordmark` (preview only), step 6 of 6: big faded FIGHTBASE wordmark across the bottom of the footer (brand name, so no
+  translation needed; decorative, hidden from screen readers). Checked at 390/1440/2400px in ET/RU/EN, no sideways scroll. This finishes the 6-step redesign.
 
 ## Next
 - Rewrite Terms and Privacy for the coach tool: coaches enter members' personal data, so
