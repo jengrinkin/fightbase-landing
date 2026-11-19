@@ -166,7 +166,7 @@ _Last updated: 2026-11-18_
   closing call-to-action. Answers are only things the Terms, Privacy Policy and app support (see TRANSLATION_REVIEW.md item 13). The closing
   CTA + member box are dark again (so the rhythm is dark hero / light demo / dark features / light FAQ / dark closing). NOT included on purpose:
   price or free-trial question (no price known to me; the Terms only say there are paid tiers billed monthly via Stripe, cancel any time).
-  Contact in the FAQ uses support@fightbaseapp.com (as the footer does); the legal pages say hello@fightbaseapp.com - one address should be chosen.
+  Contact in the FAQ uses support@fightbaseapp.com (as the footer does); the legal pages said hello@fightbaseapp.com. 2026-11-19: Jen chose support@fightbaseapp.com everywhere; Privacy Policy and Terms updated (EN only pages).
   2026-11-19: Jen asked to replace Q4 (data safety) and Q6 (data after leaving) with how-to questions: Q4 is now "How do I get started as a coach?",
   Q6 "What can my members do in the app?" (ET/RU/EN); the privacy link under the old Q4 was removed. Jen must confirm both answers are true.
   Remaining: step 6 big footer wordmark.
