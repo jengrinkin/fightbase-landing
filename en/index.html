@@ -419,6 +419,9 @@
     .footer-links a { font-size: 13px; color: var(--text-muted); transition: color 0.2s; }
     .footer-links a:hover { color: var(--white); }
 
+    .footer-mark { max-width: 1400px; margin: 40px auto -0.12em; padding: 0; font-family: 'Inter', sans-serif; font-weight: 900; font-size: min(17.2vw, 260px); line-height: 0.8; letter-spacing: -0.045em; text-transform: uppercase; text-align: center; white-space: nowrap; overflow: hidden; user-select: none; background: linear-gradient(180deg, rgba(255,255,255,0.16), rgba(255,255,255,0.02) 85%); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; color: transparent; }
+    @media (max-width: 700px) { .footer-mark { font-size: 16.6vw; margin-top: 28px; } }
+
     /* ─── RESPONSIVE ─── */
     @media (max-width: 860px) {
       nav { padding: 0 16px; gap: 12px; }
@@ -829,6 +832,7 @@
         <a href="https://www.instagram.com/fightbaseapp/" target="_blank" rel="noopener">Instagram</a>
       </div>
     </div>
+    <div class="footer-mark" aria-hidden="true">FightBase</div>
   </footer>
 
   <script>
