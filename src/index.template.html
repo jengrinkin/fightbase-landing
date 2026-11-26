@@ -133,7 +133,7 @@
     /* ─── HERO: full-width photo (two boxers sparring) under a dark veil, headline centred in the gap between them. ─── */
     .poster { position: relative; overflow: hidden; isolation: isolate; background: var(--navy); min-height: max(700px, calc(100svh - 68px)); }
     .poster-photo { position: absolute; inset: 0; z-index: 0; }
-    .poster-photo img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: 50% 35%; }
+    .poster-photo img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: 50% 24%; }
     .poster-photo::after { content: ""; position: absolute; inset: 0;
       background: radial-gradient(60% 55% at 50% 52%, rgba(5,5,6,0.62), rgba(5,5,6,0.2) 80%), linear-gradient(180deg, rgba(5,5,6,0.35), rgba(5,5,6,0.1) 40%, rgba(5,5,6,0.55)); }
     .poster::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 34%; z-index: 3; pointer-events: none; background: linear-gradient(180deg, rgba(7,7,10,0), rgba(7,7,10,0.85) 70%, var(--bg)); }
@@ -149,6 +149,15 @@
     .p-cta .cta-block { align-items: center; gap: 12px; }
     .p-cta .member-note { color: #A8A8A8; font-size: 13px; }
     .p-cta .btn-primary { border-radius: 14px; transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease, translate 0.18s ease-out; }
+
+    /* desktop: text on the left, the sharp portrait photo on the right fading into the dark */
+    @media (min-width: 861px) {
+      .poster-photo { left: auto; width: min(58%, 1100px); -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 38%); mask-image: linear-gradient(90deg, transparent 0, #000 38%); }
+      .poster-photo img { object-position: 50% 22%; }
+      .poster-photo::after { background: linear-gradient(180deg, rgba(5,5,6,0.25), rgba(5,5,6,0) 35%, rgba(5,5,6,0.4)); }
+      .p-about { left: max(48px, calc((100vw - 1240px) / 2)); right: auto; margin: 0; width: min(560px, 46vw); text-align: left; }
+      .p-cta .cta-block { align-items: flex-start; }
+    }
     /* Above the fold, so it fades in at once instead of waiting for the scroll-reveal script. */
     .js .pin { animation: pin 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) both; animation-delay: var(--d, 0ms); }
     @keyframes pin { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
@@ -428,7 +437,6 @@
       .nav-logo img { height: 26px; }
       .nav-signin { padding: 7px 12px; font-size: 13px; }
       .poster { min-height: max(700px, calc(100svh - 68px)); }
-      .poster-photo img { object-position: 10% 30%; }
       .p-about { left: 20px; right: 20px; width: auto; margin: 0; top: auto; bottom: 28px; translate: none; text-align: left; }
       .p-head { font-size: clamp(30px, 9vw, 42px); line-height: 1; margin-bottom: 10px; max-width: 92%; }
       .p-sub { font-size: 14px; margin-bottom: 16px; }
@@ -600,10 +608,7 @@
   <main>
     <section class="poster">
       <div class="poster-photo" aria-hidden="true">
-        <picture>
-          <source media="(max-width: 700px)" srcset="/assets/hero-sparring-m.jpg">
-          <img src="/assets/hero-sparring.jpg" width="2400" height="1602" alt="" fetchpriority="high" decoding="async">
-        </picture>
+        <img src="/assets/hero-boxer.jpg" width="1200" height="1800" alt="" fetchpriority="high" decoding="async">
       </div>
       <div class="poster-ui">
         <div class="p-about pin" style="--d:80ms">
