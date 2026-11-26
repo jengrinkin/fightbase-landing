@@ -133,7 +133,7 @@
     /* ─── HERO: full-width photo (two boxers sparring) under a dark veil, headline centred in the gap between them. ─── */
     .poster { position: relative; overflow: hidden; isolation: isolate; background: var(--navy); min-height: max(700px, calc(100svh - 68px)); }
     .poster-photo { position: absolute; inset: 0; z-index: 0; }
-    .poster-photo img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: 50% 24%; }
+    .poster-photo img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: 12% 24%; }
     .poster-photo::after { content: ""; position: absolute; inset: 0;
       background: radial-gradient(60% 55% at 50% 52%, rgba(5,5,6,0.62), rgba(5,5,6,0.2) 80%), linear-gradient(180deg, rgba(5,5,6,0.35), rgba(5,5,6,0.1) 40%, rgba(5,5,6,0.55)); }
     .poster::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 34%; z-index: 3; pointer-events: none; background: linear-gradient(180deg, rgba(7,7,10,0), rgba(7,7,10,0.85) 70%, var(--bg)); }
@@ -150,12 +150,12 @@
     .p-cta .member-note { color: #A8A8A8; font-size: 13px; }
     .p-cta .btn-primary { border-radius: 14px; transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease, translate 0.18s ease-out; }
 
-    /* desktop: the sharp portrait photo on the left fading into the dark, text on the right */
+    /* desktop: text on the left, the sharp portrait photo (boxer facing left) on the right fading into the dark */
     @media (min-width: 861px) {
-      .poster-photo { right: auto; width: min(52%, 1100px); -webkit-mask-image: linear-gradient(270deg, transparent 0, #000 38%); mask-image: linear-gradient(270deg, transparent 0, #000 38%); }
+      .poster-photo { left: auto; width: min(52%, 1100px); -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 38%); mask-image: linear-gradient(90deg, transparent 0, #000 38%); }
       .poster-photo img { object-position: 50% 22%; }
       .poster-photo::after { background: linear-gradient(180deg, rgba(5,5,6,0.25), rgba(5,5,6,0) 35%, rgba(5,5,6,0.4)); }
-      .p-about { left: auto; right: max(48px, calc((100vw - 1240px) / 2)); margin: 0; width: min(540px, 44vw); text-align: left; }
+      .p-about { left: max(48px, calc((100vw - 1240px) / 2)); right: auto; margin: 0; width: min(540px, 44vw); text-align: left; }
       .p-cta .cta-block { align-items: flex-start; }
     }
     /* Above the fold, so it fades in at once instead of waiting for the scroll-reveal script. */
