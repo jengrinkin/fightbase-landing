@@ -173,6 +173,7 @@ _Last updated: 2026-11-18_
 - 2026-11-19 — Branch `footer-wordmark` (preview only), step 6 of 6: big faded FIGHTBASE wordmark across the bottom of the footer (brand name, so no
   translation needed; decorative, hidden from screen readers). Checked at 390/1440/2400px in ET/RU/EN, no sideways scroll. This finishes the 6-step redesign.
 - 2026-11-26 — Branch `new-hero-photo` (preview only): hero uses Jen's sharper portrait photo of the boxer with pads (`assets/hero-boxer.jpg`, 175 KB). Desktop: photo left fading into dark (boxer faces right, towards the text), text right (Jen asked); phone/tablet: photo full-bleed with text at the bottom. Old `hero-sparring*.jpg` now unused but kept. Checked 390/768/1000/1440/2400, ET/RU/EN, no sideways scroll.
+- 2026-11-26 — Branch `cleanup-old-images`: removed the 5 unused old hero/boxer images from `assets/` (only `hero-boxer.jpg` is used). Old merged branches deleted. The original full-size photo `pexels-pavel-danilyuk-6295820.jpg` etc. stay untracked on Jen's Mac.
 
 ## Next
 - Rewrite Terms and Privacy for the coach tool: coaches enter members' personal data, so
